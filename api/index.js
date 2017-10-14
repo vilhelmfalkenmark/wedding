@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mongodb from "mongodb";
+const path = require("path");
 
 const app = express();
 
@@ -29,10 +30,13 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
   }
 
   console.log("Ansluten till mongodb databas");
-  // ROUTES FOR THE API
-  const router = require("./routes/")(database); // get an instance of the express Router
-  // REGISTER OUR ROUTES
-  app.use("/api", router);
+  // REGISTER ROUTES FOR API ROUTES
+  const apiRouter = require("./api-routes/")(database); // get an instance of the express Router
+  app.use("/api", apiRouter);
+  // REGISTER ROUTE FOR CLIENT BUILD
+  const clientRouter = require("./client-route/"); // get an instance of the express Router
+  app.use(/^\/(?!api).*/, clientRouter);
+
   console.log("Bröllops apiet mår bra!");
   app.listen(port);
 });
