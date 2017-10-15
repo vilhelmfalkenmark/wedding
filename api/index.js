@@ -1,6 +1,6 @@
-import express from "express";
-import bodyParser from "body-parser";
-import mongodb from "mongodb";
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongodb = require("mongodb");
 const path = require("path");
 
 const app = express();
@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH");
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type,application/json, Accept"
   );
   next();
 });
@@ -29,14 +29,14 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
     process.exit(1);
   }
 
-  console.log("Ansluten till mongodb databas");
+  // Create link to Angular build directory
+  // app.use(express.static(path.resolve(__dirname, "../test/build"))); // <-- Tydligen ska index, root, whatever ligga överst.
+
   // REGISTER ROUTES FOR API ROUTES
   const apiRouter = require("./api-routes/")(database); // get an instance of the express Router
   app.use("/api", apiRouter);
-  // REGISTER ROUTE FOR CLIENT BUILD
-  const clientRouter = require("./client-route/"); // get an instance of the express Router
-  app.use(/^\/(?!api).*/, clientRouter);
 
+  console.log("Ansluten till mongodb databas");
   console.log("Bröllops apiet mår bra!");
   app.listen(port);
 });

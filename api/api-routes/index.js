@@ -1,5 +1,4 @@
 const routes = require("express").Router();
-const guests = require("./guests");
 
 module.exports = function(db) {
   routes.get("/", (req, res) => {
@@ -7,8 +6,7 @@ module.exports = function(db) {
       message: "Välkommen till Villes och Johannas bröllops API"
     });
   });
-
-  routes.use("/guests", require("./guests")); // <-- Will live on endpoint /api/bears
+  routes.use("/guests", require("./guests")(db)); // <-- Will live on endpoint /api/bears
 
   return routes;
 };

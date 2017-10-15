@@ -1,10 +1,10 @@
-import { view, lensPath, lensIndex } from "ramda";
-import express from "express";
-import { ObjectID } from "mongodb";
-
+const express = require("express");
+const ObjectID = require("mongodb").ObjectID;
 const router = express.Router();
-
 const GUEST_COLLECTION = "guests";
+const ramda = require("ramda");
+
+const { view, lensPath, lensIndex } = ramda;
 
 const guestModel = {
   guests: "",
