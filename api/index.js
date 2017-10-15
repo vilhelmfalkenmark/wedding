@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 const port = process.env.PORT || 5000; // set our port
 
 // Create link to React build directory
-app.use(express.static(path.resolve(__dirname, "../client/build"))); // <-- Tydligen ska index, root, whatever ligga överst.
+app.use(express.static(path.resolve(__dirname, "../build"))); // <-- Tydligen ska index, root, whatever ligga överst.
 
 // Handle CORS
 app.use((req, res, next) => {

@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "prettier": "^1.7.4"
+    "prettier": "^1.7.4",
+    "react-scripts": "1.0.14"
   },
   "dependencies": {
     "autoprefixer": "7.1.2",
@@ -29,14 +30,19 @@
     "fs-extra": "3.0.1",
     "mongodb": "^2.2.33",
     "path": "^0.12.7",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "scripts": {
     "start":
       "NODE_ENV=production MONGODB_URI=mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev node api",
-    "dev":
+    "client-start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "server-start":
       "NODE_ENV=development BABEL_DISABLE_CACHE=1 MONGODB_URI=mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev nodemon -e js,json -w api --exec \"babel-node api\"",
-    "heroku-postbuild":
-      "cd client/ && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "npm install --only=dev && npm install && npm run build"
   }
 }
