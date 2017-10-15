@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start":
-      "NODE_ENV=production MONGODB_URI=mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev node api --exec \"babel-node api\"",
+      "NODE_ENV=production MONGODB_URI=mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev node api",
     "dev":
       "NODE_ENV=development BABEL_DISABLE_CACHE=1 MONGODB_URI=mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev nodemon -e js,json -w api --exec \"babel-node api\"",
     "heroku-postbuild":
