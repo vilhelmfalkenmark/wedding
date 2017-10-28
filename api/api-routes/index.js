@@ -1,4 +1,11 @@
 const routes = require("express").Router();
+const contentful = require("contentful");
+
+const client = contentful.createClient({
+  space: "i475v397s60m",
+  accessToken:
+    "e141b6e6f8f9e14ecc965f9400199e0047dd3fd88fd3588a7ba6e5f929f71942"
+});
 
 module.exports = function(db) {
   routes.get("/", (req, res) => {
@@ -7,30 +14,7 @@ module.exports = function(db) {
     });
   });
   routes.use("/guests", require("./guests")(db)); // <-- Will live on endpoint /api/bears
+  routes.use("/faq", require("./faq")(client)); // <-- Will live on endpoint /api/bears
 
   return routes;
 };
-
-// const MongoClient = require("mongodb").MongoClient;
-//
-// const MONGO_URL = process.env.MONGODB_URI;
-//
-// MongoClient.connect(MONGO_URL, (err, db) => {
-//   if (err) {
-//     return console.log(err);
-//   }
-//
-//   // Do something with db here, like inserting a record
-//   db.collection("guests").insertOne({
-//     guests: "Hello MongoDB",
-//     text: "Hopefully this works!"
-//   },
-//   function(err, res) {
-//     if (err) {
-//       db.close();
-//       return console.log(err);
-//     }
-//     // Success
-//     db.close();
-//   });
-// });
