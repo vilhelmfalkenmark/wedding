@@ -6,11 +6,13 @@ import {
   FAQ_FETCHING
 } from "utils/constants/actionTypes";
 
+import { apiBase } from "utils/constants/environmentVariables";
+
 export function fetchFaq() {
   return function(dispatch) {
     dispatch({ type: FAQ_FETCHING });
     axios
-      .get("http://localhost:5000/api/faq/")
+      .get(`${apiBase}/faq/`)
       .then(response => {
         dispatch({ type: FAQ_FETCHED, payload: response.data });
       })

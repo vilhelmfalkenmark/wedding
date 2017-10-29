@@ -6,11 +6,13 @@ import {
   GUESTS_FETCHING_ERROR
 } from "utils/constants/actionTypes";
 
+import { apiBase } from "utils/constants/environmentVariables";
+
 export function fetchAllGuests() {
   return function(dispatch) {
     dispatch({ type: GUESTS_FETCHING });
     axios
-      .get("http://localhost:5000/api/guests/")
+      .get(`${apiBase}/guests/`)
       .then(response => {
         dispatch({ type: GUESTS_FETCHED, payload: response.data });
       })
