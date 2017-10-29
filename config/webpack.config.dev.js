@@ -88,6 +88,7 @@ module.exports = {
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       actions: path.resolve(paths.appSrc, "actions"),
       reducers: path.resolve(paths.appSrc, "reducers"),
+      store: path.resolve(paths.appSrc, "store"),
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
       utils: path.resolve(paths.appSrc, "utils")

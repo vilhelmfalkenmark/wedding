@@ -9,6 +9,7 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif;
   color: $text-grey;
+  overflow-x: hidden;
 }
 
 .App-title {
@@ -25,6 +26,13 @@ body {
 .Main-container {
   margin-top: $header-desk-height;
   width: 100%;
+  @include breakpoint(1px, $header-breakpoint) {
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+    &.is-open {
+      transform: translateX($mobile-menu-width);
+    }
+  }
 }
 
 .Main-inner {

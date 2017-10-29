@@ -31,7 +31,7 @@ module.exports = contentful => {
         })
         .catch(e => {
           response.json({
-            data: "Error"
+            data: "Error när vanliga frågor skulle hämtas"
           });
         });
     });

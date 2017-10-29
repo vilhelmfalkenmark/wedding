@@ -2,22 +2,39 @@
   height: $header-desk-height;
   box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.58);
   position: fixed;
-  width: 100%;
   top: 0;
+  @include breakpoint(1px, $header-breakpoint) {
+    height: 100%;
+    width: $mobile-menu-width;
+    transform: translateX(-$mobile-menu-width);
+    transition: transform 0.3s ease;
+    display: flex;
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+  @include breakpoint($header-breakpoint) {
+    width: 100%;
+    height: $header-desk-height;
+  }
 }
 
 .Header-inner {
   margin: 0 auto;
-  display: flex;
-  align-items: center;
   max-width: $page-max-width;
+  @include breakpoint($header-breakpoint) {
+    width: 100%;
+    height: $header-desk-height;
+  }
 }
 
 .Nav-list {
   list-style: none;
   margin: 0 $base-margin;
   padding: 0;
-  display: inline-flex;
+  @include breakpoint($header-breakpoint) {
+    display: inline-flex;
+  }
 }
 
 .Nav-list-item {

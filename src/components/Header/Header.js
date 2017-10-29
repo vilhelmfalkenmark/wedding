@@ -1,25 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Burger from "components/Burger";
 
-const Header = () => (
-  <header className="Header">
+import routes from "utils/constants/routes";
+
+const Header = ({ mobileMenuOpen, toggleMobileMenu }) => [
+  <header className={mobileMenuOpen ? "Header is-open" : "Header"} key={12}>
     <div className="Header-inner">
       <nav>
         <ul className="Nav-list">
-          <li className="Nav-list-item">
-            <Link to={"gaster"} className="Nav-list-link">
-              Gäster
-            </Link>
-          </li>
-          <li className="Nav-list-item">
-            <Link to={"vanliga-fragor"} className="Nav-list-link">
-              Frågor och svar
-            </Link>
-          </li>
+          {routes.map((route, index) => (
+            <li className="Nav-list-item" key={index}>
+              <Link to={route.slug} className="Nav-list-link">
+                {route.navTitle}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </div>
-  </header>
-);
+  </header>,
+  <Burger
+    mobileMenuOpen={mobileMenuOpen}
+    toggleMobileMenu={toggleMobileMenu}
+    key={13}
+  />
+];
 
 export default Header;

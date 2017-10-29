@@ -1,4 +1,4 @@
-import initialState from "./initialState";
+import initialState from "store/initialState";
 
 const guests = (state = initialState.guests, action) => {
   return state;
