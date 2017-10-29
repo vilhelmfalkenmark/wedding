@@ -49,14 +49,16 @@ module.exports = db => {
       db
         .collection(GUEST_COLLECTION)
         .find({})
-        .toArray(function(err, docs) {
+        .toArray(function(err, data) {
           if (err) {
             response.json({
               error: "error in get request for all guests"
             });
             return console.log(err, "error in get request");
           } else {
-            response.status(200).json(docs);
+            response.status(200).json({
+              data
+            });
           }
         });
     });

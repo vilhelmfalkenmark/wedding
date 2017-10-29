@@ -17,9 +17,9 @@ class Faq extends Component {
     return (
       <DocumentTitle title={"Vanliga frågor"}>
         <div className="Main-inner">
-          <h1>Vanliga frågor</h1>
+          <h1>Frågor och svar</h1>
           {fetching && !error ? (
-            <p>Hämtar data</p>
+            <p>Hämtar frågor och svar</p>
           ) : fulfilled && !error ? (
             <ul>
               {faq.map((f, index) => (

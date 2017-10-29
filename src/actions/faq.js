@@ -10,7 +10,7 @@ export function fetchFaq() {
   return function(dispatch) {
     dispatch({ type: FAQ_FETCHING });
     axios
-      .get("http://localhost:5000/api/faq")
+      .get("http://localhost:5000/api/faq/")
       .then(response => {
         dispatch({ type: FAQ_FETCHED, payload: response.data });
       })
