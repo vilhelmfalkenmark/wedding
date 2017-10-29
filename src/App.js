@@ -1,32 +1,20 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import { connect } from "react-redux";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">
-            Välkommen till Villes och Johannas bröllop!
-          </h1>
-        </header>
-        <p className="App-intro">
-          {this.props.guests.map(guest => (
-            <div>
-              <h2>{guest.name}</h2>
-              <h2>{guest.songs}</h2>
-            </div>
-          ))}
-        </p>
-      </div>
-    );
-  }
-}
+import Faq from "entrypoints/Faq";
+import Guests from "entrypoints/Guests";
+import Header from "components/Header";
 
-const mapStateToProps = state => ({
-  guests: state.guests
-});
+const App = () => (
+  <Router>
+    <div className="App">
+      <Header />
+      <Route exact path="/" component={Guests} />
+      <Route path="/gaster" component={Guests} />
+      <Route path="/vanliga-fragor" component={Faq} />
+      <footer className="Footer" />
+    </div>
+  </Router>
+);
 
-export default connect(mapStateToProps)(App);
+export default App;

@@ -18,7 +18,7 @@ const attendingLens = lensPath(["body", "attending"]);
 const songsLens = lensPath(["body", "songs"]);
 const emailLens = lensPath(["body", "songs"]);
 
-module.exports = function(db) {
+module.exports = db => {
   router
     .route("/")
     //////////////////////////////////////////

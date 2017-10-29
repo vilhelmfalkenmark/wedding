@@ -1,5 +1,3 @@
-
-
 const autoprefixer = require("autoprefixer");
 const path = require("path");
 const webpack = require("webpack");
@@ -90,7 +88,11 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      "react-native": "react-native-web"
+      actions: path.resolve(paths.appSrc, "actions"),
+      reducers: path.resolve(paths.appSrc, "reducers"),
+      entrypoints: path.resolve(paths.appSrc, "entrypoints"),
+      components: path.resolve(paths.appSrc, "components"),
+      utils: path.resolve(paths.appSrc, "utils")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

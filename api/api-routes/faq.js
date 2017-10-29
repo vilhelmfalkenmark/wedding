@@ -10,7 +10,7 @@ const promiseResolve = data =>
     });
   });
 
-module.exports = function(contentful) {
+module.exports = contentful => {
   router
     .route("/")
     //////////////////////////////////////////

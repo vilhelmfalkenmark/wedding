@@ -1,0 +1,29 @@
+.Header {
+  height: $header-desk-height;
+  box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.58);
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.Header-inner {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  max-width: $page-max-width;
+}
+
+.Nav-list {
+  list-style: none;
+  margin: 0 $base-margin;
+  padding: 0;
+  display: inline-flex;
+}
+
+.Nav-list-item {
+  padding: $base-margin*2 $base-margin;
+}
+
+.Nav-list-link {
+  color: $text-grey;
+}
