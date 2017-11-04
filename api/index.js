@@ -37,6 +37,10 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
   // REGISTER ROUTES FOR API ROUTES
   const apiRouter = require("./api-routes/")(database); // get an instance of the express Router
   app.use("/api", apiRouter);
+  // Redirect every 404 to the index file
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../build"));
+  });
 
   console.log("Ansluten till mongodb databas");
   console.log("Bröllops apiet mår bra!");

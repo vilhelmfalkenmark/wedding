@@ -1,5 +1,5 @@
 import Guests from "entrypoints/Guests";
-// import Notify from "entrypoints/Notify";
+import Rsvp from "entrypoints/Rsvp";
 import Faq from "entrypoints/Faq";
 
 export const routes = [
@@ -13,7 +13,7 @@ export const routes = [
     exact: false,
     navTitle: "Osa till vårt bröllop",
     slug: "/osa",
-    component: () => Guests
+    component: () => Rsvp
   },
   {
     exact: false,
