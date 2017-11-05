@@ -8,15 +8,17 @@ const { view, lensPath, lensIndex } = ramda;
 
 const guestModel = {
   guests: "",
-  attending: true,
-  songs: "",
-  email: "test@gmail.com"
+  songRequest: "",
+  mail: "",
+  allergies: "",
+  attending: true
 };
 
-const guestsLens = lensPath(["body", "guests"]);
-const attendingLens = lensPath(["body", "attending"]);
-const songsLens = lensPath(["body", "songs"]);
-const emailLens = lensPath(["body", "songs"]);
+const guestsLens = lensPath(["body", "data", "guests"]);
+const songRequestLens = lensPath(["body", "data", "songRequest"]);
+const mail = lensPath(["body", "data", "mail"]);
+const allergiesLens = lensPath(["body", "data", "allergies"]);
+const attendingLens = lensPath(["body", "data", "attending"]);
 
 module.exports = db => {
   router
@@ -25,11 +27,13 @@ module.exports = db => {
     // POST REQUEST
     //////////////////////////////////////////
     .post((request, response) => {
+      console.log(request.body, "request.body");
       const newGuest = Object.assign({}, guestModel, {
         guests: view(guestsLens, request),
-        attending: view(attendingLens, request),
-        songs: view(songsLens, request),
-        email: view(emailLens, request)
+        songRequest: view(songRequestLens, request),
+        mail: view(mail, request),
+        allergies: view(allergiesLens, request),
+        attending: view(attendingLens, request)
       });
 
       db.collection(GUEST_COLLECTION).insertOne(newGuest, (err, doc) => {

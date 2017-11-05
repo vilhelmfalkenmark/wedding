@@ -7,8 +7,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: sofiaRegular, sans-serif;
   color: $text-grey;
+  background-color: $off-white;
   overflow-x: hidden;
 }
 
@@ -39,4 +40,16 @@ body {
   max-width: $page-max-width;
   margin: 0 auto;
   padding: $base-margin*2;
+}
+
+.Form-container {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+//////////////////////////////////////////
+// Utils
+//////////////////////////////////////////
+.u-Center {
+  text-align: center;
 }

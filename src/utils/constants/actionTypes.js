@@ -15,5 +15,5 @@ export const GUESTS_FETCHING = "GUESTS_FETCHING";
 //////////////////////////////////////////
 // RSVP
 //////////////////////////////////////////
-export const POST_RSVP = "POST_RSVP";
+export const POST_RSVP_SUCCESS = "POST_RSVP_SUCCESS";
 export const POST_RSVP_ERROR = "POST_RSVP_ERROR";

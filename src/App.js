@@ -8,9 +8,8 @@ import Header from "components/Header";
 class App extends React.Component {
   constructor() {
     super();
-
     this.state = {
-      mobileMenuOpen: true
+      mobileMenuOpen: false
     };
   }
 

@@ -10,6 +10,11 @@ const initialState = {
     fetching: false,
     error: false,
     faq: []
+  },
+  rsvp: {
+    hasRsvp: false,
+    error: false,
+    data: {}
   }
 };
 
