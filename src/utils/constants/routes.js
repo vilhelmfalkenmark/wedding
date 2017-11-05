@@ -1,8 +1,15 @@
+import LandingPage from "entrypoints/LandingPage";
 import Guests from "entrypoints/Guests";
 import Rsvp from "entrypoints/Rsvp";
 import Faq from "entrypoints/Faq";
 
 export const routes = [
+  {
+    exact: true,
+    navTitle: "Hem",
+    slug: "/",
+    component: () => LandingPage
+  },
   {
     exact: true,
     navTitle: "Gäster",

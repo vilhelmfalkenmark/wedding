@@ -13,8 +13,9 @@ module.exports = function(db) {
       message: "Välkommen till Villes och Johannas bröllops API"
     });
   });
-  routes.use("/guests", require("./guests")(db)); // <-- Will live on endpoint /api/bears
-  routes.use("/faq", require("./faq")(client)); // <-- Will live on endpoint /api/bears
+  routes.use("/guests", require("./guests")(db)); // <-- Will live on endpoint /api/guests
+  routes.use("/faq", require("./faq")(client)); // <-- Will live on endpoint /api/faq
+  routes.use("/info", require("./info")(client)); // <-- Will live on endpoint /api/info
 
   return routes;
 };

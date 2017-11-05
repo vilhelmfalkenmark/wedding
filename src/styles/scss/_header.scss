@@ -2,7 +2,9 @@
   height: $header-desk-height;
   box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.58);
   position: fixed;
+  background-color: white;
   top: 0;
+  z-index: $z-index-second;
   @include breakpoint(1px, $header-breakpoint) {
     height: 100%;
     width: $mobile-menu-width;

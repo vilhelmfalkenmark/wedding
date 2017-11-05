@@ -27,6 +27,7 @@ body {
 .Main-container {
   margin-top: $header-desk-height;
   width: 100%;
+  z-index: $z-index-first;
   @include breakpoint(1px, $header-breakpoint) {
     transition: transform 0.3s ease;
     transform: translateX(0);

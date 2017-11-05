@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const promiseResolve = data =>
   new Promise((resolve, reject) => {
     resolve(data);
@@ -15,21 +14,21 @@ module.exports = contentful => {
     // GET REQUEST FOR ALL FAQS
     //////////////////////////////////////////
     .get((request, response) => {
-      const faqs = contentful
-        .getEntries({ content_type: "faq" })
+      const info = contentful
+        .getEntries({ content_type: "landing-page" })
         .then(entry => entry.items.map(item => item.fields))
         .catch(err => {
-          return "Kunde inte hämta faq data från contentful";
+          return "Kunde inte hämta info från contentful";
         });
-      promiseResolve(faqs)
+      promiseResolve(info)
         .then(data => {
           response.json({
-            data
+            data: data[0]
           });
         })
         .catch(e => {
           response.json({
-            data: "Error när vanliga frågor skulle hämtas"
+            data: "Error när info skulle hämtas"
           });
         });
     });

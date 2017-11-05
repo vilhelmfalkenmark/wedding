@@ -1,0 +1,26 @@
+.LandingPage-hero-container {
+  position: relative;
+  &:after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+.LandingPage-hero-image {
+  width: 100%;
+  height: auto;
+  // position: absolute;
+}
+.LandingPage-hero-title {
+  position: absolute;
+  transform: translateX(-50%) translatey(-50%);
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  padding: 2rem;
+  z-index: $z-index-first;
+}

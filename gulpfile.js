@@ -13,7 +13,11 @@ const autoprefixerOptions = {
 
 gulp.task("sass", () => {
   return gulp
-    .src(["./src/styles/scss/**/*.scss"])
+    .src([
+      "./src/styles/scss/**/*.scss",
+      "./src/components/**/*.scss",
+      "./src/entrypoints/**/*.scss"
+    ])
     .pipe(sourcemaps.init())
     .pipe(sass())
     .on("error", sass.logError)
@@ -24,7 +28,14 @@ gulp.task("sass", () => {
 });
 
 gulp.task("watch", () => {
-  gulp.watch(["./src/styles/scss/**/*.scss"], ["sass"]);
+  gulp.watch(
+    [
+      "./src/styles/scss/**/*.scss",
+      "./src/components/**/*.scss",
+      "./src/entrypoints/**/*.scss"
+    ],
+    ["sass"]
+  );
 });
 
 gulp.task("default", callback => {

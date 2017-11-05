@@ -39,7 +39,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
   app.use("/api", apiRouter);
   // Redirect every 404 to the index file
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../build"));
+    res.sendFile(path.resolve(__dirname, "../build", "index.html"));
   });
 
   console.log("Ansluten till mongodb databas");

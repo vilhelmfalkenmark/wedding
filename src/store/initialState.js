@@ -23,6 +23,12 @@ const initialState = {
     fulfilled: false,
     error: false,
     data: {}
+  },
+  info: {
+    fulfilled: false,
+    fetching: false,
+    error: false,
+    data: {}
   }
 };
 
