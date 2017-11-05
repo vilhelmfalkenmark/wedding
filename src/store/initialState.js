@@ -1,9 +1,17 @@
 const initialState = {
   guests: {
-    fulfilled: false,
-    fetching: false,
-    error: false,
-    guests: []
+    guests: {
+      fulfilled: false,
+      fetching: false,
+      error: false,
+      data: []
+    },
+    guest: {
+      fulfilled: false,
+      fetching: false,
+      error: false,
+      data: []
+    }
   },
   faq: {
     fulfilled: false,
@@ -12,7 +20,7 @@ const initialState = {
     faq: []
   },
   rsvp: {
-    hasRsvp: false,
+    fulfilled: false,
     error: false,
     data: {}
   }

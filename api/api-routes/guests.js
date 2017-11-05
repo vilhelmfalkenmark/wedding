@@ -16,7 +16,7 @@ const guestModel = {
 
 const guestsLens = lensPath(["body", "data", "guests"]);
 const songRequestLens = lensPath(["body", "data", "songRequest"]);
-const mail = lensPath(["body", "data", "mail"]);
+const mailLens = lensPath(["body", "data", "mail"]);
 const allergiesLens = lensPath(["body", "data", "allergies"]);
 const attendingLens = lensPath(["body", "data", "attending"]);
 
@@ -27,11 +27,10 @@ module.exports = db => {
     // POST REQUEST
     //////////////////////////////////////////
     .post((request, response) => {
-      console.log(request.body, "request.body");
       const newGuest = Object.assign({}, guestModel, {
         guests: view(guestsLens, request),
         songRequest: view(songRequestLens, request),
-        mail: view(mail, request),
+        mail: view(mailLens, request),
         allergies: view(allergiesLens, request),
         attending: view(attendingLens, request)
       });
@@ -72,14 +71,16 @@ module.exports = db => {
   router.route("/:guest_id").get((request, response) => {
     db
       .collection(GUEST_COLLECTION)
-      .findOne({ _id: new ObjectID(request.params.guest_id) }, (err, doc) => {
+      .findOne({ _id: new ObjectID(request.params.guest_id) }, (err, data) => {
         if (err) {
           response.json({
             error: "error in get request for single guests"
           });
           return console.log(err, "error in get single guest request");
         } else {
-          response.status(200).json(doc);
+          response.status(200).json({
+            data
+          });
         }
       });
   });

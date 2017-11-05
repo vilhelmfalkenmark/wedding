@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
-import Input from "components/Input";
-import SwitchButton from "components/SwitchButton";
-import Button from "components/Button";
-import { postRsvp } from "actions/rsvp";
-import regex from "utils/helpers/regex";
 
+import { postRsvp } from "actions/rsvp";
+import { fetchGuest } from "actions/guests";
+import { readCookie } from "utils/helpers/cookie";
+import RsvpForm from "./RsvpForm";
+import RsvpCard from "./RsvpCard";
 class Rsvp extends Component {
   constructor() {
     super();
@@ -17,111 +17,51 @@ class Rsvp extends Component {
       allergies: "",
       attending: true
     };
+    this.cookieIsSet = readCookie();
   }
   componentWillMount() {
-    // const { guests } = this.props;
-    // if (guests.fulfilled === false) {
-    //   this.props.fetchAllGuests();
-    // }
+    if (this.cookieIsSet) {
+      this.props.fetchGuest(this.cookieIsSet.id);
+    }
   }
   render() {
-    console.log(this.props.rsvp);
-
+    const rsvpHtml = () => {
+      // Cookie is set and guest have already RSVP
+      if (this.cookieIsSet) {
+        if (this.props.guest.fetching) {
+          return <p>Hämtar gästdata</p>;
+        } else if (!this.props.guest.fetching && this.props.guest.fulfilled) {
+          return <RsvpCard guestData={this.props.guest.data} />;
+        } else if (this.props.guest.error) {
+          return <p>Error</p>;
+        }
+        // Successful RSVP
+      } else if (this.props.rsvp.fulfilled) {
+        return <p>Tack du har nu osat!</p>;
+      } else {
+        // Cookie is not set and guest needs to RSVP
+        return <RsvpForm postRsvp={this.props.postRsvp} />;
+      }
+    };
     return (
       <DocumentTitle title={"Osa till vårt bröllop"}>
-        <div className="Main-inner">
-          <form className="Form-container">
-            <h1>Osa till vårt bröllop</h1>
-            <Input
-              inputLabel="Namn på gäst/gäster"
-              inputPlaceholder="Exempelvis: Johanna Olsson och Vilhelm Falkenmark"
-              inputName="Name"
-              inputDisabled={false}
-              inputValue={this.state.guests}
-              inputOnChange={value =>
-                this.setState({
-                  guests: value
-                })}
-            />
-            <Input
-              inputLabel="Mailadress"
-              inputPlaceholder="Exempelvis: guest@guestyMcGuestFace"
-              inputName="mail"
-              inputDisabled={false}
-              inputValue={this.state.mail}
-              inputOnChange={value =>
-                this.setState({
-                  mail: value
-                })}
-            />
-            <Input
-              inputLabel="Eventuell Specialkost (Det kommer finnas vegeteriska alternativ)"
-              inputPlaceholder="Exempelvis: Nötallergiker"
-              inputName="allergies"
-              inputDisabled={false}
-              inputValue={this.state.allergies}
-              inputOnChange={value =>
-                this.setState({
-                  allergies: value
-                })}
-            />
-            <Input
-              inputLabel="Önskelåt till dansgolvet"
-              inputPlaceholder="Exempelvis: GES - När vi gräver guld i USA"
-              inputName="Song"
-              inputDisabled={false}
-              inputValue={this.state.songRequest}
-              inputOnChange={value =>
-                this.setState({
-                  songRequest: value
-                })}
-            />
-            <SwitchButton
-              onClickCallback={e => {
-                e.preventDefault();
-                this.setState({
-                  attending: !this.state.attending
-                });
-              }}
-              disabled={false}
-              switchOn={this.state.attending}
-              label={
-                this.state.attending ? "Kommer :)" : "Kommer tyvärr inte :("
-              }
-            />
-            <div className="u-Center">
-              {this.state.guests.length > 5 &&
-                regex.mail.test(this.state.mail) && (
-                  <Button
-                    onClickCallback={e => {
-                      e.preventDefault();
-                      this.props.postRsvp({
-                        guests: this.state.guests,
-                        songRequest: this.state.songRequest,
-                        mail: this.state.mail,
-                        allergies: this.state.allergies,
-                        attending: this.state.attending
-                      });
-                    }}
-                    buttonText={"OSA"}
-                    enabled
-                  />
-                )}
-            </div>
-          </form>
-        </div>
+        <div className="Main-inner">{rsvpHtml()}</div>
       </DocumentTitle>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  rsvp: state.rsvp
+  rsvp: state.rsvp,
+  guest: state.guests.guest
 });
 
 const mapDispatchToProps = dispatch => ({
   postRsvp: guestData => {
     dispatch(postRsvp(guestData));
+  },
+  fetchGuest: guestId => {
+    dispatch(fetchGuest(guestId));
   }
 });
 

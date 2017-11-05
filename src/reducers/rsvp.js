@@ -4,18 +4,21 @@ import {
   POST_RSVP_SUCCESS,
   POST_RSVP_ERROR
 } from "utils/constants/actionTypes";
+import { setCookie } from "utils/helpers/cookie";
 
-const guests = (state = initialState.rsvp, action) => {
+const rsvp = (state = initialState.rsvp, action) => {
   switch (action.type) {
     case POST_RSVP_SUCCESS: {
+      setCookie(action.payload._id);
+      console.log(action.payload);
       return Object.assign({}, state, {
-        hasRsvp: true,
+        fulfilled: true,
         data: action.payload
       });
     }
     case POST_RSVP_ERROR: {
       return Object.assign({}, state, {
-        hasRsvp: false,
+        fulfilled: false,
         error: true
       });
     }
@@ -25,4 +28,4 @@ const guests = (state = initialState.rsvp, action) => {
   }
 };
 
-export default guests;
+export default rsvp;

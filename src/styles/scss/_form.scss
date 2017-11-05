@@ -101,18 +101,18 @@
     position: absolute;
     height: 1.5rem;
     width: 1.5rem;
-    top: -0.4rem;
+    top: -0.35rem;
     border-radius: 50%;
   }
   &.is-On {
-    background-color: lighten($color-green, 15%);
+    background-color: lighten($color-green, 25%);
     &:after {
       transform: translateX(0rem);
       background-color: $color-green;
     }
   }
   &.is-Off {
-    background-color: lighten($color-red, 15%);
+    background-color: lighten($color-red, 25%);
     &:after {
       transform: translateX(-1.5rem);
       background-color: $color-red;

@@ -5,24 +5,24 @@ import { fetchAllGuests } from "actions/guests";
 
 class Guests extends Component {
   componentWillMount() {
-    const { guests } = this.props;
-    if (guests.fulfilled === false) {
-      this.props.fetchAllGuests();
-    }
+    this.props.fetchAllGuests();
   }
   render() {
-    const { guests: { guests, fulfilled, fetching, error } } = this.props;
+    const { guests: { data, fulfilled, fetching, error } } = this.props;
 
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
         <div className="Main-inner">
-          <h1>Gäster</h1>
+          <h1>Gäster som har Osat</h1>
           {fetching && !error ? (
             <p>Hämtar gäster</p>
           ) : fulfilled && !error ? (
-            <ul>
-              {guests.map((f, index) => (
-                <li key={index} className="Guest-item" />
+            <ul className="Guest-list">
+              {data.map((f, index) => (
+                <li key={index} className="Guest-card">
+                  <p>Gäst/Gäster: {f.guests}</p>
+                  <p>Önskelåt: {f.songRequest}</p>
+                </li>
               ))}
             </ul>
           ) : (
@@ -35,7 +35,7 @@ class Guests extends Component {
 }
 
 const mapStateToProps = state => ({
-  guests: state.guests
+  guests: state.guests.guests
 });
 
 const mapDispatchToProps = dispatch => ({
