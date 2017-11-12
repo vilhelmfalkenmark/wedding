@@ -1,3 +1,7 @@
+.Form-container {
+  margin: 0 auto;
+}
+
 //////////////////////////////////////////
 // Input field
 //////////////////////////////////////////
@@ -37,7 +41,7 @@
 .Input-line {
   display: block;
   height: 2px;
-  background-color: $text-grey;
+  background-color: $border-grey;
   margin-bottom: 0.5rem;
   display: block;
   margin-top: 0;

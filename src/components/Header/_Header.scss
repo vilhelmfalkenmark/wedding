@@ -1,5 +1,4 @@
 .Header {
-  height: $header-desk-height;
   box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.58);
   position: fixed;
   background-color: white;
@@ -17,7 +16,6 @@
   }
   @include breakpoint($header-breakpoint) {
     width: 100%;
-    height: $header-desk-height;
   }
 }
 
@@ -26,7 +24,6 @@
   max-width: $page-max-width;
   @include breakpoint($header-breakpoint) {
     width: 100%;
-    height: $header-desk-height;
   }
 }
 
@@ -45,4 +42,11 @@
 
 .Nav-list-link {
   color: $text-grey;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  &.is-active {
+    color: $color-green;
+  }
 }

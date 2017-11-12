@@ -13,7 +13,12 @@ class Guests extends Component {
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
         <div className="Main-inner">
-          <h1>Gäster som har Osat</h1>
+          <h1>
+            Gäster som har Osat
+            <span role="img" aria-label="Thumbs up emoji">
+              👍🏻
+            </span>
+          </h1>
           {fetching && !error ? (
             <p>Hämtar gäster</p>
           ) : fulfilled && !error ? (

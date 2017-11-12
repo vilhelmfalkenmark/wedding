@@ -11,6 +11,7 @@ body {
   color: $text-grey;
   background-color: $off-white;
   overflow-x: hidden;
+  line-height: 1.6rem;
 }
 
 .App-title {
@@ -29,6 +30,7 @@ body {
   width: 100%;
   z-index: $z-index-first;
   @include breakpoint(1px, $header-breakpoint) {
+    margin-top: $header-desk-height/2;
     transition: transform 0.3s ease;
     transform: translateX(0);
     &.is-open {
@@ -40,12 +42,10 @@ body {
 .Main-inner {
   max-width: $page-max-width;
   margin: 0 auto;
-  padding: $base-margin*2;
-}
-
-.Form-container {
-  max-width: 560px;
-  margin: 0 auto;
+  padding: $base-margin;
+  @include breakpoint($header-breakpoint) {
+    padding: $base-margin*2;
+  }
 }
 
 //////////////////////////////////////////

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Burger from "components/Burger";
 
 import routes from "utils/constants/routes";
@@ -11,9 +11,14 @@ const Header = ({ mobileMenuOpen, toggleMobileMenu }) => [
         <ul className="Nav-list">
           {routes.map((route, index) => (
             <li className="Nav-list-item" key={index}>
-              <Link to={route.slug} className="Nav-list-link">
+              <NavLink
+                exact
+                to={route.slug}
+                className="Nav-list-link"
+                activeClassName="is-active"
+              >
                 {route.navTitle}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>

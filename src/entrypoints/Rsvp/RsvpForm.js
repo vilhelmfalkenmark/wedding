@@ -18,7 +18,12 @@ class RsvpForm extends Component {
   render() {
     return (
       <form className="Form-container">
-        <h1>Osa till vårt bröllop</h1>
+        <h1>
+          Osa till vårt bröllop{" "}
+          <span role="img" aria-label="Dancing emoji">
+            💃🏻
+          </span>
+        </h1>
         <Input
           inputLabel="Namn på gäst/gäster"
           inputPlaceholder="Exempelvis: Johanna Olsson och Vilhelm Falkenmark"

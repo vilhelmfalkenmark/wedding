@@ -16,12 +16,12 @@ class LandingPage extends Component {
     return (
       <DocumentTitle title={"Välkommen på bröllop 2 juni"}>
         <div>
-          <div className="LandingPage-hero-container">
-            <img
-              src={Hero}
-              className="LandingPage-hero-image"
-              alt="Ville och Joe"
-            />
+          <div
+            className="LandingPage-hero-container"
+            style={{
+              backgroundImage: `url(${Hero})`
+            }}
+          >
             <h1 className="LandingPage-hero-title">Vi gifter oss 2 juni!</h1>
           </div>
           {info.fulfilled ? (

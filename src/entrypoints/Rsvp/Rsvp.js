@@ -31,13 +31,25 @@ class Rsvp extends Component {
         if (this.props.guest.fetching) {
           return <p>Hämtar gästdata</p>;
         } else if (!this.props.guest.fetching && this.props.guest.fulfilled) {
-          return <RsvpCard guestData={this.props.guest.data} />;
+          return (
+            <RsvpCard
+              guestData={this.props.guest.data}
+              message={`Hejsan ${this.props.guest.data.guests}!`}
+              subMessage={"Du/Ni har redan osat! Vi ses 2 juni :)"}
+            />
+          );
         } else if (this.props.guest.error) {
           return <p>Error</p>;
         }
         // Successful RSVP
       } else if (this.props.rsvp.fulfilled) {
-        return <p>Tack du har nu osat!</p>;
+        return (
+          <RsvpCard
+            guestData={this.props.rsvp.data}
+            message={`Snyggt jobbat ${this.props.rsvp.data.guests}!`}
+            subMessage={"Du/ni har nu osat! Vi ses 2 juni :)"}
+          />
+        );
       } else {
         // Cookie is not set and guest needs to RSVP
         return <RsvpForm postRsvp={this.props.postRsvp} />;
