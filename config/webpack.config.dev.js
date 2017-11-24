@@ -154,6 +154,42 @@ module.exports = {
               cacheDirectory: true
             }
           },
+          // SASS
+          {
+            test: /\.scss$/,
+            use: [
+              {
+                loader: require.resolve("style-loader")
+              },
+              {
+                loader: require.resolve("css-loader"),
+                options: {
+                  importLoaders: 1
+                }
+              },
+              {
+                loader: require.resolve("sass-loader")
+              },
+              {
+                loader: require.resolve("postcss-loader"),
+                options: {
+                  ident: "postcss",
+                  plugins: () => [
+                    require("postcss-flexbugs-fixes"),
+                    autoprefixer({
+                      browsers: [
+                        ">1%",
+                        "last 4 versions",
+                        "Firefox ESR",
+                        "not ie < 9"
+                      ],
+                      flexbox: "no-2009"
+                    })
+                  ]
+                }
+              }
+            ]
+          },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
           // "style" loader turns CSS into JS modules that inject <style> tags.
@@ -201,12 +237,13 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.js$/, /\.html$/, /\.json$/],
+            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.sass$/, /\.scss$/],
             loader: require.resolve("file-loader"),
             options: {
               name: "static/media/[name].[hash:8].[ext]"
             }
           }
+          // SASS
         ]
       }
       // ** STOP ** Are you adding a new loader?

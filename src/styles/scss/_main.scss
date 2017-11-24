@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -12,14 +16,7 @@ body {
   background-color: $off-white;
   overflow-x: hidden;
   line-height: 1.6rem;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
+  color: red !important;
 }
 
 //////////////////////////////////////////
