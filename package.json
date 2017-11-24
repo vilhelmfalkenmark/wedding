@@ -66,10 +66,10 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node api",
+    "start": "node server",
     "client": "NODE_ENV=development node scripts/start.js",
     "server":
-      "NODE_ENV=development BABEL_DISABLE_CACHE=1 MONGODB_URI=mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev nodemon -e js,json -w api --exec \"babel-node api\"",
+      "NODE_ENV=development BABEL_DISABLE_CACHE=1 MONGODB_URI=mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev nodemon -e js,json -w server --exec \"babel-node server\"",
     "styles": "cd src/styles/ && sass --watch scss:css",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",

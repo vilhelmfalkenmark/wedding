@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 5000; // set our port
+const PORT = process.env.PORT || 5000;
 
 // Create link to React build directory
 app.use(express.static(path.resolve(__dirname, "../build"))); // <-- Tydligen ska index, root, whatever ligga överst.
@@ -31,18 +31,15 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
     process.exit(1);
   }
 
-  // Create link to Angular build directory
-  // app.use(express.static(path.resolve(__dirname, "../test/build"))); // <-- Tydligen ska index, root, whatever ligga överst.
-
   // REGISTER ROUTES FOR API ROUTES
-  const apiRouter = require("./api-routes/")(database); // get an instance of the express Router
+  const apiRouter = require("./api")(database);
   app.use("/api", apiRouter);
-  // Redirect every 404 to the index file
+  // Redirect every 404 to the index.html file
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "../build", "index.html"));
   });
 
-  console.log("Ansluten till mongodb databas");
-  console.log("Bröllops apiet mår bra!");
-  app.listen(port);
+  app.listen(PORT, () => {
+    console.log("Ansluten till mongodb databas och Bröllops apiet mår bra!");
+  });
 });
