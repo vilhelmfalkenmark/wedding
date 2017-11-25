@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import { fetchAllGuests } from "actions/guests";
+import RibbonHeading from "components/RibbonHeading";
 
 class Guests extends Component {
   componentWillMount() {
@@ -13,12 +14,7 @@ class Guests extends Component {
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
         <div className="Main-inner">
-          <h1>
-            Gäster som har Osat
-            <span role="img" aria-label="Thumbs up emoji">
-              👍🏻
-            </span>
-          </h1>
+          <RibbonHeading heading={"Gäster som har Osat"} />
           {fetching && !error ? (
             <p>Hämtar gäster</p>
           ) : fulfilled && !error ? (

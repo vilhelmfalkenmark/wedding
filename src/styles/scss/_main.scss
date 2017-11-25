@@ -35,6 +35,16 @@ body {
   }
 }
 
+//////////////////////////////////////////
+// Used for pages without offset
+// (mainly landing page)
+//////////////////////////////////////////
+.Main-container--no-offset {
+  @include breakpoint(1px, $header-breakpoint) {
+    margin-top: calc(#{$header-desk-height/2} * -1);
+  }
+}
+
 .Main-inner {
   max-width: $page-max-width;
   margin: 0 auto;
@@ -49,6 +59,9 @@ body {
 //////////////////////////////////////////
 .u-Center {
   text-align: center;
+}
+.u-Red {
+  color: $color-red;
 }
 
 .Guest-list {

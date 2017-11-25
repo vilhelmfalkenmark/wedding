@@ -1,0 +1,61 @@
+//////////////////////////////////////////
+// H1 heading with ribbon styling
+//////////////////////////////////////////
+$size: 1.5rem;
+.Ribbon-heading-container {
+  text-align: center;
+  margin-bottom: 3*$base-margin;
+}
+
+.Ribbon-heading {
+  font-size: 1.5rem;
+  display: inline-block;
+  margin: 0;
+  line-height: 2.5rem;
+  width: 80%;
+  min-width: 310px;
+}
+
+.Ribbon-heading-span {
+  position: relative;
+  display: block;
+  background: $color-red;
+  color: white;
+  text-align: center;
+  height: $size*2;
+  z-index: 3;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -$size/2;
+    border: $size solid darken($color-red, 5%);
+    -webkit-transform: translateZ(-1px);
+  }
+  &:before {
+    left: -$size*2 + $size/2;
+    border-left-color: transparent;
+  }
+  &:after {
+    right: -$size*2 + $size/2;
+    border-right-color: transparent;
+  }
+}
+
+.Ribbon-heading-inner-span::after,
+.Ribbon-heading-inner-span::before {
+  position: absolute;
+  display: block;
+  border-style: solid;
+  bottom: -$size/2;
+  border-color: darken($color-red, 20%) transparent transparent transparent;
+}
+.Ribbon-heading-inner-span::before {
+  left: 0;
+  border-width: $size/2 0 0 $size/2;
+}
+.Ribbon-heading-inner-span::after {
+  right: 0;
+  border-width: $size/2 $size/2 0 0;
+}

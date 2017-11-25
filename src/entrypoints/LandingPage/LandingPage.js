@@ -4,10 +4,17 @@ import DocumentTitle from "react-document-title";
 import GoogleMaps from "components/GoogleMaps";
 import Hero from "assets/images/hero.jpg";
 import { fetchInfo } from "actions/info";
+import Scroll from "react-scroll";
 
 class LandingPage extends Component {
   componentWillMount() {
     this.props.fetchInfo();
+  }
+
+  scrollToContent() {
+    Scroll.animateScroll.scrollTo(100, {
+      duration: 300
+    });
   }
 
   render() {
@@ -15,7 +22,7 @@ class LandingPage extends Component {
 
     return (
       <DocumentTitle title={"Välkommen på bröllop 2 juni"}>
-        <div>
+        <div className="Main-container--no-offset">
           <div
             className="LandingPage-hero-container"
             style={{
@@ -23,6 +30,11 @@ class LandingPage extends Component {
             }}
           >
             <h1 className="LandingPage-hero-title">Vi gifter oss 2 juni!</h1>
+            {/* <SVG icon={ArrowDown} /> */}
+            <div
+              className="LandingPage-arrow"
+              onClick={this.scrollToContent.bind(this)}
+            />
           </div>
           {info.fulfilled ? (
             <div className="Main-inner">
@@ -33,7 +45,7 @@ class LandingPage extends Component {
 
           <GoogleMaps
             isMarkerShown
-            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2vvL4RqLyLTIwBZ0xiIHXdvEiz7h_PJA&v=3.exp&libraries=geometry,drawing,places"
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `500px` }} />}
             mapElement={<div style={{ height: `100%` }} />}

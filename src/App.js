@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import routes from "utils/constants/routes";
 
 import Header from "components/Header";
@@ -36,6 +35,7 @@ class App extends React.Component {
                 exact={route.exact}
                 path={route.slug}
                 component={route.component()}
+                onChange={this.routeChanged}
               />
             ))}
           </main>

@@ -22,6 +22,10 @@
 .Header-inner {
   margin: 0 auto;
   max-width: $page-max-width;
+  @include breakpoint(1px, $header-breakpoint) {
+    display: flex;
+    align-items: center;
+  }
   @include breakpoint($header-breakpoint) {
     width: 100%;
   }
@@ -37,16 +41,14 @@
 }
 
 .Nav-list-item {
-  padding: $base-margin*2 $base-margin;
+  padding: 1.7rem 1rem;
 }
 
 .Nav-list-link {
   color: $text-grey;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+
+  @include underline($color-red);
   &.is-active {
-    color: $color-green;
+    color: $color-red;
   }
 }

@@ -41,8 +41,51 @@
   box-shadow: 0px 14px 13px -17px rgba(0, 0, 0, 0.5);
 }
 
-// @mixin narrowContainer() {
-//   // Used for pages with smaller content
-//   margin: 0 auto;
-//   max-width: 560px;
-// }
+//////////////////////////////////////////////
+// Underline links animation
+/////////////////////////////////////////////
+@mixin underline($color: null) {
+  @include breakpoint(900px) {
+    transition: all 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    &:after {
+      bottom: -1px;
+      backface-visibility: hidden;
+      border: 1px solid rgba($color, 0);
+      content: "";
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      transition: all 280ms ease-in-out;
+      width: 0;
+    }
+    &:hover {
+      color: $color;
+      &:after {
+        backface-visibility: hidden;
+        border-color: $color;
+        transition: width 350ms ease-in-out;
+        width: 100%;
+      }
+    }
+  }
+}
+
+//////////////////////////////////////////////
+// Keyframes
+/////////////////////////////////////////////
+@keyframes bounce {
+  0%,
+  20%,
+  60%,
+  100% {
+    -webkit-transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-20px);
+  }
+  80% {
+    -webkit-transform: translateY(-10px);
+  }
+}

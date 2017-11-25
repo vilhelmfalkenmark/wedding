@@ -1,3 +1,16 @@
-.hej {
-  color: red;
+.Faq-list {
+  padding: 0;
+  list-style: none;
+}
+
+.Faq-item {
+  background-color: white;
+  padding: $base-margin;
+  margin-bottom: $base-margin;
+}
+
+.Faq-item-question,
+.Faq-item-answer {
+  margin-top: 0;
+  margin-bottom: $base-margin;
 }

@@ -8,7 +8,7 @@ import RsvpForm from "./RsvpForm";
 import RsvpCard from "./RsvpCard";
 import RsvpError from "./RsvpError";
 
-import { fetchingGuestFulfilled } from "utils/selectors/rsvp";
+import { fetchingGuestFulfilled, successfulRsvp } from "utils/selectors/rsvp";
 
 class Rsvp extends Component {
   constructor() {
@@ -34,7 +34,7 @@ class Rsvp extends Component {
       ///////////////////////////////////////////////
       if (this.cookieIsSet) {
         if (this.props.guest.fetching) {
-          return <p>Hämtar gästdata</p>;
+          return <p>Hämtar data</p>;
         } else if (fetchingGuestFulfilled(this.props.guest)) {
           ////////////////////////////////////////////////
           // Cookie is set and guest data Successfuly fetched
@@ -43,7 +43,7 @@ class Rsvp extends Component {
             <RsvpCard
               guestData={this.props.guest.data}
               message={`Hejsan ${this.props.guest.data.guests}!`}
-              subMessage={"Du/Ni har redan osat! Vi ses 2 juni :)"}
+              subMessage={"Du/Ni har osat! Vi ses 2 juni :)"}
             />
           );
         } else if (this.props.guest.error) {
@@ -56,7 +56,7 @@ class Rsvp extends Component {
         ////////////////////////////////////////////////
         // NOTE Cookie IS NOT set and guest needs to RSVP
         ///////////////////////////////////////////////
-        if (this.props.rsvp.fulfilled && !this.props.rsvp.error) {
+        if (successfulRsvp(this.props.rsvp)) {
           return (
             <RsvpCard
               guestData={this.props.rsvp.data}

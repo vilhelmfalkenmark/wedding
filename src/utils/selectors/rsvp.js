@@ -12,3 +12,13 @@ export const fetchingGuestFulfilled = guestData => {
   }
   return false;
 };
+
+///////////////////////////////////////////////
+// SELECTOR FOR WHEN A RSVP HAS BEEN FULFILLED
+///////////////////////////////////////////////
+export const successfulRsvp = rsvp => {
+  if (rsvp.fulfilled && !rsvp.error) {
+    return true;
+  }
+  return false;
+};

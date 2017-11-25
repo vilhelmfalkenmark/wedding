@@ -52,7 +52,9 @@
     "react-dom": "^16.0.0",
     "react-google-maps": "^9.2.2",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "react-scroll": "^1.6.7",
     "redux": "^3.7.2",
     "redux-promise-middleware": "^4.4.1",
     "redux-thunk": "^2.2.0",
@@ -68,16 +70,19 @@
   "scripts": {
     "start": "node server",
     "client": "NODE_ENV=development node scripts/start.js",
-    "server":
-      "NODE_ENV=development BABEL_DISABLE_CACHE=1 MONGODB_URI=mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev nodemon -e js,json -w server --exec \"babel-node server\"",
+    "server": "NODE_ENV=development BABEL_DISABLE_CACHE=1 MONGODB_URI=mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev nodemon -e js,json -w server --exec \"babel-node server\"",
     "styles": "cd src/styles/ && sass --watch scss:css",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "heroku-postbuild": "npm install --only=dev && npm install && npm run build"
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
-    "setupFiles": ["<rootDir>/config/polyfills.js"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.js?(x)",
       "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
@@ -89,14 +94,25 @@
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
-    "moduleFileExtensions": ["web.js", "js", "json", "web.jsx", "jsx", "node"]
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
   },
   "babel": {
-    "presets": ["react-app"]
+    "presets": [
+      "react-app"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"

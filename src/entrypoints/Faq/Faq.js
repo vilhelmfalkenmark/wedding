@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import { fetchFaq } from "actions/faq";
+import FaqItem from "./FaqItem";
+import RibbonHeading from "components/RibbonHeading";
 
 class Faq extends Component {
   componentWillMount() {
@@ -17,16 +19,13 @@ class Faq extends Component {
     return (
       <DocumentTitle title={"Vanliga frågor"}>
         <div className="Main-inner">
-          <h1>Frågor och svar</h1>
+          <RibbonHeading heading={"Frågor och svar"} />
           {fetching && !error ? (
             <p>Hämtar frågor och svar</p>
           ) : fulfilled && !error ? (
-            <ul>
+            <ul className="Faq-list">
               {faq.map((f, index) => (
-                <li key={index} className="Faq-item">
-                  <h4>{f.question}</h4>
-                  <p>{f.answer}</p>
-                </li>
+                <FaqItem question={f.question} answer={f.answer} key={index} />
               ))}
             </ul>
           ) : (
