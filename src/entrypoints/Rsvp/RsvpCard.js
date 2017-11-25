@@ -1,4 +1,5 @@
 import React from "react";
+import RsvpContactUs from "./RsvpContactUs";
 
 const RsvpCard = ({ guestData, message, subMessage }) => {
   return (
@@ -16,25 +17,11 @@ const RsvpCard = ({ guestData, message, subMessage }) => {
           )}
         </p>
         <p>Eventuella allergier och/eller Specialkost: {guestData.allergies}</p>
-        <div className="Rsvp-contact-container">
-          <p>
-            Om du av någon anledning skulle vilja ändra något får du/ni gärna
-            ringa/maila oss på:
-          </p>
-          <span className="Rsvp-contact">
-            <strong>Johanna:</strong> <a href="tel:+46706176938">
-              0708-179638
-            </a>, alternativt{" "}
-            <a href="mailto:johannaviola@gmail.com">johannaviola@gmail.com</a>
-          </span>
-          <span className="Rsvp-contact">
-            <strong>Ville:</strong> <a href="tel:+46705580198">0705-580198</a>,
-            alternativt{" "}
-            <a href="mailto:vilhelmfalkenmark@gmail.com">
-              vilhelmfalkenmark@gmail.com
-            </a>
-          </span>
-        </div>
+        <RsvpContactUs
+          message={
+            "Om du av någon anledning skulle vilja ändra något får du/ni gärna ringa/maila oss på:"
+          }
+        />
       </div>
     </div>
   );

@@ -34,7 +34,9 @@ module.exports = db => {
         allergies: view(allergiesLens, request),
         attending: view(attendingLens, request)
       });
-
+      // response.status(404);
+      // console.log("error");
+      // return false;
       db.collection(GUEST_COLLECTION).insertOne(newGuest, (err, doc) => {
         if (err) {
           response.json({
@@ -76,11 +78,19 @@ module.exports = db => {
           response.json({
             error: "error in get request for single guests"
           });
-          return console.log(err, "error in get single guest request");
         } else {
-          response.status(200).json({
-            data
-          });
+          // response.status(404);
+          // NOTE If guest could not be found a null
+          // value will be returned without an error
+          if (data) {
+            response.status(200).json({
+              data
+            });
+          } else {
+            response.status(404).json({
+              data
+            });
+          }
         }
       });
   });
