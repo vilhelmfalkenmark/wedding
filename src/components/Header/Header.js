@@ -13,9 +13,22 @@ class Header extends React.Component {
     }
   }
   render() {
-    const { mobileMenuOpen, toggleMobileMenu } = this.props;
+    const {
+      mobileMenuOpen,
+      toggleMobileMenu,
+      mobileMenuHasBeenDisplayed
+    } = this.props;
+
+    let classNames;
+    if (mobileMenuOpen && mobileMenuHasBeenDisplayed) {
+      classNames = "Header is-open";
+    } else if (!mobileMenuOpen && mobileMenuHasBeenDisplayed) {
+      classNames = "Header is-closed";
+    } else {
+      classNames = "Header initially-hidden";
+    }
     return [
-      <header className={mobileMenuOpen ? "Header is-open" : "Header"} key={12}>
+      <header className={classNames} key={12}>
         <div className="Header-inner">
           <nav>
             <ul className="Nav-list">

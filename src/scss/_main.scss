@@ -26,11 +26,10 @@ body {
   width: 100%;
   z-index: $z-index-first;
   @include breakpoint(1px, $header-breakpoint) {
-    margin-top: $header-desk-height/2;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
     transform: translateX(0);
     &.is-open {
-      transform: translateX($mobile-menu-width);
+      // transform: translateX($mobile-menu-width);
     }
   }
 }
@@ -41,7 +40,7 @@ body {
 //////////////////////////////////////////
 .Main-container--no-offset {
   @include breakpoint(1px, $header-breakpoint) {
-    margin-top: calc(#{$header-desk-height/2} * -1);
+    margin-top: calc(#{$header-desk-height} * -1);
   }
 }
 

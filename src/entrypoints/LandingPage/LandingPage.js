@@ -12,8 +12,10 @@ class LandingPage extends Component {
   }
 
   scrollToContent() {
-    Scroll.animateScroll.scrollTo(100, {
-      duration: 300
+    Scroll.scroller.scrollTo("Main-content", {
+      duration: 300,
+      delay: 0,
+      smooth: true
     });
   }
 
@@ -30,14 +32,13 @@ class LandingPage extends Component {
             }}
           >
             <h1 className="LandingPage-hero-title">Vi gifter oss 2 juni!</h1>
-            {/* <SVG icon={ArrowDown} /> */}
-            <div
+            <button
               className="LandingPage-arrow"
               onClick={this.scrollToContent.bind(this)}
             />
           </div>
           {info.fulfilled ? (
-            <div className="Main-inner">
+            <div className="Main-inner" name="Main-content">
               <h2>{info.data.title}</h2>
               <p>{info.data.content}</p>
             </div>

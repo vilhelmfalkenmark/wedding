@@ -7,11 +7,18 @@
   @include breakpoint(1px, $header-breakpoint) {
     height: 100%;
     width: $mobile-menu-width;
-    transform: translateX(-$mobile-menu-width);
-    transition: transform 0.3s ease;
-    display: flex;
+    &.initially-hidden {
+      display: none;
+    }
+    &.is-closed {
+      animation: sk-scaledown 0.35s ease-in-out;
+      animation-fill-mode: forwards;
+      animation-direction: linear;
+      display: flex;
+    }
     &.is-open {
-      transform: translateX(0);
+      display: flex;
+      animation: sk-scaleup 0.35s ease-in-out;
     }
   }
   @include breakpoint($header-breakpoint) {

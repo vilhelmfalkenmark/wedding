@@ -1,19 +1,22 @@
 //////////////////////////////////////////
 // H1 heading with ribbon styling
 //////////////////////////////////////////
-$size: 1.5rem;
+$size: 1.3rem;
 .Ribbon-heading-container {
   text-align: center;
   margin-bottom: 3*$base-margin;
 }
 
 .Ribbon-heading {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   display: inline-block;
   margin: 0;
   line-height: 2.5rem;
   width: 80%;
-  min-width: 310px;
+  min-width: 210px;
+  @include breakpoint(1px, $header-breakpoint) {
+    font-size: 0.9rem;
+  }
 }
 
 .Ribbon-heading-span {
@@ -22,8 +25,10 @@ $size: 1.5rem;
   background: $color-red;
   color: white;
   text-align: center;
-  height: $size*2;
   z-index: 3;
+  @include breakpoint($header-breakpoint) {
+    height: $size*2;
+  }
   &:before,
   &:after {
     content: "";
@@ -41,6 +46,10 @@ $size: 1.5rem;
     right: -$size*2 + $size/2;
     border-right-color: transparent;
   }
+}
+
+.Ribbon-heading-outer-span {
+  // height: $size*2;
 }
 
 .Ribbon-heading-inner-span::after,

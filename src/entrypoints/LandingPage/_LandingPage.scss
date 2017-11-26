@@ -34,7 +34,10 @@
 }
 
 .LandingPage-arrow {
-  background-image: url("../../assets/svg/arrow-down.svg");
+  outline: none;
+  border: none;
+  background-color: transparent;
+  background-image: url("../assets/svg/arrow-down.svg");
   fill: white;
   background-size: 100%;
   cursor: pointer;

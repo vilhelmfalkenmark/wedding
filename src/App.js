@@ -8,20 +8,23 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      mobileMenuOpen: false
+      mobileMenuOpen: false,
+      mobileMenuHasBeenDisplayed: false
     };
   }
 
   render() {
-    const { mobileMenuOpen } = this.state;
+    const { mobileMenuOpen, mobileMenuHasBeenDisplayed } = this.state;
     return (
       <Router>
         <div className="App">
           <Header
             mobileMenuOpen={mobileMenuOpen}
+            mobileMenuHasBeenDisplayed={mobileMenuHasBeenDisplayed}
             toggleMobileMenu={() =>
               this.setState({
-                mobileMenuOpen: !mobileMenuOpen
+                mobileMenuOpen: !mobileMenuOpen,
+                mobileMenuHasBeenDisplayed: true
               })}
           />
           <main
