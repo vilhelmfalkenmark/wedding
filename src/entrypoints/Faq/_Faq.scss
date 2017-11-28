@@ -1,16 +1,26 @@
 .Faq-list {
-  padding: 0;
-  list-style: none;
+    padding: 0;
+    list-style: none;
 }
 
 .Faq-item {
-  background-color: white;
-  padding: $base-margin;
-  margin-bottom: $base-margin;
+    background-color: white;
+    padding: $default-margin;
+    margin-bottom: $default-margin;
+    border-bottom: 1px solid $border-grey;
 }
 
 .Faq-item-question,
 .Faq-item-answer {
-  margin-top: 0;
-  margin-bottom: $base-margin;
+    margin-top: 0;
+}
+
+.Faq-item-question {
+    font-size: $font-size-m;
+    margin-bottom: $default-margin;
+}
+
+.Faq-item-answer {
+    font-size: $font-size-s;
+    margin-bottom: 0;
 }

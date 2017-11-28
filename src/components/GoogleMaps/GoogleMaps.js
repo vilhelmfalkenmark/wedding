@@ -15,7 +15,10 @@ const GoogleMaps = withScriptjs(
       defaultCenter={{ lat: 59.363598, lng: 18.074851 }}
       defaultOptions={{
         scrollwheel: false,
-        styles: styles
+        styles: styles,
+        zoomControl: false,
+        draggable: true,
+        disableDefaultUI: true
       }}
     >
       {props.isMarkerShown && (

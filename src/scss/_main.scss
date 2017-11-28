@@ -28,9 +28,6 @@ body {
   @include breakpoint(1px, $header-breakpoint) {
     transition: transform 0.4s ease;
     transform: translateX(0);
-    &.is-open {
-      // transform: translateX($mobile-menu-width);
-    }
   }
 }
 
@@ -47,9 +44,9 @@ body {
 .Main-inner {
   max-width: $page-max-width;
   margin: 0 auto;
-  padding: $base-margin;
+  padding: $default-margin;
   @include breakpoint($header-breakpoint) {
-    padding: $base-margin*2;
+    padding: $default-margin*2;
   }
 }
 

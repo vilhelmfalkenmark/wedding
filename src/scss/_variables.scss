@@ -3,7 +3,6 @@
 //////////////////////////////////////////
 $text-grey: rgb(76, 76, 76);
 $border-grey: #d4d4d4;
-
 $color-medium-grey: rgb(115, 115, 115);
 $color-green: #27ae60;
 $color-red: #e74c3c;
@@ -13,18 +12,16 @@ $off-white: #fafafa;
 //////////////////////////////////////////
 // Sizes
 //////////////////////////////////////////
-$base-margin: 1rem;
-
+$half-default-margin: 0.5rem;
+$default-margin: 1rem;
+$double-default-margin: 2rem;
 $header-desk-height: 5rem;
-
 $page-max-width: 760px;
-
-// HEADER AND CONTENT MOBILE VIEW
 $header-breakpoint: 900px;
 $mobile-menu-width: 300px;
 
 //////////////////////////////////////////
-// Fonts
+// Fonts and Font sizes
 //////////////////////////////////////////
 
 @font-face {
@@ -39,6 +36,13 @@ $mobile-menu-width: 300px;
   font-family: sofiaLight;
   src: url("../assets/fonts/sofia-light.ttf");
 }
+
+$font-size-xs: 0.8rem;
+$font-size-s: 0.9rem;
+$font-size-m: 1rem;
+$font-size-l: 1.4rem;
+$font-size-xl: 1.8rem;
+$font-size-xxl: 2rem;
 
 //////////////////////////////////////////
 // Z-index

@@ -3,10 +3,12 @@
 @import "mixins";
 @import "main";
 @import "form";
-@import "../entrypoints/LandingPage/LandingPage";
-@import "../components/Header/Header";
 @import "../components/Burger/Burger";
+@import "../components/Header/Header";
+@import "../components/Input/Input";
 @import "../components/RibbonHeading/RibbonHeading";
+@import "../components/SwitchButton/SwitchButton";
 @import "../entrypoints/Faq/Faq";
 @import "../entrypoints/Guests/Guests";
+@import "../entrypoints/LandingPage/LandingPage";
 @import "../entrypoints/Rsvp/Rsvp";

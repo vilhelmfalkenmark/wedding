@@ -9,8 +9,8 @@ $burger-background: white;
   z-index: $z-index-third;
   width: 40px;
   height: 40px;
-  top: $base-margin;
-  left: $base-margin;
+  top: $default-margin;
+  right: $default-margin;
   position: fixed;
   background-color: $burger-background;
   cursor: pointer;
@@ -38,7 +38,6 @@ $burger-background: white;
   width: 80%;
   right: 10%;
   background-color: $burger-color;
-  transition: all 0.1s ease-in;
   &:before {
     background-color: $burger-color;
     position: absolute;

@@ -1,0 +1,59 @@
+//////////////////////////////////////////
+// Input field
+//////////////////////////////////////////
+.Input-container {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.Input-label {
+    font-size: $font-size-s;
+    padding: 0 0.5rem 0.2rem 0.5rem;
+    display: block;
+    color: $text-grey;
+}
+
+// The actual input element
+.Input-field {
+    outline: none;
+    outline: 0;
+    display: block;
+    line-height: 1.2rem;
+    width: 100%;
+    font-size: $font-size-m;
+    border: none;
+    padding: 0.7rem 0.5rem;
+    border: none;
+    background: none;
+    margin-bottom: 0;
+    border-radius: 0;
+    &:focus {
+        +.Input-line:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+    }
+}
+
+.Input-line {
+    display: block;
+    height: 2px;
+    background-color: $border-grey;
+    margin-bottom: 0.5rem;
+    display: block;
+    margin-top: 0;
+    width: 100%;
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        background-color: $color-green;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.2s ease-in-out;
+    }
+}
