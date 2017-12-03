@@ -1,65 +1,34 @@
+@font-face {
+    font-family: sofiaRegular;
+    src: url("../assets/fonts/sofia-regular.ttf");
+}
+
+@font-face {
+    font-family: sofiaMedium;
+    src: url("../assets/fonts/sofia-medium.ttf");
+}
+
+@font-face {
+    font-family: sofiaLight;
+    src: url("../assets/fonts/sofia-light.ttf");
+}
+
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sofiaRegular, sans-serif;
-  color: $text-grey;
-  background-color: $off-white;
-  overflow-x: hidden;
-  line-height: 1.6rem;
-}
-
-//////////////////////////////////////////
-// Page content container
-//////////////////////////////////////////
-.Main-container {
-  margin-top: $header-desk-height;
-  width: 100%;
-  z-index: $z-index-first;
-  @include breakpoint(1px, $header-breakpoint) {
-    transition: transform 0.4s ease;
-    transform: translateX(0);
-  }
-}
-
-//////////////////////////////////////////
-// Used for pages without offset
-// (mainly landing page)
-//////////////////////////////////////////
-.Main-container--no-offset {
-  @include breakpoint(1px, $header-breakpoint) {
-    margin-top: calc(#{$header-desk-height} * -1);
-  }
-}
-
-.Main-inner {
-  max-width: $page-max-width;
-  margin: 0 auto;
-  padding: $default-margin;
-  @include breakpoint($header-breakpoint) {
-    padding: $default-margin*2;
-  }
-}
-
-//////////////////////////////////////////
-// Utils
-//////////////////////////////////////////
-.u-Center {
-  text-align: center;
-}
-.u-Red {
-  color: $color-red;
-}
-
-.Guest-list {
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    color: $text-grey;
+    background-color: $off-white;
+    font-family: sofiaMedium; 
+    overflow-x: hidden;
+    line-height: 1.6rem;
 }

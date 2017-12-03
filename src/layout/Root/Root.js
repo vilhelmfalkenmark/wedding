@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import routes from "utils/constants/routes";
-
 import Header from "components/Header";
+import s from "./Root.scss";
 
-class App extends React.Component {
+class Root extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -17,7 +17,7 @@ class App extends React.Component {
     const { mobileMenuOpen, mobileMenuHasBeenDisplayed } = this.state;
     return (
       <Router>
-        <div className="App">
+        <div>
           <Header
             mobileMenuOpen={mobileMenuOpen}
             mobileMenuHasBeenDisplayed={mobileMenuHasBeenDisplayed}
@@ -28,9 +28,7 @@ class App extends React.Component {
               })}
           />
           <main
-            className={
-              mobileMenuOpen ? "Main-container is-open" : " Main-container"
-            }
+            className={s.Container}
           >
             {routes.map((route, index) => (
               <Route
@@ -49,4 +47,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Root;

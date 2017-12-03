@@ -1,17 +1,17 @@
 import React from "react";
+import s from "./RibbonHeading.scss";
+
 
 export const RibbonHeading = ({ heading }) => {
-  return (
-    <div className="Ribbon-heading-container">
-      <h1 className="Ribbon-heading">
-        <span className="Ribbon-heading-span Ribbon-heading-outer-span">
-          <span className="Ribbon-heading-span Ribbon-heading-inner-span">
+  return <div className={s.container}>
+      <h1 className={s.heading}>
+        <span className={`${s.headingSpan} ${s.headingOuterSpan}`}>
+          <span className={`${s.headingSpan} ${s.headingInnerSpan}`}>
             {heading}
           </span>
         </span>
       </h1>
-    </div>
-  );
+    </div>;
 };
 
 export default RibbonHeading;

@@ -1,10 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
-
 import Burger from "components/Burger";
-
 import routes from "utils/constants/routes";
+import s from './_Header.scss';
+
+
 
 class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -21,24 +22,24 @@ class Header extends React.Component {
 
     let classNames;
     if (mobileMenuOpen && mobileMenuHasBeenDisplayed) {
-      classNames = "Header is-open";
+      classNames = `${s.Container} ${s.IsOpen}`;
     } else if (!mobileMenuOpen && mobileMenuHasBeenDisplayed) {
-      classNames = "Header is-closed";
+      classNames = `${s.Container} ${s.IsClosed}`;
     } else {
-      classNames = "Header initially-hidden";
+      classNames = `${s.Container} ${s.InitiallyHidden}`;
     }
-    return [
-      <header className={classNames} key={12}>
-        <div className="Header-inner">
+    return [<header className={classNames} key={12}>
+        <div className={s.Inner}>
           <nav>
-            <ul className="Nav-list">
+            {/* <ul className="Nav-list"> */}
+            <ul className={s.List}>
               {routes.map((route, index) => (
-                <li className="Nav-list-item" key={index}>
+                <li className={s.ListItem} key={index}>
                   <NavLink
                     exact
                     to={route.slug}
-                    className="Nav-list-link"
-                    activeClassName="is-active"
+                    className={s.ListLink}
+                    activeClassName={s.IsActive}
                   >
                     {route.navTitle}
                   </NavLink>
@@ -47,13 +48,7 @@ class Header extends React.Component {
             </ul>
           </nav>
         </div>
-      </header>,
-      <Burger
-        mobileMenuOpen={mobileMenuOpen}
-        toggleMobileMenu={toggleMobileMenu}
-        key={13}
-      />
-    ];
+      </header>, <Burger mobileMenuOpen={mobileMenuOpen} toggleMobileMenu={toggleMobileMenu} key={13} />];
   }
 }
 

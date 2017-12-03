@@ -1,26 +1,34 @@
-.Faq-list {
+@import "~scss/_variables";
+@import "~scss/_mixins";
+@import "~scss/_grid";
+
+.container {
+    @include contentContainer();
+}
+
+.list {
     padding: 0;
     list-style: none;
 }
 
-.Faq-item {
+.item {
     background-color: white;
     padding: $default-margin;
     margin-bottom: $default-margin;
     border-bottom: 1px solid $border-grey;
 }
 
-.Faq-item-question,
-.Faq-item-answer {
+.question,
+.answer {
     margin-top: 0;
 }
 
-.Faq-item-question {
+.question {
     font-size: $font-size-m;
     margin-bottom: $default-margin;
 }
 
-.Faq-item-answer {
+.answer {
     font-size: $font-size-s;
     margin-bottom: 0;
 }

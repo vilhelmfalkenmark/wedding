@@ -43,6 +43,7 @@
     "object-assign": "4.1.1",
     "path": "^0.12.7",
     "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-import": "^11.0.0",
     "postcss-loader": "2.0.6",
     "promise": "8.0.1",
     "ramda": "^0.25.0",

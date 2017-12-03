@@ -1,13 +1,14 @@
 import React from "react";
 import RsvpContactUs from "./RsvpContactUs";
 import RibbonHeading from "components/RibbonHeading";
+import s from "./Rsvp.scss";
 
 const RsvpCard = ({ guestData, message, subMessage }) => {
   return (
     <div>
       <RibbonHeading heading={message} />
       <h3>{subMessage}</h3>
-      <div className="RsvpCard">
+      <div className={s.card}>
         <p>Namn på gäst/Gäster: {guestData.guests}</p>
         <p>
           Önskelåt:{" "}

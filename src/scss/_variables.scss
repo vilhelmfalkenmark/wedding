@@ -8,7 +8,6 @@ $color-green: #27ae60;
 $color-red: #e74c3c;
 $color-orange: #ff9959;
 $off-white: #fafafa;
-
 //////////////////////////////////////////
 // Sizes
 //////////////////////////////////////////
@@ -19,23 +18,9 @@ $header-desk-height: 5rem;
 $page-max-width: 760px;
 $header-breakpoint: 900px;
 $mobile-menu-width: 300px;
-
 //////////////////////////////////////////
 // Fonts and Font sizes
 //////////////////////////////////////////
-
-@font-face {
-  font-family: sofiaRegular;
-  src: url("../assets/fonts/sofia-regular.ttf");
-}
-@font-face {
-  font-family: sofiaMedium;
-  src: url("../assets/fonts/sofia-medium.ttf");
-}
-@font-face {
-  font-family: sofiaLight;
-  src: url("../assets/fonts/sofia-light.ttf");
-}
 
 $font-size-xs: 0.8rem;
 $font-size-s: 0.9rem;
@@ -43,7 +28,6 @@ $font-size-m: 1rem;
 $font-size-l: 1.4rem;
 $font-size-xl: 1.8rem;
 $font-size-xxl: 2rem;
-
 //////////////////////////////////////////
 // Z-index
 //////////////////////////////////////////

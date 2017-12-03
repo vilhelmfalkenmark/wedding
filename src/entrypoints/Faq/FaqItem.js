@@ -1,12 +1,11 @@
 import React from "react";
+import s from "./Faq.scss";
 
 const FaqItem = ({ question, answer }) => {
-  return (
-    <li className="Faq-item">
-      <h4 className="Faq-item-question">{question}</h4>
-      <p className="Faq-item-answer">{answer}</p>
-    </li>
-  );
+  return <li className={s.item}>
+      <h4 className={s.question}>{question}</h4>
+      <p className={s.answer}>{answer}</p>
+    </li>;
 };
 
 export default FaqItem;
