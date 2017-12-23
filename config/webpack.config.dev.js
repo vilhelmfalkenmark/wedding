@@ -87,7 +87,6 @@ module.exports = {
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      hocs: path.resolve(paths.appSrc, "hocs"),
       actions: path.resolve(paths.appSrc, "actions"),
       assets: path.resolve(paths.appSrc, "assets"),
       reducers: path.resolve(paths.appSrc, "reducers"),
@@ -244,8 +243,6 @@ module.exports = {
             use: ExtractTextPlugin.extract({
               fallback: "style-loader",
               use: [
-                require.resolve("classnames-loader"),
-                require.resolve("isomorphic-style-loader"),
                 {
                   loader: "css-loader",
                   options: {
@@ -264,57 +261,30 @@ module.exports = {
               ]
             })
           },
-          // {
-          //   test: /\.scss$/,
-          //   use: ExtractTextPlugin.extract({
-          //     fallback: "style-loader",
-          //     use: [
-          //       require.resolve("classnames-loader"),
-          //       require.resolve("isomorphic-style-loader"),
-          //       {
-          //         loader: "css-loader",
-          //         options: {
-          //           modules: true,
-          //           localIdentName: "[name]_[local]__[hash:base64:3]"
-          //         }
-          //       },
-          //       {
-          //         loader: require.resolve("sass-loader"),
-          //         options: {
-          //           config: {
-          //             path: paths.postcssConfig
-          //           }
-          //         }
-          //       }
-          //     ]
-          //   })
-          // },
           {
             test: /\.scss$/,
-            use: [
-              require.resolve("classnames-loader"),
-              require.resolve("isomorphic-style-loader"),
-              {
-                loader: require.resolve("css-loader"),
-                options: {
-                  importLoaders: 1,
-                  // CSS Modules https://github.com/css-modules/css-modules
-                  modules: true,
-                  localIdentName: true
-                    ? "[name]_[local]_[hash:base64:3]"
-                    : "[hash:base64:4]"
-                }
-              },
-              {
-                loader: require.resolve("sass-loader"),
-                options: {
-                  config: {
-                    // path: paths.postcssConfig
-                    includePaths: [path.resolve(paths.appSrc, "scss")]
+            use: ExtractTextPlugin.extract({
+              fallback: "style-loader",
+              use: [
+                {
+                  loader: "css-loader",
+                  options: {
+                    modules: true,
+                    sourceMap: true,
+                    importLoaders: 2,
+                    localIdentName: "[name]_[local]__[hash:base64:3]"
+                  }
+                },
+                {
+                  loader: require.resolve("sass-loader"),
+                  options: {
+                    config: {
+                      path: paths.postcssConfig
+                    }
                   }
                 }
-              }
-            ]
+              ]
+            })
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.

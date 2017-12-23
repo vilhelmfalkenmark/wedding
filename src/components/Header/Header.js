@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import Burger from "components/Burger";
 import routes from "utils/constants/routes";
-import s from "./Header.scss";
-import withStyles from "hocs/WithStyles";
+import s from './_Header.scss';
+
+
 
 class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -27,11 +28,11 @@ class Header extends React.Component {
     } else {
       classNames = `${s.Container} ${s.InitiallyHidden}`;
     }
-    return [
-      <header className={classNames} key={12}>
+    return [<header className={classNames} key={12}>
         <div className={s.Inner}>
           <nav>
-            <ul className={s({ List: true })}>
+            {/* <ul className="Nav-list"> */}
+            <ul className={s.List}>
               {routes.map((route, index) => (
                 <li className={s.ListItem} key={index}>
                   <NavLink
@@ -47,14 +48,8 @@ class Header extends React.Component {
             </ul>
           </nav>
         </div>
-      </header>,
-      <Burger
-        mobileMenuOpen={mobileMenuOpen}
-        toggleMobileMenu={toggleMobileMenu}
-        key={13}
-      />
-    ];
+      </header>, <Burger mobileMenuOpen={mobileMenuOpen} toggleMobileMenu={toggleMobileMenu} key={13} />];
   }
 }
 
-export default withRouter(withStyles(Header, s));
+export default withRouter(Header);

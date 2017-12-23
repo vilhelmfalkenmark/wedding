@@ -10,9 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI =
-  process.env.MONGODB_URI ||
-  "mongodb://testuser:testpassword@ds119675.mlab.com:19675/wedding-dev";
 
 // Create link to React build directory
 app.use(express.static(path.resolve(__dirname, "../build"))); // <-- Tydligen ska index, root, whatever ligga överst.
@@ -28,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-mongodb.MongoClient.connect(MONGODB_URI, (err, database) => {
+mongodb.MongoClient.connect(process.env.MONGODB_URI, (err, database) => {
   if (err) {
     console.log(err);
     process.exit(1);
