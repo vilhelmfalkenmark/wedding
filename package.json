@@ -20,6 +20,8 @@
     "babel-runtime": "6.26.0",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "^2.3.0",
+    "classnames": "^2.2.5",
+    "classnames-loader": "^2.0.0",
     "cli-table2": "^0.2.0",
     "contentful": "^5.0.2",
     "cors": "^2.8.4",
