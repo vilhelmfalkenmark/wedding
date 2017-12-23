@@ -5,6 +5,7 @@ import { fetchFaq } from "actions/faq";
 import FaqItem from "./FaqItem";
 import RibbonHeading from "components/RibbonHeading";
 import s from "./Faq.scss";
+import withStyles from "hocs/WithStyles";
 
 class Faq extends Component {
   componentWillMount() {
@@ -46,4 +47,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Faq);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(Faq, s));

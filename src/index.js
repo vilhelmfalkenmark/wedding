@@ -4,12 +4,15 @@ import Root from "./layout/Root";
 import registerServiceWorker from "./registerServiceWorker";
 import { Provider } from "react-redux";
 import store from "./store";
-require("./scss/stylesheet.scss");
+import { onInsertCssHandler } from "hocs/WithStyles";
+import WithCssContext from "hocs/WithCssContext";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Root />
-  </Provider>,
+  <WithCssContext onInsertCss={onInsertCssHandler}>
+    <Provider store={store}>
+      <Root />
+    </Provider>
+  </WithCssContext>,
   document.getElementById("root")
 );
 registerServiceWorker();

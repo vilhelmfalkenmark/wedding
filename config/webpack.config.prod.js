@@ -94,7 +94,8 @@ module.exports = {
       store: path.resolve(paths.appSrc, "store"),
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
-      utils: path.resolve(paths.appSrc, "utils")
+      utils: path.resolve(paths.appSrc, "utils"),
+      hocs: path.resolve(paths.appSrc, "hocs")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
