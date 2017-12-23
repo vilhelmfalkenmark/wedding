@@ -95,7 +95,8 @@ module.exports = {
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
       utils: path.resolve(paths.appSrc, "utils"),
-      hocs: path.resolve(paths.appSrc, "hocs")
+      hocs: path.resolve(paths.appSrc, "hocs"),
+      scss: path.resolve(paths.appSrc, "scss")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -154,37 +155,64 @@ module.exports = {
             }
           },
           // SASS
+          // {
+          //   test: /\.scss$/,
+          //   use: [
+          //     {
+          //       loader: require.resolve("style-loader")
+          //     },
+          //     {
+          //       loader: require.resolve("css-loader"),
+          //       options: {
+          //         importLoaders: 1
+          //       }
+          //     },
+          //     {
+          //       loader: require.resolve("sass-loader")
+          //     },
+          //     {
+          //       loader: require.resolve("postcss-loader"),
+          //       options: {
+          //         ident: "postcss",
+          //         plugins: () => [
+          //           require("postcss-flexbugs-fixes"),
+          //           autoprefixer({
+          //             browsers: [
+          //               ">1%",
+          //               "last 4 versions",
+          //               "Firefox ESR",
+          //               "not ie < 9"
+          //             ],
+          //             flexbox: "no-2009"
+          //           })
+          //         ]
+          //       }
+          //     }
+          //   ]
+          // },
           {
             test: /\.scss$/,
             use: [
-              {
-                loader: require.resolve("style-loader")
-              },
+              require.resolve("classnames-loader"),
+              require.resolve("isomorphic-style-loader"),
               {
                 loader: require.resolve("css-loader"),
                 options: {
-                  importLoaders: 1
+                  importLoaders: 1,
+                  // CSS Modules https://github.com/css-modules/css-modules
+                  modules: true,
+                  localIdentName: true
+                    ? "[name]_[local]_[hash:base64:3]"
+                    : "[hash:base64:4]"
                 }
               },
               {
-                loader: require.resolve("sass-loader")
-              },
-              {
-                loader: require.resolve("postcss-loader"),
+                loader: require.resolve("sass-loader"),
                 options: {
-                  ident: "postcss",
-                  plugins: () => [
-                    require("postcss-flexbugs-fixes"),
-                    autoprefixer({
-                      browsers: [
-                        ">1%",
-                        "last 4 versions",
-                        "Firefox ESR",
-                        "not ie < 9"
-                      ],
-                      flexbox: "no-2009"
-                    })
-                  ]
+                  config: {
+                    // path: paths.postcssConfig
+                    includePaths: [path.resolve(paths.appSrc, "scss")]
+                  }
                 }
               }
             ]

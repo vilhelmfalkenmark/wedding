@@ -264,6 +264,31 @@ module.exports = {
               ]
             })
           },
+          // {
+          //   test: /\.scss$/,
+          //   use: ExtractTextPlugin.extract({
+          //     fallback: "style-loader",
+          //     use: [
+          //       require.resolve("classnames-loader"),
+          //       require.resolve("isomorphic-style-loader"),
+          //       {
+          //         loader: "css-loader",
+          //         options: {
+          //           modules: true,
+          //           localIdentName: "[name]_[local]__[hash:base64:3]"
+          //         }
+          //       },
+          //       {
+          //         loader: require.resolve("sass-loader"),
+          //         options: {
+          //           config: {
+          //             path: paths.postcssConfig
+          //           }
+          //         }
+          //       }
+          //     ]
+          //   })
+          // },
           {
             test: /\.scss$/,
             use: [
@@ -284,7 +309,8 @@ module.exports = {
                 loader: require.resolve("sass-loader"),
                 options: {
                   config: {
-                    path: paths.postcssConfig
+                    // path: paths.postcssConfig
+                    includePaths: [path.resolve(paths.appSrc, "scss")]
                   }
                 }
               }
