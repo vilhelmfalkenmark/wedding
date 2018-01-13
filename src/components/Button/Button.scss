@@ -1,0 +1,26 @@
+@import "~scss/_variables";
+@mixin button($color) {
+    display: inline-block;
+    border: none;
+    outline: 0;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    min-width: 10rem;
+    cursor: pointer;
+    background-color: $color;
+    transition: background 0.2s ease;
+    &:hover {
+        background-color: darken($color, 15%);
+    }
+    &:active {
+        background-color: darken($color, 20%);
+    }
+}
+
+.container {
+    @include button($color-green);
+    &.disabled {
+        @include button($color-medium-grey);
+    }
+}
