@@ -17,22 +17,24 @@ class Faq extends Component {
   render() {
     const { faq: { faq, fulfilled, fetching, error } } = this.props;
 
-    return <DocumentTitle title={"Vanliga frågor"}>
+    return (
+      <DocumentTitle title={"Vanliga frågor"}>
         <div className={s.container}>
           <RibbonHeading heading={"Frågor och svar"} />
-          {fetching && !error ? <p>
-              Hämtar frågor och svar
-            </p> : fulfilled && !error ? <ul className={s.list}>
+          {fetching && !error ? (
+            <p>Hämtar frågor och svar</p>
+          ) : fulfilled && !error ? (
+            <ul className={s.list}>
               {faq.map((f, index) => (
-                <FaqItem
-                  question={f.question}
-                  answer={f.answer}
-                  key={index}
-                />
+                <FaqItem question={f.question} answer={f.answer} key={index} />
               ))}
-            </ul> : <p>Något gick fel!</p>}
+            </ul>
+          ) : (
+            <p>Något gick fel!</p>
+          )}
         </div>
-      </DocumentTitle>;
+      </DocumentTitle>
+    );
   }
 }
 

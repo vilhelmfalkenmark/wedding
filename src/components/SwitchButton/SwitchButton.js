@@ -1,21 +1,18 @@
 import React from "react";
+import s from "./SwitchButton.scss";
 
 const SwitchButton = ({ onClickCallback, label, disabled, switchOn }) => {
   return (
-    <div className="SwitchButton-container">
-      <div className="SwitchButton-button-container">
+    <div className={s.container}>
+      <div className={s.buttonContainer}>
         <button
           onClick={!disabled ? onClickCallback : () => null}
-          className="SwitchButton-button"
+          className={s.button}
         >
-          <span
-            className={`SwitchButton-simulator ${switchOn
-              ? "is-On"
-              : "is-Off"}`}
-          />
+          <span className={`${s.simulator} ${switchOn ? s.isOn : s.isOff}`} />
         </button>
       </div>
-      <label htmlFor={label} className="SwitchButton-label">
+      <label htmlFor={label} className={s.label}>
         {label}
       </label>
     </div>

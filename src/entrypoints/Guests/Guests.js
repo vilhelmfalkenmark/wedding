@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import { fetchAllGuests } from "actions/guests";
 import RibbonHeading from "components/RibbonHeading";
+import s from "./Guests.scss";
 
 class Guests extends Component {
   componentWillMount() {
@@ -13,14 +14,14 @@ class Guests extends Component {
 
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
-        <div className="Main-inner">
+        <div className={s.container}>
           <RibbonHeading heading={"Gäster som har Osat"} />
           {fetching && !error ? (
             <p>Hämtar gäster</p>
           ) : fulfilled && !error ? (
-            <ul className="Guest-list">
+            <ul className={s.list}>
               {data.map((f, index) => (
-                <li key={index} className="Guest-card">
+                <li key={index} className={s.item}>
                   <p>Gäst/Gäster: {f.guests}</p>
                   <p>Önskelåt: {f.songRequest}</p>
                 </li>
