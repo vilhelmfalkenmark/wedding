@@ -94,7 +94,8 @@ module.exports = {
       store: path.resolve(paths.appSrc, "store"),
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
-      utils: path.resolve(paths.appSrc, "utils")
+      utils: path.resolve(paths.appSrc, "utils"),
+      scss: path.resolve(paths.appSrc, "scss")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -152,42 +153,6 @@ module.exports = {
               compact: true
             }
           },
-          // SASS
-          {
-            test: /\.scss$/,
-            use: [
-              {
-                loader: require.resolve("style-loader")
-              },
-              {
-                loader: require.resolve("css-loader"),
-                options: {
-                  importLoaders: 1
-                }
-              },
-              {
-                loader: require.resolve("sass-loader")
-              },
-              {
-                loader: require.resolve("postcss-loader"),
-                options: {
-                  ident: "postcss",
-                  plugins: () => [
-                    require("postcss-flexbugs-fixes"),
-                    autoprefixer({
-                      browsers: [
-                        ">1%",
-                        "last 4 versions",
-                        "Firefox ESR",
-                        "not ie < 9"
-                      ],
-                      flexbox: "no-2009"
-                    })
-                  ]
-                }
-              }
-            ]
-          },
           // The notation here is somewhat confusing.
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -212,7 +177,7 @@ module.exports = {
                       options: {
                         importLoaders: 1,
                         minimize: true,
-                        sourceMap: shouldUseSourceMap
+                        sourceMap: true
                       }
                     },
                     {
@@ -240,7 +205,24 @@ module.exports = {
                 extractTextPluginOptions
               )
             )
-            // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },
+          {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+              fallback: "style-loader",
+              use: [
+                {
+                  loader: "css-loader",
+                  options: {
+                    modules: true,
+                    sourceMap: false,
+                    importLoaders: 2,
+                    localIdentName: "[hash:base64:7]"
+                  }
+                },
+                "sass-loader"
+              ]
+            })
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
@@ -252,7 +234,7 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.js$/, /\.html$/, /\.json$/],
+            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.scss$/, /\.css$/],
             options: {
               name: "static/media/[name].[hash:8].[ext]"
             }
@@ -312,7 +294,9 @@ module.exports = {
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
-      filename: cssFilename
+      filename: cssFilename,
+      // filename: "styles.css",
+      allChunks: true
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without

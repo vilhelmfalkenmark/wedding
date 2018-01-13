@@ -9,6 +9,7 @@ const eslintFormatter = require("react-dev-utils/eslintFormatter");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const getClientEnvironment = require("./env");
 const paths = require("./paths");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -92,7 +93,8 @@ module.exports = {
       store: path.resolve(paths.appSrc, "store"),
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
-      utils: path.resolve(paths.appSrc, "utils")
+      utils: path.resolve(paths.appSrc, "utils"),
+      scss: path.resolve(paths.appSrc, "scss")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -154,42 +156,6 @@ module.exports = {
               cacheDirectory: true
             }
           },
-          // SASS
-          {
-            test: /\.scss$/,
-            use: [
-              {
-                loader: require.resolve("style-loader")
-              },
-              {
-                loader: require.resolve("css-loader"),
-                options: {
-                  importLoaders: 1
-                }
-              },
-              {
-                loader: require.resolve("sass-loader")
-              },
-              {
-                loader: require.resolve("postcss-loader"),
-                options: {
-                  ident: "postcss",
-                  plugins: () => [
-                    require("postcss-flexbugs-fixes"),
-                    autoprefixer({
-                      browsers: [
-                        ">1%",
-                        "last 4 versions",
-                        "Firefox ESR",
-                        "not ie < 9"
-                      ],
-                      flexbox: "no-2009"
-                    })
-                  ]
-                }
-              }
-            ]
-          },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
           // "style" loader turns CSS into JS modules that inject <style> tags.
@@ -197,35 +163,41 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.css$/,
-            use: [
-              require.resolve("style-loader"),
-              {
-                loader: require.resolve("css-loader"),
-                options: {
-                  importLoaders: 1
-                }
-              },
-              {
-                loader: require.resolve("postcss-loader"),
-                options: {
-                  // Necessary for external CSS imports to work
-                  // https://github.com/facebookincubator/create-react-app/issues/2677
-                  ident: "postcss",
-                  plugins: () => [
-                    require("postcss-flexbugs-fixes"),
-                    autoprefixer({
-                      browsers: [
-                        ">1%",
-                        "last 4 versions",
-                        "Firefox ESR",
-                        "not ie < 9" // React doesn't support IE8 anyway
-                      ],
-                      flexbox: "no-2009"
-                    })
-                  ]
-                }
-              }
-            ]
+            use: ["css-hot-loader"].concat(
+              ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [
+                  {
+                    loader: "css-loader",
+                    options: {
+                      modules: true,
+                      localIdentName: "[name]__[local]_[hash:base64:3]"
+                    }
+                  },
+                  "postcss-loader"
+                ]
+              })
+            )
+          },
+          {
+            test: /\.scss$/,
+            use: ["css-hot-loader"].concat(
+              ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [
+                  {
+                    loader: "css-loader",
+                    options: {
+                      modules: true,
+                      sourceMap: true,
+                      importLoaders: 2,
+                      localIdentName: "[name]__[local]_[hash:base64:3]"
+                    }
+                  },
+                  "sass-loader"
+                ]
+              })
+            )
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
@@ -243,7 +215,6 @@ module.exports = {
               name: "static/media/[name].[hash:8].[ext]"
             }
           }
-          // SASS
         ]
       }
       // ** STOP ** Are you adding a new loader?
@@ -251,6 +222,8 @@ module.exports = {
     ]
   },
   plugins: [
+    new ExtractTextPlugin({ filename: "styles.css", allChunks: true }),
+
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

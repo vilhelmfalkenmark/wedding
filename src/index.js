@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import Root from "./layout/Root";
 import registerServiceWorker from "./registerServiceWorker";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -8,7 +8,7 @@ require("./scss/stylesheet.scss");
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Root />
   </Provider>,
   document.getElementById("root")
 );

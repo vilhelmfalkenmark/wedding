@@ -4,6 +4,7 @@ import DocumentTitle from "react-document-title";
 import { fetchFaq } from "actions/faq";
 import FaqItem from "./FaqItem";
 import RibbonHeading from "components/RibbonHeading";
+import s from "./Faq.scss";
 
 class Faq extends Component {
   componentWillMount() {
@@ -18,12 +19,12 @@ class Faq extends Component {
 
     return (
       <DocumentTitle title={"Vanliga frågor"}>
-        <div className="Main-inner">
+        <div className={s.container}>
           <RibbonHeading heading={"Frågor och svar"} />
           {fetching && !error ? (
             <p>Hämtar frågor och svar</p>
           ) : fulfilled && !error ? (
-            <ul className="Faq-list">
+            <ul className={s.list}>
               {faq.map((f, index) => (
                 <FaqItem question={f.question} answer={f.answer} key={index} />
               ))}

@@ -1,0 +1,31 @@
+@import "~scss/_variables";
+@import "~scss/_mixins";
+@import "~scss/_grid";
+
+.container {
+    @include contentContainer();
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    list-style: none;
+    margin-bottom: 1rem;
+    flex-basis: 100%;
+    @include card();
+    @include breakpoint($header-breakpoint) {
+        flex-basis: calc(50% - 0.5rem);
+        &:nth-of-type(odd) {
+            margin-right: 0.5rem;
+        }
+        &:nth-of-type(even) {
+            margin-left: 0.5rem;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./Input.scss";
 
 export const Input = ({
   inputPlaceholder,
@@ -16,17 +17,17 @@ export const Input = ({
       value={inputValue}
       placeholder={inputPlaceholder}
       onChange={event => inputOnChange(event.target.value)}
-      className="Input-field"
+      className={s.field}
     />,
-    <span className="Input-line" key={2} />
+    <span className={s.line} key={2} />
   ];
   const labelHtml = (
-    <label htmlFor={inputName} className="Input-label">
+    <label htmlFor={inputName} className={s.label}>
       {inputLabel}
     </label>
   );
   return (
-    <div className="Input-container">
+    <div className={s.container}>
       {labelHtml}
       {inputHtml}
     </div>

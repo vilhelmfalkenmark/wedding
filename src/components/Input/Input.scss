@@ -1,12 +1,11 @@
-//////////////////////////////////////////
-// Input field
-//////////////////////////////////////////
-.Input-container {
+@import "~scss/_variables";
+
+.container {
     position: relative;
     margin-bottom: 2.5rem;
 }
 
-.Input-label {
+.label {
     font-size: $font-size-s;
     padding: 0 0.5rem 0.2rem 0.5rem;
     display: block;
@@ -14,7 +13,7 @@
 }
 
 // The actual input element
-.Input-field {
+.field {
     outline: none;
     outline: 0;
     display: block;
@@ -28,14 +27,14 @@
     margin-bottom: 0;
     border-radius: 0;
     &:focus {
-        +.Input-line:before {
+        +.line:before {
             visibility: visible;
             transform: scaleX(1);
         }
     }
 }
 
-.Input-line {
+.line {
     display: block;
     height: 2px;
     background-color: $border-grey;

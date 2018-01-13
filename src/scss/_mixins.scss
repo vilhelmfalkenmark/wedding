@@ -1,140 +1,125 @@
-@mixin breakpoint($min,$max:null) {
-  @if $max {
-    @media (min-width: $min) and (max-width: $max) {
-      @content;
+    @mixin breakpoint($min, $max:null) {
+    @if $max {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
     }
-  } @else {
-    @media (min-width: $min) {
-      @content;
+    @else {
+        @media (min-width: $min) {
+            @content;
+        }
     }
-  }
 }
 
 @mixin flexCenter() {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin button($color) {
-  display: inline-block;
-  border: none;
-  outline: 0;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  min-width: 10rem;
-  cursor: pointer;
-  background-color: $color;
-  transition: background 0.2s ease;
-  &:hover {
-    background-color: darken($color, 15%);
-  }
-  &:active {
-    background-color: darken($color, 20%);
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin card() {
-  background-color: white;
-  padding: 1rem;
-  box-shadow: 0px 14px 13px -17px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0px 14px 13px -17px rgba(0, 0, 0, 0.5);
 }
 
 //////////////////////////////////////////////
 // Underline links animation
 /////////////////////////////////////////////
 @mixin underline($color: null) {
-  @include breakpoint(900px) {
-    transition: all 0.2s ease;
-    text-decoration: none;
-    cursor: pointer;
-    &:after {
-      bottom: -1px;
-      backface-visibility: hidden;
-      border: 1px solid rgba($color, 0);
-      content: "";
-      display: block;
-      margin: 0 auto;
-      position: relative;
-      transition: all 280ms ease-in-out;
-      width: 0;
+    @include breakpoint(900px) {
+        transition: all 0.2s ease;
+        text-decoration: none;
+        cursor: pointer;
+        &:after {
+            bottom: -1px;
+            backface-visibility: hidden;
+            border: 1px solid rgba($color, 0);
+            content: "";
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            transition: all 280ms ease-in-out;
+            width: 0;
+        }
+        &:hover {
+            color: $color;
+            &:after {
+                backface-visibility: hidden;
+                border-color: $color;
+                transition: width 350ms ease-in-out;
+                width: 100%;
+            }
+        }
     }
-    &:hover {
-      color: $color;
-      &:after {
-        backface-visibility: hidden;
-        border-color: $color;
-        transition: width 350ms ease-in-out;
-        width: 100%;
-      }
-    }
-  }
 }
 
 //////////////////////////////////////////////
 // Keyframes
 /////////////////////////////////////////////
 @keyframes bounce {
-  0%,
-  20%,
-  60%,
-  100% {
-    -webkit-transform: translateY(0);
-  }
-  40% {
-    -webkit-transform: translateY(-20px);
-  }
-  80% {
-    -webkit-transform: translateY(-10px);
-  }
+    0%,
+    20%,
+    60%,
+    100% {
+        -webkit-transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-20px);
+    }
+    80% {
+        -webkit-transform: translateY(-10px);
+    }
 }
 
 // Skala upp och ner
 @keyframes sk-scaleup {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
+
 @keyframes sk-scaledown {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0);
-    opacity: 0;
-  }
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
+
 // Laddaren
 @keyframes sk-foldCubeAngle {
-  0%,
-  10% {
-    transform: perspective(140px) rotateX(-180deg);
-    opacity: 0;
-  }
-  25%,
-  75% {
-    transform: perspective(140px) rotateX(0deg);
-    opacity: 1;
-  }
-  90%,
-  100% {
-    transform: perspective(140px) rotateY(180deg);
-    opacity: 0;
-  }
+    0%,
+    10% {
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+    25%,
+    75% {
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+    90%,
+    100% {
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
 }
+

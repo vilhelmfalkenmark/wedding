@@ -1,4 +1,11 @@
-.LandingPage-hero-container {
+@import "~scss/_variables";
+@import "~scss/_mixins";
+@import "~scss/_grid";
+
+.container {
+  margin-top: 2px;
+}
+  .hero {
     position: relative;
     width: 100%;
     display: flex;
@@ -25,7 +32,7 @@
     }
 }
 
-.LandingPage-hero-title {
+.heroTitle {
     background-color: white;
     padding: 1.5rem;
     font-size: $font-size-l;
@@ -39,13 +46,10 @@
     }
 }
 
-.LandingPage-arrow {
+.scrollArrow {
     outline: none;
     border: none;
     background-color: transparent;
-    background-image: url("../assets/svg/arrow-down.svg");
-    fill: white;
-    background-size: 100%;
     cursor: pointer;
     position: absolute;
     margin: 0 auto;
@@ -58,11 +62,15 @@
     animation: bounce 2s infinite ease-in-out;
 }
 
-.GoogleMaps-wrapper {
+.infoContainer {
+    @include contentContainer();
+}
+
+.mapWrapper {
     position: relative
 }
 
-.GoogleMaps-adress-wrapper {
+.mapAdressWrapper {
     position: absolute;
     font-size: $font-size-xs;
     top: $default-margin;

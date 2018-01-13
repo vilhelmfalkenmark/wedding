@@ -7,6 +7,7 @@ import { readCookie } from "utils/helpers/cookie";
 import RsvpForm from "./RsvpForm";
 import RsvpCard from "./RsvpCard";
 import RsvpError from "./RsvpError";
+import s from "./Rsvp.scss";
 
 import { fetchingGuestFulfilled, successfulRsvp } from "utils/selectors/rsvp";
 
@@ -72,11 +73,9 @@ class Rsvp extends Component {
       }
     };
 
-    return (
-      <DocumentTitle title={"Osa till vårt bröllop"}>
-        <div className="Main-inner">{rsvpHtml()}</div>
-      </DocumentTitle>
-    );
+    return <DocumentTitle title={"Osa till vårt bröllop"}>
+        <div className={s.container}>{rsvpHtml()}</div>
+      </DocumentTitle>;
   }
 }
 

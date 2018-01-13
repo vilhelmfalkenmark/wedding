@@ -1,13 +1,15 @@
+@import "~scss/_variables";
+@import "~scss/_mixins";
 //////////////////////////////////////////
 // H1 heading with ribbon styling
 //////////////////////////////////////////
 $size: 1.3rem;
-.Ribbon-heading-container {
+.container {
     text-align: center;
     margin-bottom: 3*$default-margin;
 }
 
-.Ribbon-heading {
+.heading {
     font-size: $font-size-m;
     display: inline-block;
     margin: 0;
@@ -21,7 +23,7 @@ $size: 1.3rem;
     }
 }
 
-.Ribbon-heading-span {
+.headingSpan {
     position: relative;
     display: block;
     background: $color-red;
@@ -46,7 +48,7 @@ $size: 1.3rem;
     }
 }
 
-.Ribbon-heading-inner-span {
+.headingInnerSpan {
     padding: $half-default-margin;
     @include breakpoint(500px) {
         padding: 0.9rem;
@@ -56,8 +58,8 @@ $size: 1.3rem;
     }
 }
 
-.Ribbon-heading-inner-span::after,
-.Ribbon-heading-inner-span::before {
+.headingInnerSpan::after,
+.headingInnerSpan::before {
     position: absolute;
     display: block;
     border-style: solid;
@@ -65,12 +67,12 @@ $size: 1.3rem;
     border-color: darken($color-red, 20%) transparent transparent transparent;
 }
 
-.Ribbon-heading-inner-span::before {
+.headingInnerSpan::before {
     left: 0;
     border-width: $size/2 0 0 $size/2;
 }
 
-.Ribbon-heading-inner-span::after {
+.headingInnerSpan::after {
     right: 0;
     border-width: $size/2 $size/2 0 0;
 }
