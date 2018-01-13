@@ -6,6 +6,7 @@ import Hero from "assets/images/hero.jpg";
 import { fetchInfo } from "actions/info";
 import Scroll from "react-scroll";
 import s from "./LandingPage.scss";
+import arrowDown from "assets/svg/arrow-down.svg";
 
 class LandingPage extends Component {
   componentWillMount() {
@@ -13,7 +14,7 @@ class LandingPage extends Component {
   }
 
   scrollToContent() {
-    Scroll.scroller.scrollTo("Main-content", {
+    Scroll.scroller.scrollTo("scroll-target", {
       duration: 300,
       delay: 0,
       smooth: true
@@ -34,10 +35,12 @@ class LandingPage extends Component {
             <button
               className={s.scrollArrow}
               onClick={this.scrollToContent.bind(this)}
-            />
+            >
+              <img src={arrowDown} alt="arrow-to-content" />
+            </button>
           </section>
           {info.fulfilled ? (
-            <section className={s.infoContainer}>
+            <section className={s.infoContainer} name="scroll-target">
               <h2>{info.data.title}</h2>
               <p>{info.data.content}</p>
             </section>

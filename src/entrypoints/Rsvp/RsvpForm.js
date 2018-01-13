@@ -4,7 +4,6 @@ import SwitchButton from "components/SwitchButton";
 import Button from "components/Button";
 import regex from "utils/helpers/regex";
 import RibbonHeading from "components/RibbonHeading";
-import s from "./Rsvp.scss";
 
 class RsvpForm extends Component {
   constructor() {

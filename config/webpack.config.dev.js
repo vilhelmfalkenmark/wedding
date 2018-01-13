@@ -156,53 +156,48 @@ module.exports = {
               cacheDirectory: true
             }
           },
+          // "postcss" loader applies autoprefixer to our CSS.
+          // "css" loader resolves paths in CSS and adds assets as dependencies.
+          // "style" loader turns CSS into JS modules that inject <style> tags.
+          // In production, we use a plugin to extract that CSS to a file, but
+          // in development "style" loader enables hot editing of CSS.
           {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-              fallback: "style-loader",
-              use: [
-                {
-                  loader: "css-loader",
-                  options: {
-                    modules: true,
-                    localIdentName: "[name]_[local]__[hash:base64:3]"
-                  }
-                },
-                {
-                  loader: require.resolve("postcss-loader"),
-                  options: {
-                    config: {
-                      path: paths.postcssConfig
+            use: ["css-hot-loader"].concat(
+              ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [
+                  {
+                    loader: "css-loader",
+                    options: {
+                      modules: true,
+                      localIdentName: "[name]__[local]_[hash:base64:3]"
                     }
-                  }
-                }
-              ]
-            })
+                  },
+                  "postcss-loader"
+                ]
+              })
+            )
           },
           {
             test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-              fallback: "style-loader",
-              use: [
-                {
-                  loader: "css-loader",
-                  options: {
-                    modules: true,
-                    sourceMap: true,
-                    importLoaders: 2,
-                    localIdentName: "[name]_[local]__[hash:base64:3]"
-                  }
-                },
-                {
-                  loader: require.resolve("sass-loader"),
-                  options: {
-                    config: {
-                      path: paths.postcssConfig
+            use: ["css-hot-loader"].concat(
+              ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [
+                  {
+                    loader: "css-loader",
+                    options: {
+                      modules: true,
+                      sourceMap: true,
+                      importLoaders: 2,
+                      localIdentName: "[name]__[local]_[hash:base64:3]"
                     }
-                  }
-                }
-              ]
-            })
+                  },
+                  "sass-loader"
+                ]
+              })
+            )
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
