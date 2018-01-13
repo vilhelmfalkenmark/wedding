@@ -10,6 +10,7 @@ const eslintFormatter = require("react-dev-utils/eslintFormatter");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const paths = require("./paths");
 const getClientEnvironment = require("./env");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -176,8 +177,8 @@ module.exports = {
                       loader: require.resolve("css-loader"),
                       options: {
                         importLoaders: 1,
-                        minimize: true,
-                        sourceMap: true
+                        minimize: false,
+                        sourceMap: false
                       }
                     },
                     {
@@ -216,9 +217,21 @@ module.exports = {
                   loader: "css-loader",
                   options: {
                     modules: true,
-                    sourceMap: true,
+                    sourceMap: false,
                     importLoaders: 2,
-                    localIdentName: "[name]__[local]___[hash:base64:5]"
+                    localIdentName: "[hash:base64:6]",
+                    plugins: () => [
+                      require("postcss-flexbugs-fixes"),
+                      autoprefixer({
+                        browsers: [
+                          ">1%",
+                          "last 4 versions",
+                          "Firefox ESR",
+                          "not ie < 9" // React doesn't support IE8 anyway
+                        ],
+                        flexbox: "no-2009"
+                      })
+                    ]
                   }
                 },
                 "sass-loader"
@@ -296,9 +309,16 @@ module.exports = {
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
       filename: cssFilename,
-      // filename: "styles.css",
       allChunks: true
     }),
+
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.optimize\.css$/g,
+      cssProcessor: require("cssnano"),
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: true
+    }),
+
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
