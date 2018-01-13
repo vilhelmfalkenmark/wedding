@@ -1,15 +1,15 @@
 import React from "react";
+import s from "./Burger.scss";
 
 const Burger = ({ mobileMenuOpen, toggleMobileMenu }) => {
   return (
     <button
-      className={
-        mobileMenuOpen ? "Burger-container is-open" : "Burger-container"
-      }
+      className={`${s.container}
+        ${mobileMenuOpen ? s.isOpen : null}`}
       onClick={toggleMobileMenu}
     >
-      <div className="Burger-inner">
-        <div className="Burger" />
+      <div className={s.inner}>
+        <div className={s.bread} />
       </div>
     </button>
   );

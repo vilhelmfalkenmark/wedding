@@ -3,7 +3,7 @@
 //////////////////////////////////////////
 // Page content container
 //////////////////////////////////////////
-.Container {
+.container {
     margin-top: $header-desk-height;
     width: 100%;
     z-index: $z-index-first;
@@ -13,21 +13,3 @@
     }
 }
 
-//////////////////////////////////////////
-// Used for pages without offset
-// (mainly landing page)
-//////////////////////////////////////////
-.Main-container--no-offset {
-    @include breakpoint(1px, $header-breakpoint) {
-        margin-top: calc(#{$header-desk-height} * -1);
-    }
-}
-
-.Main-inner {
-    max-width: $page-max-width;
-    margin: 0 auto;
-    padding: $default-margin;
-    @include breakpoint($header-breakpoint) {
-        padding: $default-margin*2;
-    }
-}

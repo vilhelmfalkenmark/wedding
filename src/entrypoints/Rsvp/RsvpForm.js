@@ -19,7 +19,7 @@ class RsvpForm extends Component {
   }
   render() {
     return (
-      <form className={s.container}>
+      <form>
         <RibbonHeading heading={"Osa till vårt bröllop"} />
         <Input
           inputLabel="Namn på gäst/gäster"

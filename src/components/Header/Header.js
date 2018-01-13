@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import Burger from "components/Burger";
 import routes from "utils/constants/routes";
-import s from "./_Header.scss";
+import s from "./Header.scss";
 
 class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -20,24 +20,24 @@ class Header extends React.Component {
 
     let classNames;
     if (mobileMenuOpen && mobileMenuHasBeenDisplayed) {
-      classNames = `${s.Container} ${s.IsOpen}`;
+      classNames = `${s.container} ${s.isOpen}`;
     } else if (!mobileMenuOpen && mobileMenuHasBeenDisplayed) {
-      classNames = `${s.Container} ${s.IsClosed}`;
+      classNames = `${s.container} ${s.isClosed}`;
     } else {
-      classNames = `${s.Container} ${s.InitiallyHidden}`;
+      classNames = `${s.container} ${s.initiallyHidden}`;
     }
     return [
       <header className={classNames} key={12}>
-        <div className={s.Inner}>
+        <div className={s.inner}>
           <nav>
-            <ul className={s.List}>
+            <ul className={s.list}>
               {routes.map((route, index) => (
-                <li className={s.ListItem} key={index}>
+                <li className={s.item} key={index}>
                   <NavLink
                     exact
                     to={route.slug}
-                    className={s.ListLink}
-                    activeClassName={s.IsActive}
+                    className={s.link}
+                    activeClassName={s.isActive}
                   >
                     {route.navTitle}
                   </NavLink>

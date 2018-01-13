@@ -25,11 +25,10 @@ class Root extends React.Component {
               this.setState({
                 mobileMenuOpen: !mobileMenuOpen,
                 mobileMenuHasBeenDisplayed: true
-              })}
+              })
+            }
           />
-          <main
-            className={s.Container}
-          >
+          <main className={s.container}>
             {routes.map((route, index) => (
               <Route
                 key={index}
@@ -40,7 +39,7 @@ class Root extends React.Component {
               />
             ))}
           </main>
-          <footer className="Footer" />
+          <footer />
         </div>
       </Router>
     );
