@@ -1,0 +1,63 @@
+@import "~scss/_variables";
+@import "~scss/_mixins";
+.container {
+    box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.577);
+    position: fixed;
+    background-color: white;
+    top: 0;
+    right: 0;
+    z-index: $z-index-second;
+    @include breakpoint(1px, $header-breakpoint) {
+        height: 100%;
+        width: $mobile-menu-width;
+        &.initiallyHidden {
+            display: none;
+        }
+        &.isClosed {
+            animation: sk-scaledown 0.35s ease-in-out;
+            animation-fill-mode: forwards;
+            animation-direction: linear;
+            display: flex;
+        }
+        &.isOpen {
+            display: flex;
+            animation: sk-scaleup 0.35s ease-in-out;
+        }
+    }
+    @include breakpoint($header-breakpoint) {
+        width: 100%;
+    }
+}
+
+.inner {
+    margin: 0 auto;
+    max-width: $page-max-width;
+    @include breakpoint(1px, $header-breakpoint) {
+        display: flex;
+        align-items: center;
+    }
+    @include breakpoint($header-breakpoint) {
+        width: 100%;
+    }
+}
+
+.list {
+    list-style: none;
+    margin: 0 $default-margin;
+    padding: 0;
+    @include breakpoint($header-breakpoint) {
+        display: inline-flex;
+    }
+}
+
+.item {
+    padding: 1.7rem 1rem;
+}
+
+.link {
+    color: $text-grey;
+    @include underline($color-red);
+    &.isActive {
+        color: $color-red;
+    }
+}
