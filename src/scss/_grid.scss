@@ -2,32 +2,23 @@
 // Used for pages without offset
 // (mainly landing page)
 //////////////////////////////////////////
-@mixin innerContainerOffset() {
-    @include breakpoint(1px, $header-breakpoint) {
-        margin-top: calc(#{$header-desk-height} * -1);
+@mixin landingPageContainer() {
+    margin-top: 0;
+    @include breakpoint($header-breakpoint) {
+        margin-top: $header-desk-height;
     }
+}
+
+@mixin pageContainer() {
+    margin-top: $header-desk-height;
 }
 
 @mixin contentContainer() {
     max-width: $page-max-width;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: $default-margin;
     @include breakpoint($header-breakpoint) {
         padding: $default-margin*2;
     }
-}
-
-//////////////////////////////////////////
-// Utils
-//////////////////////////////////////////
-.u-Center {
-    text-align: center;
-}
-
-.u-Red {
-    color: $color-red;
-}
-
-.Guest-list {
-    padding: 0;
 }

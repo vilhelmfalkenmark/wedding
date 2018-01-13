@@ -26,33 +26,35 @@ class Header extends React.Component {
     } else {
       classNames = `${s.container} ${s.initiallyHidden}`;
     }
-    return [
-      <header className={classNames} key={12}>
-        <div className={s.inner}>
-          <nav>
-            <ul className={s.list}>
-              {routes.map((route, index) => (
-                <li className={s.item} key={index}>
-                  <NavLink
-                    exact
-                    to={route.slug}
-                    className={s.link}
-                    activeClassName={s.isActive}
-                  >
-                    {route.navTitle}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
+    return (
+      <header className={s.header}>
+        <div className={classNames}>
+          <div className={s.inner}>
+            <nav>
+              <ul className={s.list}>
+                {routes.map((route, index) => (
+                  <li className={s.item} key={index}>
+                    <NavLink
+                      exact
+                      to={route.slug}
+                      className={s.link}
+                      activeClassName={s.isActive}
+                    >
+                      {route.navTitle}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
-      </header>,
-      <Burger
-        mobileMenuOpen={mobileMenuOpen}
-        toggleMobileMenu={toggleMobileMenu}
-        key={13}
-      />
-    ];
+        <Burger
+          mobileMenuOpen={mobileMenuOpen}
+          toggleMobileMenu={toggleMobileMenu}
+          key={13}
+        />
+      </header>
+    );
   }
 }
 

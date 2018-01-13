@@ -26,7 +26,7 @@ class LandingPage extends Component {
 
     return (
       <DocumentTitle title={"Välkommen på bröllop 2 juni"}>
-        <div className={s.container}>
+        <main className={s.container}>
           <section
             className={s.hero}
             style={{ backgroundImage: `url(${Hero})` }}
@@ -58,7 +58,7 @@ class LandingPage extends Component {
               mapElement={<div style={{ height: `100%` }} />}
             />
           </section>
-        </div>
+        </main>
       </DocumentTitle>
     );
   }

@@ -1,11 +1,11 @@
 @import "~scss/_variables";
 @import "~scss/_mixins";
 @import "~scss/_grid";
-
 .container {
-  margin-top: 2px;
+    @include landingPageContainer();
 }
-  .hero {
+
+.hero {
     position: relative;
     width: 100%;
     display: flex;

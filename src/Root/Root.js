@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import routes from "utils/constants/routes";
 import Header from "components/Header";
+import Footer from "components/Footer";
 import s from "./Root.scss";
 
 class Root extends React.Component {
@@ -17,7 +18,7 @@ class Root extends React.Component {
     const { mobileMenuOpen, mobileMenuHasBeenDisplayed } = this.state;
     return (
       <Router>
-        <div>
+        <div className={s.content}>
           <Header
             mobileMenuOpen={mobileMenuOpen}
             mobileMenuHasBeenDisplayed={mobileMenuHasBeenDisplayed}
@@ -28,18 +29,16 @@ class Root extends React.Component {
               })
             }
           />
-          <main className={s.container}>
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                exact={route.exact}
-                path={route.slug}
-                component={route.component()}
-                onChange={this.routeChanged}
-              />
-            ))}
-          </main>
-          <footer />
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              exact={route.exact}
+              path={route.slug}
+              component={route.component()}
+              onChange={this.routeChanged}
+            />
+          ))}
+          <Footer />
         </div>
       </Router>
     );

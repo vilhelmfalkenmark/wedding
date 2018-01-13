@@ -14,7 +14,7 @@ class Guests extends Component {
 
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
-        <div className={s.container}>
+        <main className={s.container}>
           <RibbonHeading heading={"Gäster som har Osat"} />
           {fetching && !error ? (
             <p>Hämtar gäster</p>
@@ -30,7 +30,7 @@ class Guests extends Component {
           ) : (
             <p>Något gick fel!</p>
           )}
-        </div>
+        </main>
       </DocumentTitle>
     );
   }

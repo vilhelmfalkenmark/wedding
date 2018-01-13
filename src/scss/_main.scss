@@ -28,7 +28,23 @@ body {
     padding: 0;
     color: $text-grey;
     background-color: $off-white;
-    font-family: sofiaMedium; 
+    font-family: sofiaMedium;
     overflow-x: hidden;
     line-height: 1.6rem;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+ul,
+menu,
+ol {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    flex: 1 0 auto;
 }
