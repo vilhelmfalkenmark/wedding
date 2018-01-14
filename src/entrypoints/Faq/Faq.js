@@ -21,20 +21,20 @@ class Faq extends Component {
 
     return (
       <DocumentTitle title={"Vanliga frågor"}>
-        {fetching && !error ? (
-          <LoadingWall title={"Vanliga frågor"} />
-        ) : fulfilled && !error ? (
-          <div className={s.container}>
-            <RibbonHeading heading={"Frågor och svar"} />
+        <div className={s.container}>
+          <RibbonHeading heading={"Vanliga frågor"} />
+          {fetching && !error ? (
+            <LoadingWall title={"Vanliga frågor"} />
+          ) : fulfilled && !error ? (
             <ul className={s.list}>
               {faq.map((f, index) => (
                 <FaqItem question={f.question} answer={f.answer} key={index} />
               ))}
             </ul>
-          </div>
-        ) : (
-          <ErrorWall />
-        )}
+          ) : (
+            <ErrorWall />
+          )}
+        </div>
       </DocumentTitle>
     );
   }

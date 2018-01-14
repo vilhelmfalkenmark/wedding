@@ -3,7 +3,6 @@ import Input from "components/Input";
 import SwitchButton from "components/SwitchButton";
 import Button from "components/Button";
 import regex from "utils/helpers/regex";
-import RibbonHeading from "components/RibbonHeading";
 
 class RsvpForm extends Component {
   constructor() {
@@ -19,7 +18,6 @@ class RsvpForm extends Component {
   render() {
     return (
       <form>
-        <RibbonHeading heading={"Osa till vårt bröllop"} />
         <Input
           inputLabel="Namn på gäst/gäster"
           inputPlaceholder="Exempelvis: Johanna Olsson och Vilhelm Falkenmark"

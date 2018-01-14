@@ -16,11 +16,11 @@ class Guests extends Component {
 
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
-        {fetching && !error ? (
-          <LoadingWall title={"Gäster till bröllopet"} />
-        ) : fulfilled && !error ? (
-          <div className={s.container}>
-            <RibbonHeading heading={"Gäster som har Osat"} />
+        <div className={s.container}>
+          <RibbonHeading heading={"Gäster som har Osat"} />
+          {fetching && !error ? (
+            <LoadingWall title={"Gäster till bröllopet"} />
+          ) : fulfilled && !error ? (
             <ul className={s.list}>
               {data.map((f, index) => (
                 <li key={index} className={s.item}>
@@ -29,10 +29,10 @@ class Guests extends Component {
                 </li>
               ))}
             </ul>
-          </div>
-        ) : (
-          <ErrorWall />
-        )}
+          ) : (
+            <ErrorWall />
+          )}
+        </div>
       </DocumentTitle>
     );
   }

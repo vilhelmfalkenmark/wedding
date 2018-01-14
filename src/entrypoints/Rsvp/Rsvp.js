@@ -8,6 +8,7 @@ import RsvpForm from "./RsvpForm";
 import RsvpCard from "./RsvpCard";
 import RsvpError from "./RsvpError";
 import LoadingWall from "components/LoadingWall";
+import RibbonHeading from "components/RibbonHeading";
 
 import s from "./Rsvp.scss";
 
@@ -37,17 +38,27 @@ class Rsvp extends Component {
       ///////////////////////////////////////////////
       if (this.cookieIsSet) {
         if (this.props.guest.fetching) {
-          return <LoadingWall title={"Gäster"} />;
+          return (
+            <div className={s.container}>
+              <RibbonHeading heading={"Laddar"} />
+              <LoadingWall title={"Gäster"} />
+            </div>
+          );
         } else if (fetchingGuestFulfilled(this.props.guest)) {
           ////////////////////////////////////////////////
           // Cookie is set and guest data Successfuly fetched
           ///////////////////////////////////////////////
           return (
-            <RsvpCard
-              guestData={this.props.guest.data}
-              message={`Hejsan ${this.props.guest.data.guests}!`}
-              subMessage={"Du/Ni har osat! Vi ses 2 juni :)"}
-            />
+            <div className={s.container}>
+              <RibbonHeading
+                heading={`Hejsan ${this.props.guest.data.guests}!`}
+              />
+              <RsvpCard
+                guestData={this.props.guest.data}
+                message={`Hejsan ${this.props.guest.data.guests}!`}
+                subMessage={"Du/Ni har osat! Vi ses 2 juni :)"}
+              />
+            </div>
           );
         } else if (this.props.guest.error) {
           ////////////////////////////////////////////////
@@ -61,23 +72,32 @@ class Rsvp extends Component {
         ///////////////////////////////////////////////
         if (successfulRsvp(this.props.rsvp)) {
           return (
-            <RsvpCard
-              guestData={this.props.rsvp.data}
-              message={`Snyggt jobbat ${this.props.rsvp.data.guests}!`}
-              subMessage={"Du/ni har nu osat! Vi ses 2 juni :)"}
-            />
+            <div className={s.container}>
+              <RibbonHeading
+                heading={`Snyggt jobbat ${this.props.rsvp.data.guests}!`}
+              />
+              <RsvpCard
+                guestData={this.props.rsvp.data}
+                subMessage={"Du/ni har nu osat! Vi ses 2 juni :)"}
+              />
+            </div>
           );
         } else if (this.props.rsvp.error) {
           return <RsvpError />;
         } else {
-          return <RsvpForm postRsvp={this.props.postRsvp} />;
+          return (
+            <div className={s.container}>
+              <RibbonHeading heading={`Osa till vårt bröllop`} />
+              <RsvpForm postRsvp={this.props.postRsvp} />
+            </div>
+          );
         }
       }
     };
 
     return (
       <DocumentTitle title={"Osa till vårt bröllop"}>
-        <div className={s.container}>{rsvpHtml()}</div>
+        {rsvpHtml()}
       </DocumentTitle>
     );
   }
