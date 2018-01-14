@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import { fetchAllGuests } from "actions/guests";
 import RibbonHeading from "components/RibbonHeading";
+import LoadingWall from "components/LoadingWall";
+import ErrorWall from "components/ErrorWall";
 import s from "./Guests.scss";
 
 class Guests extends Component {
@@ -14,11 +16,11 @@ class Guests extends Component {
 
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
-        <main className={s.container}>
-          <RibbonHeading heading={"Gäster som har Osat"} />
-          {fetching && !error ? (
-            <p>Hämtar gäster</p>
-          ) : fulfilled && !error ? (
+        {fetching && !error ? (
+          <LoadingWall title={"Gäster till bröllopet"} />
+        ) : fulfilled && !error ? (
+          <div className={s.container}>
+            <RibbonHeading heading={"Gäster som har Osat"} />
             <ul className={s.list}>
               {data.map((f, index) => (
                 <li key={index} className={s.item}>
@@ -27,10 +29,10 @@ class Guests extends Component {
                 </li>
               ))}
             </ul>
-          ) : (
-            <p>Något gick fel!</p>
-          )}
-        </main>
+          </div>
+        ) : (
+          <ErrorWall />
+        )}
       </DocumentTitle>
     );
   }

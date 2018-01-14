@@ -7,6 +7,8 @@ import { readCookie } from "utils/helpers/cookie";
 import RsvpForm from "./RsvpForm";
 import RsvpCard from "./RsvpCard";
 import RsvpError from "./RsvpError";
+import LoadingWall from "components/LoadingWall";
+
 import s from "./Rsvp.scss";
 
 import { fetchingGuestFulfilled, successfulRsvp } from "utils/selectors/rsvp";
@@ -35,7 +37,7 @@ class Rsvp extends Component {
       ///////////////////////////////////////////////
       if (this.cookieIsSet) {
         if (this.props.guest.fetching) {
-          return <p>Hämtar data</p>;
+          return <LoadingWall title={"Gäster"} />;
         } else if (fetchingGuestFulfilled(this.props.guest)) {
           ////////////////////////////////////////////////
           // Cookie is set and guest data Successfuly fetched
@@ -73,9 +75,11 @@ class Rsvp extends Component {
       }
     };
 
-    return <DocumentTitle title={"Osa till vårt bröllop"}>
+    return (
+      <DocumentTitle title={"Osa till vårt bröllop"}>
         <div className={s.container}>{rsvpHtml()}</div>
-      </DocumentTitle>;
+      </DocumentTitle>
+    );
   }
 }
 

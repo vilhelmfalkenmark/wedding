@@ -4,6 +4,8 @@ import DocumentTitle from "react-document-title";
 import { fetchFaq } from "actions/faq";
 import FaqItem from "./FaqItem";
 import RibbonHeading from "components/RibbonHeading";
+import LoadingWall from "components/LoadingWall";
+import ErrorWall from "components/ErrorWall";
 import s from "./Faq.scss";
 
 class Faq extends Component {
@@ -19,20 +21,20 @@ class Faq extends Component {
 
     return (
       <DocumentTitle title={"Vanliga frågor"}>
-        <div className={s.container}>
-          <RibbonHeading heading={"Frågor och svar"} />
-          {fetching && !error ? (
-            <p>Hämtar frågor och svar</p>
-          ) : fulfilled && !error ? (
+        {fetching && !error ? (
+          <LoadingWall title={"Vanliga frågor"} />
+        ) : fulfilled && !error ? (
+          <div className={s.container}>
+            <RibbonHeading heading={"Frågor och svar"} />
             <ul className={s.list}>
               {faq.map((f, index) => (
                 <FaqItem question={f.question} answer={f.answer} key={index} />
               ))}
             </ul>
-          ) : (
-            <p>Något gick fel!</p>
-          )}
-        </div>
+          </div>
+        ) : (
+          <ErrorWall />
+        )}
       </DocumentTitle>
     );
   }

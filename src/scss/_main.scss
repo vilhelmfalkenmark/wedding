@@ -21,20 +21,18 @@
 
 html {
     font-size: 16px;
+    height: 100%;
 }
 
 body {
     margin: 0;
     padding: 0;
     color: $text-grey;
-    background-color: $off-white;
+    background-color: $app-background;
     font-family: sofiaMedium;
     overflow-x: hidden;
     line-height: 1.6rem;
-}
-
-html,
-body {
+    position: relative;
     height: 100%;
 }
 
@@ -44,7 +42,4 @@ ol {
     padding: 0;
     margin: 0;
 }
-
-main {
-    flex: 1 0 auto;
-}
+  

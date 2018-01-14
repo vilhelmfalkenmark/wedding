@@ -12,10 +12,8 @@
 }
 
 .item {
-    background-color: white;
-    padding: $default-margin;
+    @include card();
     margin-bottom: $default-margin;
-    border-bottom: 1px solid $border-grey;
 }
 
 .question,

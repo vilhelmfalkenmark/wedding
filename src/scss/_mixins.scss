@@ -1,27 +1,27 @@
-    @mixin breakpoint($min, $max:null) {
-    @if $max {
-        @media (min-width: $min) and (max-width: $max) {
-            @content;
+@mixin breakpoint($min, $max:null) {
+        @if $max {
+            @media (min-width: $min) and (max-width: $max) {
+                @content;
+            }
+        }
+        @else {
+            @media (min-width: $min) {
+                @content;
+            }
         }
     }
-    @else {
-        @media (min-width: $min) {
-            @content;
-        }
+
+    @mixin flexCenter() {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-}
 
-@mixin flexCenter() {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin card() {
-    background-color: white;
-    padding: 1rem;
-    box-shadow: 0px 14px 13px -17px rgba(0, 0, 0, 0.5);
-}
+    @mixin card() {
+        background-color: white;
+        padding: 1rem;
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .12);
+    }
 
 //////////////////////////////////////////////
 // Underline links animation
@@ -53,73 +53,3 @@
         }
     }
 }
-
-//////////////////////////////////////////////
-// Keyframes
-/////////////////////////////////////////////
-@keyframes bounce {
-    0%,
-    20%,
-    60%,
-    100% {
-        -webkit-transform: translateY(0);
-    }
-    40% {
-        -webkit-transform: translateY(-20px);
-    }
-    80% {
-        -webkit-transform: translateY(-10px);
-    }
-}
-
-// Skala upp och ner
-@keyframes sk-scaleup {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes sk-scaledown {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0);
-        opacity: 0;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-// Laddaren
-@keyframes sk-foldCubeAngle {
-    0%,
-    10% {
-        transform: perspective(140px) rotateX(-180deg);
-        opacity: 0;
-    }
-    25%,
-    75% {
-        transform: perspective(140px) rotateX(0deg);
-        opacity: 1;
-    }
-    90%,
-    100% {
-        transform: perspective(140px) rotateY(180deg);
-        opacity: 0;
-    }
-}
-

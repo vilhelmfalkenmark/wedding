@@ -1,13 +1,13 @@
 @import "~scss/_variables";
 @import "~scss/_mixins";
-
+@import "~scss/_keyframes";
 .container {
     box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.577);
     position: fixed;
     background-color: white;
     top: 0;
     right: 0;
-    z-index: $z-index-second;
+    z-index: $z-index-third;
     @include breakpoint(1px, $header-breakpoint) {
         height: 100%;
         width: $mobile-menu-width;

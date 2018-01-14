@@ -29,7 +29,7 @@ $size: 1.3rem;
     background: $color-red;
     color: white;
     text-align: center;
-    z-index: 3;
+    z-index: $z-index-first;
     &:before,
     &:after {
         content: "";
