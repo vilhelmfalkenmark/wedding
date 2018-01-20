@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import { fetchAllGuests } from "actions/guests";
 import RibbonHeading from "components/RibbonHeading";
-import LoadingWall from "components/LoadingWall";
+import GuestsSkeleton from "./GuestsSkeleton";
 import ErrorWall from "components/ErrorWall";
 import s from "./Guests.scss";
 
@@ -19,7 +19,7 @@ class Guests extends Component {
         <div className={s.container}>
           <RibbonHeading heading={"Gäster som har Osat"} />
           {fetching && !error ? (
-            <LoadingWall title={"Gäster till bröllopet"} />
+            <GuestsSkeleton />
           ) : fulfilled && !error ? (
             <ul className={s.list}>
               {data.map((f, index) => (

@@ -1,6 +1,7 @@
 @import "~scss/_variables";
 @import "~scss/_mixins";
 @import "~scss/_grid";
+@import "~scss/_skeleton";
 .container {
     @include pageContainer();
     @include contentContainer();
@@ -28,4 +29,58 @@
             margin-left: 0.5rem;
         }
     }
+}
+
+//////////////////////////////////////////
+// Skeleton
+//////////////////////////////////////////
+.skeleton {
+    height: 168px;
+    padding: 0;
+    border-top: 2rem solid white;
+    border-bottom: 2rem solid white;
+    border-left: 1rem solid white;
+    border-right: 1rem solid white;
+    @include skeleton(darken($skeleton-gradient, 15%), darken($skeleton-pulse, 4%));
+}
+
+.skeletonBlock {
+    z-index: $z-index-first;
+    background-color: white;
+    display: block;
+    position: absolute;
+}
+
+.r1c1 {
+    top: 0rem;
+    bottom: 0;
+    right: 0;
+    width: 15%;
+}
+
+.r2c1 {
+    right: 0;
+    width: 40%;
+    height: 1.3rem;
+}
+
+.r3c1 {
+    top: 1.3rem;
+    left: 0;
+    right: 0;
+    height: 1.3rem;
+}
+
+.r4c1 {
+    top: 3.9rem;
+    left: 0;
+    right: 0;
+    height: 1.3rem;
+}
+
+.r5c1 {
+    top: 6.5rem;
+    left: 0;
+    right: 0;
+    height: 1.3rem;
 }
