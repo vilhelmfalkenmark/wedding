@@ -4,8 +4,8 @@ import DocumentTitle from "react-document-title";
 import { fetchFaq } from "actions/faq";
 import FaqItem from "./FaqItem";
 import RibbonHeading from "components/RibbonHeading";
-import LoadingWall from "components/LoadingWall";
 import ErrorWall from "components/ErrorWall";
+import FaqSkeleton from "./FaqSkeleton";
 import s from "./Faq.scss";
 
 class Faq extends Component {
@@ -24,7 +24,7 @@ class Faq extends Component {
         <div className={s.container}>
           <RibbonHeading heading={"Vanliga frågor"} />
           {fetching && !error ? (
-            <LoadingWall title={"Vanliga frågor"} />
+            <FaqSkeleton />
           ) : fulfilled && !error ? (
             <ul className={s.list}>
               {faq.map((f, index) => (

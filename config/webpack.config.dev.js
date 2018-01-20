@@ -163,37 +163,41 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-              fallback: "style-loader",
-              use: [
-                {
-                  loader: "css-loader",
-                  options: {
-                    modules: true,
-                    localIdentName: "[name]__[local]_[hash:base64:3]"
-                  }
-                },
-                "postcss-loader"
-              ]
-            })
+            use: ["css-hot-loader"].concat(
+              ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [
+                  {
+                    loader: "css-loader",
+                    options: {
+                      modules: true,
+                      localIdentName: "[name]__[local]_[hash:base64:3]"
+                    }
+                  },
+                  "postcss-loader"
+                ]
+              })
+            )
           },
           {
             test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-              fallback: "style-loader",
-              use: [
-                {
-                  loader: "css-loader",
-                  options: {
-                    modules: true,
-                    sourceMap: true,
-                    importLoaders: 2,
-                    localIdentName: "[name]__[local]_[hash:base64:3]"
-                  }
-                },
-                "sass-loader"
-              ]
-            })
+            use: ["css-hot-loader"].concat(
+              ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [
+                  {
+                    loader: "css-loader",
+                    options: {
+                      modules: true,
+                      sourceMap: true,
+                      importLoaders: 2,
+                      localIdentName: "[name]__[local]_[hash:base64:3]"
+                    }
+                  },
+                  "sass-loader"
+                ]
+              })
+            )
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
