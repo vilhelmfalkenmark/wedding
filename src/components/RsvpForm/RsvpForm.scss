@@ -1,0 +1,5 @@
+@import "~scss/_mixins";
+
+.form {
+    @include card();
+}

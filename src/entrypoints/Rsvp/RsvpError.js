@@ -1,5 +1,5 @@
 import React from "react";
-import RsvpContactUs from "./RsvpContactUs";
+import RsvpContactUs from "components/RsvpContactUs";
 import { deleteCookie } from "utils/helpers/cookie";
 
 const RsvpError = () => {

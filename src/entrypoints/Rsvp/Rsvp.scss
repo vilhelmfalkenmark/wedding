@@ -6,22 +6,22 @@
     @include contentContainer();
 }
 
-.card {
-    @include card();
-}
+// .card {
+//     @include card();
+// }
 
-.contactContainer {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-}
+// .contactContainer {
+//     margin-top: 2rem;
+//     font-size: 0.9rem;
+// }
 
-.contact {
-    display: block;
-    a {
-        color: $color-green;
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
+// .contact {
+//     display: block;
+//     a {
+//         color: $color-green;
+//         text-decoration: none;
+//         &:hover {
+//             text-decoration: underline;
+//         }
+//     }
+// }

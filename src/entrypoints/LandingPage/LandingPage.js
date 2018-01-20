@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import GoogleMaps from "components/GoogleMaps";
+import ScrollDown from "components/ScrollDown";
+
 import Hero from "assets/images/hero.jpg";
 import { fetchInfo } from "actions/info";
 import Scroll from "react-scroll";
+// import arrowDown from "assets/svg/arrow-down.svg";
+
 import s from "./LandingPage.scss";
-import arrowDown from "assets/svg/arrow-down.svg";
 
 class LandingPage extends Component {
   componentWillMount() {
@@ -14,10 +17,12 @@ class LandingPage extends Component {
   }
 
   scrollToContent() {
+    const offset = window.innerWidth > 900 ? -112 : 0;
     Scroll.scroller.scrollTo("scroll-target", {
       duration: 300,
       delay: 0,
-      smooth: true
+      smooth: true,
+      offset
     });
   }
 
@@ -32,12 +37,11 @@ class LandingPage extends Component {
             style={{ backgroundImage: `url(${Hero})` }}
           >
             <h1 className={s.heroTitle}>Vi gifter oss 2 juni!</h1>
-            <button
-              className={s.scrollArrow}
-              onClick={this.scrollToContent.bind(this)}
-            >
-              <img src={arrowDown} alt="arrow-to-content" />
-            </button>
+            <figure className={s.scrollDown}>
+              {info.fulfilled ? (
+                <ScrollDown onClickCallback={this.scrollToContent.bind(this)} />
+              ) : null}
+            </figure>
           </section>
           {info.fulfilled ? (
             <section className={s.infoContainer} name="scroll-target">

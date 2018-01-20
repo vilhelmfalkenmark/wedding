@@ -4,8 +4,9 @@ import DocumentTitle from "react-document-title";
 import { postRsvp } from "actions/rsvp";
 import { fetchGuest } from "actions/guests";
 import { readCookie } from "utils/helpers/cookie";
-import RsvpForm from "./RsvpForm";
-import RsvpCard from "./RsvpCard";
+import RsvpConfirmation from "components/RsvpConfirmation";
+import RsvpForm from "components/RsvpForm";
+// import RsvpForm from "./RsvpForm";
 import RsvpError from "./RsvpError";
 import LoadingWall from "components/LoadingWall";
 import RibbonHeading from "components/RibbonHeading";
@@ -22,6 +23,7 @@ class Rsvp extends Component {
       songRequest: "",
       mail: "",
       allergies: "",
+      relationship: "",
       attending: true
     };
     this.cookieIsSet = readCookie();
@@ -53,7 +55,7 @@ class Rsvp extends Component {
               <RibbonHeading
                 heading={`Hejsan ${this.props.guest.data.guests}!`}
               />
-              <RsvpCard
+              <RsvpConfirmation
                 guestData={this.props.guest.data}
                 message={`Hejsan ${this.props.guest.data.guests}!`}
                 subMessage={"Du/Ni har osat! Vi ses 2 juni :)"}
@@ -76,7 +78,7 @@ class Rsvp extends Component {
               <RibbonHeading
                 heading={`Snyggt jobbat ${this.props.rsvp.data.guests}!`}
               />
-              <RsvpCard
+              <RsvpConfirmation
                 guestData={this.props.rsvp.data}
                 subMessage={"Du/ni har nu osat! Vi ses 2 juni :)"}
               />

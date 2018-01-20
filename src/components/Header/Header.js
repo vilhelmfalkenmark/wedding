@@ -4,6 +4,7 @@ import { withRouter } from "react-router";
 import Burger from "components/Burger";
 import routes from "utils/constants/routes";
 import s from "./Header.scss";
+// import arrowDown from "assets/svg/arrow-down.svg";
 
 class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -40,7 +41,12 @@ class Header extends React.Component {
                       className={s.link}
                       activeClassName={s.isActive}
                     >
-                      {route.navTitle}
+                      <img
+                        src={route.icon}
+                        alt="arrow-to-content"
+                        className={route.largeIcon ? s.largeIcon : s.icon}
+                      />
+                      <span className={s.linkTitle}>{route.navTitle}</span>
                     </NavLink>
                   </li>
                 ))}

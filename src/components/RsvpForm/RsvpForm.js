@@ -3,6 +3,7 @@ import Input from "components/Input";
 import SwitchButton from "components/SwitchButton";
 import Button from "components/Button";
 import regex from "utils/helpers/regex";
+import s from "./RsvpForm.scss";
 
 class RsvpForm extends Component {
   constructor() {
@@ -12,12 +13,13 @@ class RsvpForm extends Component {
       songRequest: "",
       mail: "",
       allergies: "",
-      attending: true
+      attending: true,
+      relationship: ""
     };
   }
   render() {
     return (
-      <form>
+      <form className={s.form}>
         <Input
           inputLabel="Namn på gäst/gäster"
           inputPlaceholder="Exempelvis: Johanna Olsson och Vilhelm Falkenmark"
@@ -27,6 +29,18 @@ class RsvpForm extends Component {
           inputOnChange={value =>
             this.setState({
               guests: value
+            })
+          }
+        />
+        <Input
+          inputLabel="Relation till brudparet"
+          inputPlaceholder="Exempelvis: syskon"
+          inputName="relationship"
+          inputDisabled={false}
+          inputValue={this.state.relationship}
+          inputOnChange={value =>
+            this.setState({
+              relationship: value
             })
           }
         />
@@ -43,7 +57,7 @@ class RsvpForm extends Component {
           }
         />
         <Input
-          inputLabel="Eventuell Specialkost (Det kommer finnas vegeteriska alternativ)"
+          inputLabel="Eventuell Specialkost"
           inputPlaceholder="Exempelvis: Nötallergiker"
           inputName="allergies"
           inputDisabled={false}
@@ -54,6 +68,7 @@ class RsvpForm extends Component {
             })
           }
         />
+
         <Input
           inputLabel="Önskelåt till dansgolvet"
           inputPlaceholder="Exempelvis: GES - När vi gräver guld i USA"
@@ -66,7 +81,8 @@ class RsvpForm extends Component {
             })
           }
         />
-        {this.state.guests.length > 5 &&
+        {/* {this.state.guests.length > 5 &&
+          this.state.relationship.length > 5 &&
           regex.mail.test(this.state.mail) && (
             <SwitchButton
               onClickCallback={e => {
@@ -79,9 +95,19 @@ class RsvpForm extends Component {
                 this.state.attending ? "Kommer :)" : "Kommer tyvärr inte :("
               }
             />
-          )}
+          )} */}
+        <SwitchButton
+          onClickCallback={e => {
+            e.preventDefault();
+            this.setState({ attending: !this.state.attending });
+          }}
+          disabled={false}
+          switchOn={this.state.attending}
+          label={this.state.attending ? "Kommer :)" : "Kommer tyvärr inte :("}
+        />
         <div className="u-Center">
           {this.state.guests.length > 5 &&
+            this.state.relationship.length > 5 &&
             regex.mail.test(this.state.mail) && (
               <Button
                 onClickCallback={e => {
@@ -91,6 +117,7 @@ class RsvpForm extends Component {
                     songRequest: this.state.songRequest,
                     mail: this.state.mail,
                     allergies: this.state.allergies,
+                    relationship: this.state.relationship,
                     attending: this.state.attending
                   });
                 }}

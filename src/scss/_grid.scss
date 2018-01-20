@@ -10,7 +10,10 @@
 }
 
 @mixin pageContainer() {
-    margin-top: $header-desk-height;
+    margin-top: 4rem;
+    @include breakpoint($header-breakpoint) {
+        margin-top: $header-desk-height;
+    }
 }
 
 @mixin contentContainer() {

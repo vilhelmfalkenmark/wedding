@@ -1,0 +1,13 @@
+@import "~scss/_variables";
+@import "~scss/_mixins";
+.card {
+    @include card();
+}
+
+.list {
+    list-style: none;
+}
+
+.item {
+  margin-bottom: 1rem;
+}

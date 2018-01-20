@@ -24,8 +24,20 @@ class Guests extends Component {
             <ul className={s.list}>
               {data.map((f, index) => (
                 <li key={index} className={s.item}>
-                  <p>Gäst/Gäster: {f.guests}</p>
-                  <p>Önskelåt: {f.songRequest}</p>
+                  <p>
+                    <strong>Gäst/Gäster:</strong>&nbsp;
+                    <span>{f.guests}</span>
+                  </p>
+                  <p>
+                    <strong>Relation till brudparet:</strong>&nbsp;
+                    <span>{f.relationship}</span>
+                  </p>
+                  {f.songRequest ? (
+                    <p>
+                      <strong>Önskelåt:</strong>&nbsp;
+                      <span>{f.songRequest}</span>
+                    </p>
+                  ) : null}
                 </li>
               ))}
             </ul>

@@ -11,6 +11,7 @@ const guestModel = {
   songRequest: "",
   mail: "",
   allergies: "",
+  relationship: "",
   attending: true
 };
 
@@ -19,6 +20,7 @@ const songRequestLens = lensPath(["body", "data", "songRequest"]);
 const mailLens = lensPath(["body", "data", "mail"]);
 const allergiesLens = lensPath(["body", "data", "allergies"]);
 const attendingLens = lensPath(["body", "data", "attending"]);
+const relationshipLens = lensPath(["body", "data", "relationship"]);
 
 module.exports = db => {
   router
@@ -32,6 +34,7 @@ module.exports = db => {
         songRequest: view(songRequestLens, request),
         mail: view(mailLens, request),
         allergies: view(allergiesLens, request),
+        relationship: view(relationshipLens, request),
         attending: view(attendingLens, request)
       });
       // response.status(404);

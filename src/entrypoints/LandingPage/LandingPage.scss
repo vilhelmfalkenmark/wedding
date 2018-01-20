@@ -47,20 +47,14 @@
     }
 }
 
-.scrollArrow {
-    outline: none;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    position: absolute;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    bottom: $default-margin;
-    height: $default-margin*3;
-    width: $default-margin*3;
-    z-index: $z-index-first;
-    animation: bounce 2s infinite ease-in-out;
+.scrollDown {
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0; 
+  bottom: $default-margin*3;
+  z-index: $z-index-first;
 }
 
 .infoContainer {
