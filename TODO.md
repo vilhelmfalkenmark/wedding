@@ -1,6 +1,6 @@
 Att göra
 
-1. Instagram footer
+1. Instagram footer (KLAR)
 2. Rensa dummy data
 3. Generisk Error wall
 4. Byta ut switchen till radio buttons i OSA sektionen

@@ -1,0 +1,31 @@
+{
+  "date": "2 juni",
+  "couple": [
+    {
+      "name": "Johanna Olsson",
+      "phoneNumber": "0708-179638",
+      "mail": "johannaviola@gmail.com"
+    },
+    {
+      "name": "Vilhelm Falkenmark",
+      "phoneNumber": "0705-580198",
+      "mail": "vilhelmfalkenmark@gmail.com"
+    }
+  ],
+  "location": {
+    "title": "Carolas Eko",
+    "address": "Testvägen 1",
+    "phoneNumber": "Hejsan",
+    "publicTransport": ["Buss nummer 1 till Testvägen", "Tunnelbana till Universitet"]
+  },
+  "toastmasters": [
+    {
+      "name": "Robert Franzon",
+      "phoneNumber": "0706913083"
+    },
+    {
+      "name": "Robert Franzon",
+      "phoneNumber": "0706913083"
+    }
+  ]
+}
