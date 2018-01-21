@@ -28,7 +28,6 @@ class LandingPage extends Component {
 
   render() {
     const { info } = this.props;
-
     return (
       <DocumentTitle title={"Välkommen på bröllop 2 juni"}>
         <main className={s.container}>
@@ -43,12 +42,17 @@ class LandingPage extends Component {
               ) : null}
             </figure>
           </section>
-          {info.fulfilled ? (
-            <section className={s.infoContainer} name="scroll-target">
-              <h2>{info.data.title}</h2>
-              <p>{info.data.content}</p>
-            </section>
-          ) : null}
+
+          <section className={s.infoContainer} name="scroll-target">
+            {info.fulfilled ? (
+              <div className={s.infoCard}>
+                <article className={s.infoContent}>
+                  <h2>{info.data.title}</h2>
+                  <p>{info.data.content}</p>
+                </article>
+              </div>
+            ) : null}
+          </section>
           <section className={s.mapWrapper}>
             <div className={s.mapAdressWrapper}>
               <h3>Vi kommer gifta oss på Carolas Eko</h3>

@@ -7,3 +7,4 @@ Att göra
 5. Google maps marker
 6. Skeleton laddare för Osa sida
 7. Allmäna CSS-fixar
+7. SÖKFUNKTION I GÄSTLISTA OCH FAQ

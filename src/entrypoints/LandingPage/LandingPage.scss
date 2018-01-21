@@ -48,20 +48,29 @@
 }
 
 .scrollDown {
-  margin: 0;
-  position: absolute;
-  text-align: center;
-  left: 0;
-  right: 0; 
-  bottom: $default-margin*3;
-  z-index: $z-index-first;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: $default-margin*3;
+    z-index: $z-index-first;
 }
 
 .infoContainer {
     @include contentContainer();
+    margin-top: $double-default-margin;
+    margin-bottom: $double-default-margin;
+}
+
+.infoCard {
     @include card();
-    margin-top: $default-margin*2;
-    margin-bottom: $default-margin*2;
+    padding: $double-default-margin;
+}
+
+.infoContent {
+    max-width: $max-inner-content;
+    margin: 0 auto;
 }
 
 .mapWrapper {

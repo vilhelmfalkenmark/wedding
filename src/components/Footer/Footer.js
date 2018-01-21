@@ -1,14 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
+
+import Instagram from "components/Instagram";
 import s from "./Footer.scss";
 
-const Footer = () => {
-  return (
-    <footer className={s.container}>
-      <ul>
-        <li>Vi ska gifta oss</li>
-      </ul>
-    </footer>
-  );
-};
+class Footer extends Component {
+  render() {
+    return (
+      <footer className={s.container}>
+        <div className={s.innerContainer}>
+          <Instagram />
+        </div>
+      </footer>
+    );
+  }
+}
 
 export default Footer;

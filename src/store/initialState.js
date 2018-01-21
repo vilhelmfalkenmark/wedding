@@ -29,6 +29,12 @@ const initialState = {
     fetching: false,
     error: false,
     data: {}
+  },
+  instagram: {
+    fulfilled: false,
+    fetching: false,
+    error: false,
+    data: []
   }
 };
 

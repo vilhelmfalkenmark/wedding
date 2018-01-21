@@ -27,15 +27,7 @@
 
 // Laddaren
 .container {
-    // z-index: $z-index-second;
-    // background-color: $app-background;
-    // position: absolute;
-    // height: 100%;
-    // left: 0;
-    // right: 0;
-    // top: 0;
-    // bottom: 0;
-    @include flexCenter();
+    @include flex-center();
 }
 
 .innerContainer {
