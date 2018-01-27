@@ -18,7 +18,6 @@ class Instagram extends Component {
   }
   render() {
     const { instagram: { data, fulfilled, fetching } } = this.props;
-    console.log(data);
 
     return fulfilled && !fetching ? (
       <ul className={s.list}>
