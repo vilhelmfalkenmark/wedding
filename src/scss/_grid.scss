@@ -1,3 +1,29 @@
+/////////////////////////////////////////////
+// GRID
+/////////////////////////////////////////////
+@mixin flex-row($margin: 1rem) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: calc(#{$margin/2} * -1);
+    margin-right: calc(#{$margin/2} * -1);
+}
+
+@mixin flex-gtr-col($columns, $gutter: 1rem) {
+    flex-basis: calc(#{percentage(1/$columns)} - #{$gutter});
+    margin: 0 $gutter/2 $gutter $gutter/2;
+}
+
+@mixin flex-col($span, $columns, $margin: 0px) {
+    $percentage: percentage($span/$columns);
+    @if $columns !=1 {
+        flex-basis: calc(#{$percentage} - #{$margin});
+    }
+    @else {
+        flex-basis: calc(#{$percentage});
+    }
+}
+
 //////////////////////////////////////////
 // Used for pages without offset
 // (mainly landing page)

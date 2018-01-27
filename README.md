@@ -1,5 +1,33 @@
-1. Fixa bakgrundsbild (KLAR!)
-2. Fixa bekräftelse när man osar
-3. Navlinks (KLAR!)
-4. Mobil meny
-5. Google maps api Key (KLAR!)
+# WEDDING
+
+I am getting married and this is the Wedding application
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Support](#support)
+- [Contributing](#contributing)
+
+## Installation
+
+1. Have node version 8.9.x installed
+2. Have yarn installed
+3. run 
+
+```sh
+yarn
+```
+
+## Usage
+
+During development interact with server and api via localhost:5000 and dev through localhost:3000
+
+
+## Support
+
+TBA
+
+## Contributing
+
+Come to the wedding.

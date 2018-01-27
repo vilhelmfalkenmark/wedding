@@ -1,10 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import ContactUs from "components/ContactUs";
+import { FAQ_ROUTE } from "utils/constants/routes";
+
 import s from "./ErrorWall.scss";
 
-export const ErrorWall = ({ title, message }) => {
+export const ErrorWall = ({ heading }) => {
   return (
     <div className={s.container}>
-      <h1>Det verkar som att något blivit galet</h1>
+      <div className={s.innerContainer}>
+        <h2 className={s.heading}>{heading}</h2>
+        <p>
+          Har du/ni några frågor om bröllopet som det inte ges svar på
+          <Link to={FAQ_ROUTE.slug} className={s.link}>
+            &nbsp;{FAQ_ROUTE.navTitle}&nbsp;
+          </Link>
+          så är ni varmt välkomna att kontakta oss:
+        </p>
+        <ContactUs />
+      </div>
     </div>
   );
 };

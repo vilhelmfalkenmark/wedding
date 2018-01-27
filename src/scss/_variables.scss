@@ -18,8 +18,9 @@ $half-default-margin: 0.5rem;
 $default-margin: 1rem;
 $double-default-margin: 2rem;
 $header-desk-height: 5rem;
-$page-max-width: 760px;
-$header-breakpoint: 900px;
+$page-max-width: 960px;
+$header-breakpoint: 960px;
+$max-inner-content: 560px; // <-- Used E.g for input fields, text etc.
 $header-desk-height: 5rem;
 $mobile-menu-width: 300px;
 //////////////////////////////////////////

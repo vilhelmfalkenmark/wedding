@@ -28,3 +28,10 @@ export const GUEST_FETCHING = "GUEST_FETCHING";
 //////////////////////////////////////////
 export const POST_RSVP_SUCCESS = "POST_RSVP_SUCCESS";
 export const POST_RSVP_ERROR = "POST_RSVP_ERROR";
+
+//////////////////////////////////////////
+// INSTAGRAM
+//////////////////////////////////////////
+export const INSTAGRAM_FETCHED = "INSTAGRAM_FETCHED";
+export const INSTAGRAM_FETCHING_ERROR = "INSTAGRAM_FETCHING_ERROR";
+export const INSTAGRAM_FETCHING = "INSTAGRAM_FETCHING";
