@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import GoogleMaps from "components/GoogleMaps";
 import ScrollDown from "components/ScrollDown";
-
 import Hero from "assets/images/hero.jpg";
 import { fetchInfo } from "actions/info";
+import copy from "utils/copy";
 import Scroll from "react-scroll";
-// import arrowDown from "assets/svg/arrow-down.svg";
 
 import s from "./LandingPage.scss";
 
@@ -28,31 +27,42 @@ class LandingPage extends Component {
 
   render() {
     const { info } = this.props;
-
     return (
-      <DocumentTitle title={"Välkommen på bröllop 2 juni"}>
+      <DocumentTitle title={`Välkommen på bröllop ${copy.weddingDate}`}>
         <main className={s.container}>
           <section
             className={s.hero}
             style={{ backgroundImage: `url(${Hero})` }}
           >
-            <h1 className={s.heroTitle}>Vi gifter oss 2 juni!</h1>
+            <h1 className={s.heroTitle}>Vi gifter oss {copy.weddingDate}</h1>
             <figure className={s.scrollDown}>
               {info.fulfilled ? (
                 <ScrollDown onClickCallback={this.scrollToContent.bind(this)} />
               ) : null}
             </figure>
           </section>
-          {info.fulfilled ? (
-            <section className={s.infoContainer} name="scroll-target">
-              <h2>{info.data.title}</h2>
-              <p>{info.data.content}</p>
-            </section>
-          ) : null}
+
+          <section className={s.infoContainer} name="scroll-target">
+            {info.fulfilled ? (
+              <div className={s.infoCard}>
+                <article className={s.infoContent}>
+                  <h2>{info.data.title}</h2>
+                  <p>{info.data.content}</p>
+                </article>
+              </div>
+            ) : null}
+          </section>
           <section className={s.mapWrapper}>
             <div className={s.mapAdressWrapper}>
-              <h3>Vi kommer gifta oss på Carolas Eko</h3>
-              <p>Adressen dit är: Lorem Ipsum dolor sit amet </p>
+              <h3>Vi kommer gifta oss på {copy.location.title}</h3>
+              <p>Adress: {copy.location.address} </p>
+              <a
+                href={`${copy.location.websiteUrl}`}
+                target="_blank"
+                className={s.link}
+              >
+                {copy.location.prettyUrl}
+              </a>
             </div>
             <GoogleMaps
               isMarkerShown

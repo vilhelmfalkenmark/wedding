@@ -7,7 +7,7 @@
 }
 
 .buttonContainer {
-    @include flexCenter();
+    @include flex-center();
     width: 2.8rem;
     height: 1.5rem;
     margin-left: 0.5rem;

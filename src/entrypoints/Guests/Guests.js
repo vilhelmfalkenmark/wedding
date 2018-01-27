@@ -42,7 +42,11 @@ class Guests extends Component {
               ))}
             </ul>
           ) : (
-            <ErrorWall />
+            <ErrorWall
+              heading={
+                "Det verkar som att något gick fel när gäster skulle hämtas"
+              }
+            />
           )}
         </div>
       </DocumentTitle>

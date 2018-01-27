@@ -1,5 +1,10 @@
 @import "~scss/_mixins";
+@import "~scss/_variables";
+.container {
+    @include card();
+}
 
 .form {
-    @include card();
+    max-width: $max-inner-content;
+    margin: 0 auto;
 }

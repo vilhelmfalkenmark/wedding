@@ -1,2 +1,16 @@
-// DEV http://localhost:3000/?code=6190b12e64b741778e508ef0ac3791ba
-// PROD https://guarded-plateau-76604.herokuapp.com/?code=c91f0b6ba80f48acbf1e671a1b8b51b1
+const router = require("express").Router();
+const axios = require("axios");
+
+module.exports = instagramToken => {
+  router.route("/").get((req, res) => {
+    axios
+      .get(
+        `https://api.instagram.com/v1/users/self/media/recent/?access_token=${instagramToken}&count=10&square=true`
+      )
+      .then(({ data }) => {
+        res.json({ data });
+      })
+      .catch(err => res.json(err));
+  });
+  return router;
+};

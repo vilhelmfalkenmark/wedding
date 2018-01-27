@@ -1,0 +1,19 @@
+@import "~scss/_mixins";
+@import "~scss/_variables";
+@import "~scss/_grid";
+.container {
+    @include card();
+    min-height: 300px;
+}
+
+.innerContainer {
+    @include contentContainer();
+}
+
+.heading {
+    text-align: center;
+}
+
+.link {
+  color: $color-green;
+}
