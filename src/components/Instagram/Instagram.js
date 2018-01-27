@@ -8,6 +8,7 @@ import {
   captionView,
   lowResolutionUrlView,
   likesView
+
   // userView
 } from "utils/selectors/instagram";
 import s from "./Instagram.scss";
@@ -18,23 +19,26 @@ class Instagram extends Component {
   }
   render() {
     const { instagram: { data, fulfilled, fetching } } = this.props;
+    console.log(data);
 
     return fulfilled && !fetching ? (
       <ul className={s.list}>
         {data.data.map((image, index) => (
           <li key={index} className={s.item}>
-            <img
-              src={lowResolutionUrlView(image)}
-              alt={captionView(image)}
-              className={s.image}
-            />
+            <figure
+              style={{
+                backgroundImage: `url(${lowResolutionUrlView(image)})`
+              }}
+              className={s.backgroundImage}
+            >
+              <span className={s.imageCaption}>{captionView(image)}</span>
+            </figure>
             <div className={s.imageInfo}>
               <figure>
                 <p className={s.likesContainer}>
                   <span className={s.likesCount}>{likesView(image)}</span>
                   <img src={heartSvg} alt="likes" className={s.likesHeart} />
                 </p>
-                {/* <p className={s.poster}>{userView(image)}</p> */}
               </figure>
             </div>
           </li>

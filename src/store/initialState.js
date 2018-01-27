@@ -34,7 +34,9 @@ const initialState = {
     fulfilled: false,
     fetching: false,
     error: false,
-    data: []
+    data: {
+      data: []
+    }
   }
 };
 

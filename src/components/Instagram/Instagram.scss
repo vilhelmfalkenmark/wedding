@@ -20,25 +20,21 @@
     }
 }
 
-.image {
-    overflow: hidden;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 0.5rem; // @include breakpoint(1px, 1024px) {}
+.backgroundImage {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    margin-bottom: 0.5rem;
+    &::after {
+        content: "";
+        padding-bottom: 100%;
+        display: block;
+    }
 }
 
-.imageInfo {
-    // @include breakpoint(1024px) {
-    //     @include flex-center();
-    //     position: absolute;
-    //     left: 0;
-    //     top: 0;
-    //     right: 0;
-    //     bottom: 0; // opacity: 0;
-    //     // transition: opacity 0.2s ease;
-    //     background-color: rgba(0, 0, 0, 0.4);
-    // }
+.imageCaption {
+  display: none;
 }
 
 .likesContainer {
