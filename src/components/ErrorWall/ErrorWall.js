@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ContactUs from "components/ContactUs";
-import { FAQ_ROUTE } from "utils/constants/routes";
+import { FAQ_ROUTE } from "utils/router/routes";
 
 import s from "./ErrorWall.scss";
 

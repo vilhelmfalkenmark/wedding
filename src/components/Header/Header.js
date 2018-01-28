@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import Burger from "components/Burger";
-import routes from "utils/constants/routes";
+import routes from "utils/router/routes";
 import s from "./Header.scss";
 // import arrowDown from "assets/svg/arrow-down.svg";
 
