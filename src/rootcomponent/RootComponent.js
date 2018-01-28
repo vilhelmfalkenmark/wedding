@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import routes from "utils/constants/routes";
+import routes from "utils/constants/router/routes";
 import Header from "components/Header";
 import Footer from "components/Footer";
-import s from "./Root.scss";
+import s from "./RootComponent.scss";
 
-class Root extends React.Component {
+class RootComponent extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -45,4 +45,4 @@ class Root extends React.Component {
   }
 }
 
-export default Root;
+export default RootComponent;

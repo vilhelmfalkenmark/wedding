@@ -1,3 +1,5 @@
+import universal from "react-universal-component";
+
 import LandingPage from "entrypoints/LandingPage";
 import Guests from "entrypoints/Guests";
 import Rsvp from "entrypoints/Rsvp";
