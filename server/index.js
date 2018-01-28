@@ -4,17 +4,15 @@ const mongodb = require("mongodb");
 const path = require("path");
 const app = express();
 const ramda = require("ramda");
+
 const { view, lensPath } = ramda;
 
-// configure app to use bodyParser()
-// this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 let apiKeys = {};
 
-// let MONGODB_URI = "";
 if (process.env.NODE_ENV === "development") {
   apiKeys = require("./secrets");
 } else {
@@ -37,11 +35,11 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Create link to React build directory
-app.use(express.static(path.resolve(__dirname, "../build"))); // <-- Tydligen ska index, root, whatever ligga överst.
+app.use(express.static(path.resolve(__dirname, "../build")));
 
 // Handle CORS
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH");
   res.header(
     "Access-Control-Allow-Headers",

@@ -1,10 +1,21 @@
 import universal from "react-universal-component";
-// SVG ICONS FOR NAVIGATION BAR
+
+// AsyncLoading Higher order component
+import AsyncLoading from "components/AsyncLoading";
+
+// Skeleton placeholders for code-splitting loading state
+import FaqSkeleton from "components/Skeletons/FaqSkeleton";
+import GuestsSkeleton from "components/Skeletons/GuestsSkeleton";
+
+// Hero Placeholder component
+import Hero from "components/Hero";
+
+// Svg icons for Navbar
 import home from "assets/svg/home.svg";
 import cheers from "assets/svg/cheers.svg";
 import guestList from "assets/svg/guest-list.svg";
 import faq from "assets/svg/faq.svg";
-import ErrorWall from "components/ErrorWall";
+
 //////////////////////////////////////////////////
 /**
  * CODE SPLITTING CHUNKS
@@ -15,7 +26,10 @@ const LandingPage = universal(
   {
     resolve: () => require.resolveWeak("entrypoints/LandingPage"),
     chunkName: "landingpage",
-    loading: ErrorWall
+    loading: AsyncLoading({
+      SkeletonPlaceholderComponent: Hero,
+      withRibbonHeading: false
+    })
   }
 );
 
@@ -25,7 +39,10 @@ const Guests = universal(
   {
     resolve: () => require.resolveWeak("entrypoints/Guests"),
     chunkName: "Guests",
-    loading: ErrorWall
+    loading: AsyncLoading({
+      SkeletonPlaceholderComponent: GuestsSkeleton,
+      withRibbonHeading: true
+    })
   }
 );
 
@@ -35,7 +52,10 @@ const Faq = universal(
   {
     resolve: () => require.resolveWeak("entrypoints/Faq"),
     chunkName: "faq",
-    loading: ErrorWall
+    loading: AsyncLoading({
+      SkeletonPlaceholderComponent: FaqSkeleton,
+      withRibbonHeading: true
+    })
   }
 );
 
@@ -45,7 +65,10 @@ const Rsvp = universal(
   {
     resolve: () => require.resolveWeak("entrypoints/Rsvp"),
     chunkName: "rsvp",
-    loading: ErrorWall
+    loading: AsyncLoading({
+      SkeletonPlaceholderComponent: FaqSkeleton,
+      withRibbonHeading: true
+    })
   }
 );
 

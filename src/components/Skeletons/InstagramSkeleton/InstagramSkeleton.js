@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Instagram.scss";
+import s from "./InstagramSkeleton.scss";
 
 const InstagramImageSkeleton = () => {
   return <li className={`${s.item} ${s.skeleton}`} />;

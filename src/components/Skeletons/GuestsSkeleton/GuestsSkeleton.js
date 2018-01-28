@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Guests.scss";
+import s from "./GuestsSkeleton.scss";
 
 const GuestSkeleton = () => {
   return (

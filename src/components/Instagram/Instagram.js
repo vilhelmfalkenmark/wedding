@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import heartSvg from "assets/svg/heart.svg";
-import InstagramSkeleton from "./InstagramSkeleton";
+import InstagramSkeleton from "components/Skeletons/InstagramSkeleton";
 
 import { fetchInstagram } from "actions/instagram";
 import {
   captionView,
   lowResolutionUrlView,
   likesView
-
-  // userView
 } from "utils/selectors/instagram";
 import s from "./Instagram.scss";
 
@@ -19,8 +17,6 @@ class Instagram extends Component {
   }
   render() {
     const { instagram: { data, fulfilled, fetching } } = this.props;
-    console.log(data);
-
     return fulfilled && !fetching ? (
       <ul className={s.list}>
         {data.data.map((image, index) => (
