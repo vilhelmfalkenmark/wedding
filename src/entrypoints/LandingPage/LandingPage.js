@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import GoogleMaps from "components/GoogleMaps";
-import ScrollDown from "components/ScrollDown";
-import Hero from "assets/images/hero.jpg";
+import Hero from "components/Hero";
 import { fetchInfo } from "actions/info";
 import copy from "utils/copy";
 import Scroll from "react-scroll";
@@ -30,18 +29,10 @@ class LandingPage extends Component {
     return (
       <DocumentTitle title={`Välkommen på bröllop ${copy.weddingDate}`}>
         <main className={s.container}>
-          <section
-            className={s.hero}
-            style={{ backgroundImage: `url(${Hero})` }}
-          >
-            <h1 className={s.heroTitle}>Vi gifter oss {copy.weddingDate}</h1>
-            <figure className={s.scrollDown}>
-              {info.fulfilled ? (
-                <ScrollDown onClickCallback={this.scrollToContent.bind(this)} />
-              ) : null}
-            </figure>
-          </section>
-
+          <Hero
+            scrollToContent={this.scrollToContent.bind(this)}
+            infoFulfilled={info.fulfilled}
+          />
           <section className={s.infoContainer} name="scroll-target">
             {info.fulfilled ? (
               <div className={s.infoCard}>

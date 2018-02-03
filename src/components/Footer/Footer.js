@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Instagram from "components/Instagram";
 import s from "./Footer.scss";
 

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import { fetchAllGuests } from "actions/guests";
 import RibbonHeading from "components/RibbonHeading";
-import GuestsSkeleton from "./GuestsSkeleton";
+import GuestsSkeleton from "components/Skeletons/GuestsSkeleton";
 import ErrorWall from "components/ErrorWall";
 import s from "./Guests.scss";
 

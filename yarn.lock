@@ -801,7 +801,7 @@ babel-plugin-transform-es2015-modules-amd@^6.22.0, babel-plugin-transform-es2015
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
-babel-plugin-transform-es2015-modules-commonjs@^6.23.0, babel-plugin-transform-es2015-modules-commonjs@^6.24.1:
+babel-plugin-transform-es2015-modules-commonjs@^6.23.0, babel-plugin-transform-es2015-modules-commonjs@^6.24.1, babel-plugin-transform-es2015-modules-commonjs@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-modules-commonjs/-/babel-plugin-transform-es2015-modules-commonjs-6.26.0.tgz#0d8394029b7dc6abe1a97ef181e00758dd2e5d8a"
   dependencies:
@@ -4336,6 +4336,10 @@ lazy-req@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/lazy-req/-/lazy-req-1.1.0.tgz#bdaebead30f8d824039ce0ce149d4daa07ba1fac"
 
+lazysizes@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lazysizes/-/lazysizes-4.0.1.tgz#428fe9561d7ff5c3b2b2787b78ed54080986420b"
+
 lcid@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
@@ -5850,6 +5854,13 @@ react-side-effect@^1.0.2:
   dependencies:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
+
+react-universal-component@^2.8.1:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/react-universal-component/-/react-universal-component-2.8.1.tgz#b7425d18bb77b7add91c18d848b0b17de7c481f9"
+  dependencies:
+    hoist-non-react-statics "^2.2.1"
+    prop-types "^15.5.10"
 
 react@^16.0.0:
   version "16.1.1"

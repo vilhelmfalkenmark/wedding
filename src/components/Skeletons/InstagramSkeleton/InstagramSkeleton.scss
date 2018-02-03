@@ -1,0 +1,32 @@
+@import "~scss/_grid";
+@import "~scss/_mixins";
+@import "~scss/_skeleton";
+@import "~scss/_variables";
+.list {
+    list-style: none;
+    @include flex-row(1rem);
+}
+
+.item {
+    position: relative;
+    @include breakpoint(1px, 450px) {
+        @include flex-gtr-col(2, 1rem);
+    }
+    @include breakpoint(451px, 759px) {
+        @include flex-gtr-col(3, 1rem);
+    }
+    @include breakpoint(760px) {
+        @include flex-gtr-col(4, 1rem);
+    }
+}
+
+.skeleton {
+    @include skeleton(darken($skeleton-gradient, 15%), darken($skeleton-pulse, 4%), auto, 100%);
+}
+
+.skeletonBlock {
+    z-index: $z-index-first;
+    background-color: white;
+    display: block;
+    position: absolute;
+}

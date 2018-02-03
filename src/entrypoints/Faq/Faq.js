@@ -5,7 +5,7 @@ import { fetchFaq } from "actions/faq";
 import FaqItem from "./FaqItem";
 import RibbonHeading from "components/RibbonHeading";
 import ErrorWall from "components/ErrorWall";
-import FaqSkeleton from "./FaqSkeleton";
+import FaqSkeleton from "components/Skeletons/FaqSkeleton";
 import s from "./Faq.scss";
 
 class Faq extends Component {
