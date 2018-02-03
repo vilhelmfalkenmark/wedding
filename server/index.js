@@ -39,17 +39,7 @@ app.use(express.static(path.resolve(__dirname, "../build")));
 
 // Handle CORS
 app.use((req, res, next) => {
-  const allowedOrigins = [
-    "https://guarded-plateau-76604.herokuapp.com",
-    "http://localhost:3000",
-    "http://localhost:8080",
-    "http://johannaochville.se"
-  ];
-
-  if (allowedOrigins.indexOf(req.headers.origin) !== -1) {
-    res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
-  }
-
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH");
   res.header(
     "Access-Control-Allow-Headers",

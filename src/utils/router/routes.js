@@ -6,6 +6,7 @@ import AsyncLoading from "components/AsyncLoading";
 // Skeleton placeholders for code-splitting loading state
 import FaqSkeleton from "components/Skeletons/FaqSkeleton";
 import GuestsSkeleton from "components/Skeletons/GuestsSkeleton";
+import RsvpSkeleton from "components/Skeletons/RsvpSkeleton";
 
 // Hero Placeholder component
 import Hero from "components/Hero";
@@ -66,7 +67,7 @@ const Rsvp = universal(
     resolve: () => require.resolveWeak("entrypoints/Rsvp"),
     chunkName: "rsvp",
     loading: AsyncLoading({
-      SkeletonPlaceholderComponent: FaqSkeleton,
+      SkeletonPlaceholderComponent: RsvpSkeleton,
       withRibbonHeading: true
     })
   }

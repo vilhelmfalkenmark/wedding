@@ -2,17 +2,25 @@ import React from "react";
 import RsvpContactUs from "components/RsvpContactUs";
 import s from "./RsvpConfirmation.scss";
 
-const RsvpConfirmation = ({ guestData, subMessage }) => {
+const RsvpConfirmation = ({
+  guestData,
+  attendingMessage,
+  notAttendingMessage
+}) => {
   console.log(guestData);
 
   return (
     <div className={s.card}>
-      <h3>{subMessage}</h3>
+      <h3>{guestData.attending ? attendingMessage : notAttendingMessage}</h3>
 
       <ul className={s.list}>
         <li className={s.item}>
           <strong>Namn på Gäst/Gäster:</strong>&nbsp;
           <span>{guestData.guests}</span>
+        </li>
+        <li className={s.item}>
+          <strong>Kommer:</strong>&nbsp;
+          <span>{guestData.attending ? "Ja" : "Nej"}</span>
         </li>
         <li className={s.item}>
           <strong>Relation till brudparet:</strong>&nbsp;

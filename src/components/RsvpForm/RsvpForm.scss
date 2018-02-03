@@ -1,5 +1,6 @@
 @import "~scss/_mixins";
 @import "~scss/_variables";
+
 .container {
     @include card();
 }
@@ -7,4 +8,9 @@
 .form {
     max-width: $max-inner-content;
     margin: 0 auto;
+}
+
+.buttonContainer {
+  text-align: center;
+  padding-bottom: $default-margin;
 }

@@ -16,7 +16,7 @@ class Guests extends Component {
 
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
-        <div className={s.container}>
+        <main className={s.container}>
           <RibbonHeading heading={"Gäster som har Osat"} />
           {fetching && !error ? (
             <GuestsSkeleton />
@@ -48,7 +48,7 @@ class Guests extends Component {
               }
             />
           )}
-        </div>
+        </main>
       </DocumentTitle>
     );
   }

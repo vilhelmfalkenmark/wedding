@@ -13,7 +13,10 @@
 
 .item {
     @include card();
-    margin-bottom: $default-margin;
+    margin-bottom: $default-margin/2;
+    @include breakpoint(768px) {
+        margin-bottom: $default-margin;
+    }
 }
 
 .question,

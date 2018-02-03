@@ -21,7 +21,7 @@ class Faq extends Component {
 
     return (
       <DocumentTitle title={"Vanliga frågor"}>
-        <div className={s.container}>
+        <main className={s.container}>
           <RibbonHeading heading={"Vanliga frågor"} />
           {fetching && !error ? (
             <FaqSkeleton />
@@ -34,7 +34,7 @@ class Faq extends Component {
           ) : (
             <ErrorWall />
           )}
-        </div>
+        </main>
       </DocumentTitle>
     );
   }
