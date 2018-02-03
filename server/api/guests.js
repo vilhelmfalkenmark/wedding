@@ -1,10 +1,10 @@
-const express = require("express");
-const ObjectID = require("mongodb").ObjectID;
-const router = express.Router();
-const GUEST_COLLECTION = "guests";
-const ramda = require("ramda");
+import { view, lensPath, lensIndex } from "ramda";
+import express from "express";
+import { ObjectID } from "mongodb";
 
-const { view, lensPath, lensIndex } = ramda;
+const router = express.Router();
+
+const GUEST_COLLECTION = "guests";
 
 const guestModel = {
   guests: "",
@@ -42,9 +42,7 @@ module.exports = db => {
       // return false;
       db.collection(GUEST_COLLECTION).insertOne(newGuest, (err, doc) => {
         if (err) {
-          response.json({
-            error: "error in post request"
-          });
+          response.json({ error: "error in post request" });
           return console.log(err, "error in post request");
         }
         response.status(201).json(view(lensIndex(0), doc.ops));
@@ -59,14 +57,10 @@ module.exports = db => {
         .find({})
         .toArray(function(err, data) {
           if (err) {
-            response.json({
-              error: "error in get request for all guests"
-            });
+            response.json({ error: "error in get request for all guests" });
             return console.log(err, "error in get request");
           } else {
-            response.status(200).json({
-              data
-            });
+            response.status(200).json({ data });
           }
         });
     });
