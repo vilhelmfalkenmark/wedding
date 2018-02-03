@@ -29,14 +29,14 @@ class Instagram extends Component {
             >
               <span className={s.imageCaption}>{captionView(image)}</span>
             </figure>
-            <div className={s.imageInfo}>
+            {/* <div className={s.imageInfo}>
               <figure>
                 <p className={s.likesContainer}>
                   <span className={s.likesCount}>{likesView(image)}</span>
                   <img src={heartSvg} alt="likes" className={s.likesHeart} />
                 </p>
               </figure>
-            </div>
+            </div> */}
           </li>
         ))}
       </ul>

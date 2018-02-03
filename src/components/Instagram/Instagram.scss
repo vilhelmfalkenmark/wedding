@@ -3,19 +3,19 @@
 @import "~scss/_variables";
 .list {
     list-style: none;
-    @include flex-row(1rem);
+    @include flex-row(0);
 }
 
 .item {
     position: relative;
     @include breakpoint(1px, 450px) {
-        @include flex-gtr-col(2, 1rem);
+        @include flex-gtr-col(2, 0);
     }
     @include breakpoint(451px, 759px) {
-        @include flex-gtr-col(3, 1rem);
+        @include flex-gtr-col(3, 0);
     }
     @include breakpoint(760px) {
-        @include flex-gtr-col(4, 1rem);
+        @include flex-gtr-col(3, 0);
     }
 }
 
@@ -24,7 +24,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     position: relative;
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.5rem;
     &::after {
         content: "";
         padding-bottom: 100%;

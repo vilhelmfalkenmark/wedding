@@ -1,4 +1,6 @@
 import React from "react";
+import myMarker from "assets/images/myMarker.png";
+
 import {
   withScriptjs,
   withGoogleMap,
@@ -11,18 +13,25 @@ import { styles } from "./GoogleMapsStyles.js";
 const GoogleMaps = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
-      defaultZoom={13}
+      defaultZoom={12}
       defaultCenter={{ lat: 59.363598, lng: 18.074851 }}
       defaultOptions={{
         scrollwheel: false,
         styles: styles,
-        zoomControl: false,
+        zoomControl: true,
         draggable: true,
         disableDefaultUI: true
       }}
     >
       {props.isMarkerShown && (
-        <Marker position={{ lat: 59.363598, lng: 18.074851 }} />
+        <Marker
+          position={{ lat: 59.363598, lng: 18.074851 }}
+          icon={{
+            url: myMarker, // pass your image here
+            scaledSize: { width: 70, height: 45 },
+            size: { width: 70, height: 45 }
+          }}
+        />
       )}
     </GoogleMap>
   ))

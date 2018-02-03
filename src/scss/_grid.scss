@@ -1,58 +1,64 @@
-/////////////////////////////////////////////
-// GRID
-/////////////////////////////////////////////
-@mixin flex-row($margin: 1rem) {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-left: calc(#{$margin/2} * -1);
-    margin-right: calc(#{$margin/2} * -1);
-}
+    /////////////////////////////////////////////
+    // GRID
+    /////////////////////////////////////////////
+    @mixin flex-row($margin: 1rem) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        @if $margin !=0 {
+            margin-left: calc(#{$margin/2} * -1);
+            margin-right: calc(#{$margin/2} * -1);
+        }
+    }
 
-@mixin flex-gtr-col($columns, $gutter: 1rem) {
-    flex-basis: calc(#{percentage(1/$columns)} - #{$gutter});
-    margin: 0 $gutter/2 $gutter $gutter/2;
-}
+    @mixin flex-gtr-col($columns, $gutter: 1rem) {
+        @if $gutter !=0 {
+            flex-basis: calc(#{percentage(1/$columns)} - #{$gutter});
+            margin: 0 $gutter/2 $gutter $gutter/2;
+        }
+        @else {
+            flex-basis: calc(#{percentage(1/$columns)});
+            margin: 0;
+        }
+    }
 
-@mixin flex-col($span, $columns, $margin: 0px) {
-    $percentage: percentage($span/$columns);
-    @if $columns !=1 {
-        flex-basis: calc(#{$percentage} - #{$margin});
+    @mixin flex-col($span, $columns, $margin: 0px) {
+        $percentage: percentage($span/$columns);
+        @if $columns !=1 {
+            flex-basis: calc(#{$percentage} - #{$margin});
+        }
+        @else {
+            flex-basis: calc(#{$percentage});
+        }
+    } //////////////////////////////////////////
+    // Used for pages without offset
+    // (mainly landing page)
+    //////////////////////////////////////////
+    @mixin landingPageContainer() {
+        margin-top: 0;
+        @include breakpoint($header-breakpoint) {
+            margin-top: $header-desk-height;
+        }
     }
-    @else {
-        flex-basis: calc(#{$percentage});
-    }
-}
 
-//////////////////////////////////////////
-// Used for pages without offset
-// (mainly landing page)
-//////////////////////////////////////////
-@mixin landingPageContainer() {
-    margin-top: 0;
-    @include breakpoint($header-breakpoint) {
-        margin-top: $header-desk-height;
+    @mixin pageContainer() {
+        margin-top: 4rem;
+        @include breakpoint($header-breakpoint) {
+            margin-top: $header-desk-height;
+        }
     }
-}
 
-@mixin pageContainer() {
-    margin-top: 4rem;
-    @include breakpoint($header-breakpoint) {
-        margin-top: $header-desk-height;
+    @mixin contentContainer() {
+        flex: 1;
+        width: 100%;
+        max-width: $page-max-width;
+        margin-left: auto;
+        margin-right: auto;
+        padding: $default-margin $default-margin/2;
+        @include breakpoint(768px) {
+            padding: $default-margin;
+        }
+        @include breakpoint($header-breakpoint) {
+            padding: $default-margin*2;
+        }
     }
-}
-
-@mixin contentContainer() {
-    flex: 1;
-    width: 100%;
-    max-width: $page-max-width;
-    margin-left: auto;
-    margin-right: auto;
-    padding: $default-margin $default-margin/2;
-    @include breakpoint(768px) {
-        padding: $default-margin;
-    }
-    @include breakpoint($header-breakpoint) {
-        padding: $default-margin*2;
-    }
-}
