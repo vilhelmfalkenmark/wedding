@@ -14,6 +14,14 @@ class Guests extends Component {
   render() {
     const { guests: { data, fulfilled, fetching, error } } = this.props;
 
+    const attendingGuests = fulfilled
+      ? data.filter(guest => guest.attending)
+      : [];
+
+    const notAttendingGuests = fulfilled
+      ? data.filter(guest => !guest.attending)
+      : [];
+
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
         <main className={s.container}>
@@ -21,26 +29,58 @@ class Guests extends Component {
           {fetching && !error ? (
             <GuestsSkeleton />
           ) : fulfilled && !error ? (
-            <ul className={s.list}>
-              {data.map((f, index) => (
-                <li key={index} className={s.item}>
-                  <p>
-                    <strong>Gäst/Gäster:</strong>&nbsp;
-                    <span>{f.guests}</span>
-                  </p>
-                  <p>
-                    <strong>Relation till brudparet:</strong>&nbsp;
-                    <span>{f.relationship}</span>
-                  </p>
-                  {f.songRequest ? (
-                    <p>
-                      <strong>Önskelåt:</strong>&nbsp;
-                      <span>{f.songRequest}</span>
-                    </p>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
+            <div>
+              {attendingGuests.length > 0 ? (
+                <div>
+                  <h3 className={s.heading}>Kommer</h3>
+                  <ul className={s.list}>
+                    {attendingGuests.map((f, index) => (
+                      <li key={index} className={s.item}>
+                        <p>
+                          <strong>Gäst/Gäster:</strong>&nbsp;
+                          <span>{f.guests}</span>
+                        </p>
+                        <p>
+                          <strong>Relation till brudparet:</strong>&nbsp;
+                          <span>{f.relationship}</span>
+                        </p>
+                        {f.songRequest ? (
+                          <p>
+                            <strong>Önskelåt:</strong>&nbsp;
+                            <span>{f.songRequest}</span>
+                          </p>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+              {notAttendingGuests.length > 0 ? (
+                <div>
+                  <h3 className={s.heading}>Kommer tyvärr inte :(</h3>
+                  <ul className={s.list}>
+                    {notAttendingGuests.map((f, index) => (
+                      <li key={index} className={s.item}>
+                        <p>
+                          <strong>Gäst/Gäster:</strong>&nbsp;
+                          <span>{f.guests}</span>
+                        </p>
+                        <p>
+                          <strong>Relation till brudparet:</strong>&nbsp;
+                          <span>{f.relationship}</span>
+                        </p>
+                        {f.songRequest ? (
+                          <p>
+                            <strong>Önskelåt:</strong>&nbsp;
+                            <span>{f.songRequest}</span>
+                          </p>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </div>
           ) : (
             <ErrorWall
               heading={

@@ -2,6 +2,13 @@
 @import "~scss/_mixins";
 .card {
     @include card();
+    word-break: break-all;
+    text-align: center;
+}
+
+.inner {
+    display: inline-block;
+    text-align: left;
 }
 
 .list {
@@ -9,5 +16,5 @@
 }
 
 .item {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }

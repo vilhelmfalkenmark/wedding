@@ -6,6 +6,24 @@
     @include contentContainer();
 }
 
+.heading {
+    text-align: center;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    &::after {
+        height: 4px;
+        width: 4rem;
+        content: "";
+        position: absolute;
+        background-color: $color-medium-grey;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;

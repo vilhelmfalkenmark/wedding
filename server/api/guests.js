@@ -1,6 +1,9 @@
-import { view, lensPath, lensIndex } from "ramda";
-import express from "express";
-import { ObjectID } from "mongodb";
+const ramda = require("ramda");
+const mongoDB = require("mongodb");
+const express = require("express");
+
+const { view, lensPath, lensIndex } = ramda;
+const { ObjectID } = mongoDB;
 
 const router = express.Router();
 

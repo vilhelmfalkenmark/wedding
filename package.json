@@ -78,13 +78,12 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node server-build",
+    "start": "node server",
     "client": "NODE_ENV=development node scripts/start.js",
     "client:build": "node scripts/build.js",
-    "server": "NODE_ENV=development nodemon server --exec babel-node --presets babel-preset-env",
-    "server:build": "rm -rf server-build && mkdir server-build && BABEL_ENV=production babel -d ./server-build ./server",
+    "server": "NODE_ENV=development nodemon server",
     "test": "node scripts/test.js --env=jsdom",
-    "heroku-postbuild": "npm install --only=dev && npm install && npm run client:build && npm run server:build"
+    "heroku-postbuild": "npm install --only=dev && npm install && npm run client:build"
   },
   "jest": {
     "collectCoverageFrom": [

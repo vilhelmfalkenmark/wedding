@@ -1,8 +1,8 @@
-import ramda from "ramda";
-import express from "express";
-import bodyParser from "body-parser";
-import mongodb from "mongodb";
-import path from "path";
+const ramda = require("ramda");
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongodb = require("mongodb");
+const path = require("path");
 
 const app = express();
 const { view, lensPath } = ramda;
