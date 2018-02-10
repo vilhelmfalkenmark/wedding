@@ -34,18 +34,20 @@
 .inner {
     margin: 0 auto;
     max-width: 960px; // max-width: $page-max-width;
+    display: flex;
     @include breakpoint(1px, $header-breakpoint) {
         display: flex;
         align-items: center;
     }
     @include breakpoint($header-breakpoint) {
         width: 100%;
+        justify-content: space-between;
     }
 }
 
 .list {
     list-style: none;
-    margin: 0 $default-margin;
+    margin: 0;
     padding: 0;
     @include breakpoint($header-breakpoint) {
         display: inline-flex;
@@ -53,7 +55,7 @@
 }
 
 .item {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1rem 1.5rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,4 +116,16 @@
 .linkTitle {
     display: inline-block;
     margin-left: 0.5rem;
+}
+
+.svgContainer  {
+ display: flex;
+ justify-content: center;
+ align-items: center; 
+} 
+
+.ville,
+.johanna {
+    display: inline-block;
+    height: 4rem;
 }

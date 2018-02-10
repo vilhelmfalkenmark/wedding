@@ -4,7 +4,9 @@ import { withRouter } from "react-router";
 import Burger from "components/Burger";
 import routes from "utils/router/routes";
 import s from "./Header.scss";
-// import arrowDown from "assets/svg/arrow-down.svg";
+// import ville from "assets/svg/arrow-down.svg";
+import ville from "assets/svg/ville.svg";
+import johanna from "assets/svg/johanna.svg";
 
 class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -52,6 +54,10 @@ class Header extends React.Component {
                 ))}
               </ul>
             </nav>
+            <figure className={s.svgContainer}>
+              <img className={s.johanna} src={johanna} alt="Johanna SVG" />
+              <img className={s.ville} src={ville} alt="Ville SVG" />
+            </figure>
           </div>
         </div>
         <Burger
