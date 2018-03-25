@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "private": true,
   "engines": {
-    "node": "8.9.0"
+    "node": "8.9.x"
   },
   "dependencies": {
     "autoprefixer": "7.1.2",
