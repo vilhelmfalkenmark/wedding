@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Instagram from "components/Instagram";
-import s from "./Footer.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./Footer.css";
 
 class Footer extends Component {
   render() {
@@ -14,4 +16,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+export default WithStyles(Footer, s);

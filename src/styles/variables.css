@@ -16,7 +16,7 @@
   --header-desk-height: 5rem;
   --page-max-width: 960px;
   --header-breakpoint: 960px;
-  --max-inner-content: 560px; // <-- Used E.g for input fields, text etc.
+  --max-inner-content: 560px;
   --header-desk-height: 5rem;
   --mobile-menu-width: 300px;
 

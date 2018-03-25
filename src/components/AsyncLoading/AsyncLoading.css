@@ -1,0 +1,10 @@
+@import "grid";
+
+.withoutRibbonContainer {
+  @mixin landingPageContainer;
+}
+
+.withRibbonContainer {
+  @include pageContainer;
+  @include contentContainer;
+}

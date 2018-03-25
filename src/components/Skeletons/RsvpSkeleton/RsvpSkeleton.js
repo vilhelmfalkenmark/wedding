@@ -1,5 +1,7 @@
 import React from "react";
-import s from "./RsvpSkeleton.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./RsvpSkeleton.css";
 
 const RsvpSkeleton = () => {
   return (
@@ -15,4 +17,4 @@ const RsvpSkeleton = () => {
   );
 };
 
-export default RsvpSkeleton;
+export default WithStyles(RsvpSkeleton, s);

@@ -1,4 +1,3 @@
-// const autoprefixer = require("autoprefixer");
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -166,46 +165,8 @@ module.exports = {
           // "style" loader turns CSS into JS modules that inject <style> tags.
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
-          // {
-          //   test: /\.css$/,
-          //   use: ["css-hot-loader"].concat(
-          //     ExtractTextPlugin.extract({
-          //       fallback: "style-loader",
-          //       use: [
-          //         {
-          //           loader: "css-loader",
-          //           options: {
-          //             modules: true,
-          //             localIdentName: "[name]__[local]_[hash:base64:3]"
-          //           }
-          //         },
-          //         "postcss-loader"
-          //       ]
-          //     })
-          //   )
-          // },
-          // {
-          //   test: /\.scss$/,
-          //   use: ["css-hot-loader"].concat(
-          //     ExtractTextPlugin.extract({
-          //       fallback: "style-loader",
-          //       use: [
-          //         {
-          //           loader: "css-loader",
-          //           options: {
-          //             modules: true,
-          //             sourceMap: true,
-          //             importLoaders: 2,
-          //             localIdentName: "[name]__[local]_[hash:base64:3]"
-          //           }
-          //         },
-          //         "sass-loader"
-          //       ]
-          //     })
-          //   )
-          // },
           {
-            test: /\.scss$/,
+            test: /\.css$/,
             use: [
               require.resolve("classnames-loader"),
               require.resolve("isomorphic-style-loader"),
@@ -217,10 +178,7 @@ module.exports = {
                   modules: true,
                   localIdentName: true
                     ? "[name]_[local]_[hash:base64:3]"
-                    : "[hash:base64:4]",
-                  config: {
-                    path: paths.postcssConfig
-                  }
+                    : "[hash:base64:4]"
                 }
               },
               {
@@ -230,8 +188,7 @@ module.exports = {
                     path: paths.postcssConfig
                   }
                 }
-              },
-              "sass-loader"
+              }
             ]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.

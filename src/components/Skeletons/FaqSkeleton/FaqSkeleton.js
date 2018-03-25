@@ -1,5 +1,6 @@
 import React from "react";
-import s from "./FaqSkeleton.scss";
+import WithStyles from "layout/WithStyles";
+import s from "./FaqSkeleton.css";
 
 const FaqItemSkeleton = () => {
   return (
@@ -24,4 +25,4 @@ const FaqSkeleton = () => {
   );
 };
 
-export default FaqSkeleton;
+export default WithStyles(FaqSkeleton, s);
