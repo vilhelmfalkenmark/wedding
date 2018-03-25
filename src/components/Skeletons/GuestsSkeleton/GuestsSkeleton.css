@@ -30,7 +30,7 @@
 }
 
 .skeleton {
-  @mixin skeleton(var(--skeleton-gradient), var(--skeleton-pulse));
+  @mixin skeleton var(--skeleton-gradient), var(--skeleton-pulse);
 
   height: 168px;
   padding: 0;

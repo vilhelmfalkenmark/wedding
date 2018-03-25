@@ -1,8 +1,7 @@
 @import "variables";
-@import "mixins";
 @import "keyframes";
 @import "grid";
-@import "layout.css";
+@import "layout";
 
 .container {
   @mixin landingPageContainer;

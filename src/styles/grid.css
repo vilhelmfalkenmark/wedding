@@ -34,7 +34,7 @@
   align-items: center;
 }
 
-@define-mixinlandingPageContainer() {
+@define-mixin landingPageContainer {
   margin-top: 0;
 
   @media (--viewport-min-960) {

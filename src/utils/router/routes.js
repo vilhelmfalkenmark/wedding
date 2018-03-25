@@ -26,11 +26,11 @@ const LandingPage = universal(
   () => import(/* webpackChunkName: 'landingpage' */ "entrypoints/LandingPage"),
   {
     resolve: () => require.resolveWeak("entrypoints/LandingPage"),
-    chunkName: "landingpage",
-    loading: AsyncLoading({
-      SkeletonPlaceholderComponent: Hero,
-      withRibbonHeading: false
-    })
+    chunkName: "landingpage"
+    // loading: AsyncLoading({
+    //   SkeletonPlaceholderComponent: Hero,
+    //   withRibbonHeading: false
+    // })
   }
 );
 

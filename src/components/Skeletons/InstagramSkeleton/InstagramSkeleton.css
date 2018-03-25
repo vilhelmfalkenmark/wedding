@@ -1,5 +1,5 @@
 @import "grid";
-@import "smixins";
+@import "breakpoints";
 @import "skeleton";
 @import "variables";
 
@@ -22,7 +22,7 @@
 }
 
 .skeleton {
-  @mixin skeleton(var(--skeleton-gradient), var(--skeleton-pulse));
+  @mixin skeleton;
 }
 
 .skeletonBlock {

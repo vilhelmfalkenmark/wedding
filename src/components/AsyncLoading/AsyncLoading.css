@@ -5,6 +5,6 @@
 }
 
 .withRibbonContainer {
-  @include pageContainer;
-  @include contentContainer;
+  @mixin pageContainer;
+  @mixin contentContainer;
 }

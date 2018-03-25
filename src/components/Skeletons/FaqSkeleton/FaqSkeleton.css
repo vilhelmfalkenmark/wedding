@@ -1,5 +1,5 @@
 @import "variables";
-@import "~scss/_skeleton";
+@import "skeleton";
 
 .skeleton {
   height: 130px;
