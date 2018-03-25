@@ -6,6 +6,7 @@ import Hero from "components/Hero";
 import { fetchInfo } from "actions/info";
 import copy from "utils/copy";
 import Scroll from "react-scroll";
+import WithStyles from "layout/WithStyles";
 
 import s from "./LandingPage.scss";
 
@@ -78,4 +79,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchInfo());
   }
 });
-export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  WithStyles(LandingPage, s)
+);

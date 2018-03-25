@@ -217,7 +217,10 @@ module.exports = {
                   modules: true,
                   localIdentName: true
                     ? "[name]_[local]_[hash:base64:3]"
-                    : "[hash:base64:4]"
+                    : "[hash:base64:4]",
+                  config: {
+                    path: paths.postcssConfig
+                  }
                 }
               },
               {

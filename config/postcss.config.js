@@ -16,9 +16,9 @@ module.exports = ctx => ({
   //    * Transfer @import rule by inlining content, e.g. @import 'normalize.css'
   //    * https://github.com/postcss/postcss-import
   //    */
-  //   "postcss-import": {
-  //     path: path.join(__dirname, "../src/styles")
-  //   },
+  "postcss-import": {
+    path: path.join(__dirname, "../src/styles")
+  }
   //   "postcss-mixins": {},
   //   /**
   //    * Postcss flexbox bug fixer

@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import Burger from "components/Burger";
 import routes from "utils/router/routes";
-import s from "./Header.scss";
-// import ville from "assets/svg/arrow-down.svg";
 import ville from "assets/svg/ville.svg";
 import johanna from "assets/svg/johanna.svg";
+import WithStyles from "layout/WithStyles";
+
+import s from "./Header.scss";
 
 class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -70,4 +71,4 @@ class Header extends React.Component {
   }
 }
 
-export default withRouter(Header);
+export default withRouter(WithStyles(Header, s));
