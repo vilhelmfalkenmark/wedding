@@ -1,4 +1,4 @@
-const autoprefixer = require("autoprefixer");
+// const autoprefixer = require("autoprefixer");
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -101,7 +101,8 @@ module.exports = {
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
       utils: path.resolve(paths.appSrc, "utils"),
-      scss: path.resolve(paths.appSrc, "scss")
+      scss: path.resolve(paths.appSrc, "scss"),
+      layout: path.resolve(paths.appSrc, "layout")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -171,64 +172,91 @@ module.exports = {
           // tags. If you use code splitting, however, any async bundles will still
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
-          {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract(
-              Object.assign(
-                {
-                  fallback: require.resolve("style-loader"),
-                  use: [
-                    {
-                      loader: require.resolve("css-loader"),
-                      options: {
-                        importLoaders: 1,
-                        minimize: true,
-                        sourceMap: true
-                      }
-                    },
-                    {
-                      loader: require.resolve("postcss-loader"),
-                      options: {
-                        // Necessary for external CSS imports to work
-                        // https://github.com/facebookincubator/create-react-app/issues/2677
-                        ident: "postcss",
-                        plugins: () => [
-                          require("postcss-flexbugs-fixes"),
-                          autoprefixer({
-                            browsers: [
-                              ">1%",
-                              "last 4 versions",
-                              "Firefox ESR",
-                              "not ie < 9" // React doesn't support IE8 anyway
-                            ],
-                            flexbox: "no-2009"
-                          })
-                        ]
-                      }
-                    }
-                  ]
-                },
-                extractTextPluginOptions
-              )
-            )
-          },
+          // {
+          //   test: /\.css$/,
+          //   loader: ExtractTextPlugin.extract(
+          //     Object.assign(
+          //       {
+          //         fallback: require.resolve("style-loader"),
+          //         use: [
+          //           {
+          //             loader: require.resolve("css-loader"),
+          //             options: {
+          //               importLoaders: 1,
+          //               minimize: true,
+          //               sourceMap: true
+          //             }
+          //           },
+          //           {
+          //             loader: require.resolve("postcss-loader"),
+          //             options: {
+          //               // Necessary for external CSS imports to work
+          //               // https://github.com/facebookincubator/create-react-app/issues/2677
+          //               ident: "postcss",
+          //               plugins: () => [
+          //                 require("postcss-flexbugs-fixes"),
+          //                 autoprefixer({
+          //                   browsers: [
+          //                     ">1%",
+          //                     "last 4 versions",
+          //                     "Firefox ESR",
+          //                     "not ie < 9" // React doesn't support IE8 anyway
+          //                   ],
+          //                   flexbox: "no-2009"
+          //                 })
+          //               ]
+          //             }
+          //           }
+          //         ]
+          //       },
+          //       extractTextPluginOptions
+          //     )
+          //   )
+          // },
+          // {
+          //   test: /\.scss$/,
+          //   use: ExtractTextPlugin.extract({
+          //     fallback: "style-loader",
+          //     use: [
+          //       {
+          //         loader: "css-loader",
+          //         options: {
+          //           modules: true,
+          //           sourceMap: false,
+          //           importLoaders: 2,
+          //           localIdentName: "[hash:base64:7]"
+          //         }
+          //       },
+          //       "sass-loader"
+          //     ]
+          //   })
+          // },
           {
             test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
-              fallback: "style-loader",
-              use: [
-                {
-                  loader: "css-loader",
-                  options: {
-                    modules: true,
-                    sourceMap: false,
-                    importLoaders: 2,
-                    localIdentName: "[hash:base64:7]"
+            use: [
+              require.resolve("classnames-loader"),
+              require.resolve("isomorphic-style-loader"),
+              {
+                loader: require.resolve("css-loader"),
+                options: {
+                  importLoaders: 1,
+                  // CSS Modules https://github.com/css-modules/css-modules
+                  modules: true,
+                  localIdentName: true
+                    ? "[name]_[local]_[hash:base64:3]"
+                    : "[hash:base64:4]"
+                }
+              },
+              {
+                loader: require.resolve("postcss-loader"),
+                options: {
+                  config: {
+                    path: paths.postcssConfig
                   }
-                },
-                "sass-loader"
-              ]
-            })
+                }
+              },
+              "sass-loader"
+            ]
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.

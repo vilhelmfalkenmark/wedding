@@ -4,6 +4,7 @@ import routes from "utils/router/routes";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import s from "./RootComponent.scss";
+import WithStyles from "layout/WithStyles";
 
 class RootComponent extends React.Component {
   constructor() {
@@ -18,7 +19,7 @@ class RootComponent extends React.Component {
     const { mobileMenuOpen, mobileMenuHasBeenDisplayed } = this.state;
     return (
       <Router>
-        <div className={s.content}>
+        <div className={s({ content: true })}>
           <Header
             mobileMenuOpen={mobileMenuOpen}
             mobileMenuHasBeenDisplayed={mobileMenuHasBeenDisplayed}
@@ -45,4 +46,4 @@ class RootComponent extends React.Component {
   }
 }
 
-export default RootComponent;
+export default WithStyles(RootComponent, s);

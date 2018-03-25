@@ -98,7 +98,8 @@ module.exports = {
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
       utils: path.resolve(paths.appSrc, "utils"),
-      scss: path.resolve(paths.appSrc, "scss")
+      scss: path.resolve(paths.appSrc, "scss"),
+      layout: path.resolve(paths.appSrc, "layout")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -165,43 +166,70 @@ module.exports = {
           // "style" loader turns CSS into JS modules that inject <style> tags.
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
-          {
-            test: /\.css$/,
-            use: ["css-hot-loader"].concat(
-              ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [
-                  {
-                    loader: "css-loader",
-                    options: {
-                      modules: true,
-                      localIdentName: "[name]__[local]_[hash:base64:3]"
-                    }
-                  },
-                  "postcss-loader"
-                ]
-              })
-            )
-          },
+          // {
+          //   test: /\.css$/,
+          //   use: ["css-hot-loader"].concat(
+          //     ExtractTextPlugin.extract({
+          //       fallback: "style-loader",
+          //       use: [
+          //         {
+          //           loader: "css-loader",
+          //           options: {
+          //             modules: true,
+          //             localIdentName: "[name]__[local]_[hash:base64:3]"
+          //           }
+          //         },
+          //         "postcss-loader"
+          //       ]
+          //     })
+          //   )
+          // },
+          // {
+          //   test: /\.scss$/,
+          //   use: ["css-hot-loader"].concat(
+          //     ExtractTextPlugin.extract({
+          //       fallback: "style-loader",
+          //       use: [
+          //         {
+          //           loader: "css-loader",
+          //           options: {
+          //             modules: true,
+          //             sourceMap: true,
+          //             importLoaders: 2,
+          //             localIdentName: "[name]__[local]_[hash:base64:3]"
+          //           }
+          //         },
+          //         "sass-loader"
+          //       ]
+          //     })
+          //   )
+          // },
           {
             test: /\.scss$/,
-            use: ["css-hot-loader"].concat(
-              ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [
-                  {
-                    loader: "css-loader",
-                    options: {
-                      modules: true,
-                      sourceMap: true,
-                      importLoaders: 2,
-                      localIdentName: "[name]__[local]_[hash:base64:3]"
-                    }
-                  },
-                  "sass-loader"
-                ]
-              })
-            )
+            use: [
+              require.resolve("classnames-loader"),
+              require.resolve("isomorphic-style-loader"),
+              {
+                loader: require.resolve("css-loader"),
+                options: {
+                  importLoaders: 1,
+                  // CSS Modules https://github.com/css-modules/css-modules
+                  modules: true,
+                  localIdentName: true
+                    ? "[name]_[local]_[hash:base64:3]"
+                    : "[hash:base64:4]"
+                }
+              },
+              {
+                loader: require.resolve("postcss-loader"),
+                options: {
+                  config: {
+                    path: paths.postcssConfig
+                  }
+                }
+              },
+              "sass-loader"
+            ]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
