@@ -1,5 +1,7 @@
 import React from "react";
-import s from "./Burger.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./Burger.css";
 
 const Burger = ({ mobileMenuOpen, toggleMobileMenu }) => {
   return (
@@ -15,4 +17,4 @@ const Burger = ({ mobileMenuOpen, toggleMobileMenu }) => {
   );
 };
 
-export default Burger;
+export default WithStyles(Burger, s);

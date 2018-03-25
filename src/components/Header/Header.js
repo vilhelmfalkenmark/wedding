@@ -7,7 +7,7 @@ import ville from "assets/svg/ville.svg";
 import johanna from "assets/svg/johanna.svg";
 import WithStyles from "layout/WithStyles";
 
-import s from "./Header.scss";
+import s from "./Header.css";
 
 class Header extends React.Component {
   componentWillReceiveProps(nextProps) {

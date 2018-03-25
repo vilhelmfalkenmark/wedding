@@ -97,7 +97,6 @@ module.exports = {
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
       utils: path.resolve(paths.appSrc, "utils"),
-      scss: path.resolve(paths.appSrc, "scss"),
       layout: path.resolve(paths.appSrc, "layout")
     },
     plugins: [

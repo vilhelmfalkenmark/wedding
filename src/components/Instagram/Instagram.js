@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import heartSvg from "assets/svg/heart.svg";
 import InstagramSkeleton from "components/Skeletons/InstagramSkeleton";
+import WithStyles from "layout/WithStyles";
 
 import { fetchInstagram } from "actions/instagram";
 import {
@@ -9,7 +10,7 @@ import {
   lowResolutionUrlView,
   likesView
 } from "utils/selectors/instagram";
-import s from "./Instagram.scss";
+import s from "./Instagram.css";
 
 class Instagram extends Component {
   componentWillMount() {
@@ -56,4 +57,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Instagram);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  WithStyles(Instagram, s)
+);

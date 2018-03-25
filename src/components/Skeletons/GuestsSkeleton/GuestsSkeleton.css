@@ -30,14 +30,14 @@
 }
 
 .skeleton {
+  @mixin skeleton(var(--skeleton-gradient), var(--skeleton-pulse));
+
   height: 168px;
   padding: 0;
   border-top: 2rem solid white;
   border-bottom: 2rem solid white;
   border-left: 1rem solid white;
   border-right: 1rem solid white;
-
-  @mixin skeleton(darken($skeleton-gradient, 15%), darken($skeleton-pulse, 4%));
 }
 
 .skeletonBlock {

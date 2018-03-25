@@ -1,9 +1,11 @@
 import React from "react";
-import s from "./RibbonHeading.scss";
+import WithStyles from "layout/WithStyles";
 
+import s from "./RibbonHeading.css";
 
 export const RibbonHeading = ({ heading }) => {
-  return <div className={s.container}>
+  return (
+    <div className={s.container}>
       <h1 className={s.heading}>
         <span className={`${s.headingSpan} ${s.headingOuterSpan}`}>
           <span className={`${s.headingSpan} ${s.headingInnerSpan}`}>
@@ -11,7 +13,8 @@ export const RibbonHeading = ({ heading }) => {
           </span>
         </span>
       </h1>
-    </div>;
+    </div>
+  );
 };
 
-export default RibbonHeading;
+export default WithStyles(RibbonHeading, s);

@@ -1,8 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import routes from "utils/router/routes";
+// import routes from "utils/router/routes";
 import Header from "components/Header";
 import Footer from "components/Footer";
+import LandingPage from "entrypoints/LandingPage";
+
 import s from "./Root.css";
 import WithStyles from "layout/WithStyles";
 
@@ -30,7 +32,8 @@ class Root extends React.Component {
               })
             }
           />
-          {routes.map((route, index) => (
+          <LandingPage />
+          {/* {routes.map((route, index) => (
             <Route
               key={index}
               exact={route.exact}
@@ -38,7 +41,7 @@ class Root extends React.Component {
               component={route.component}
               onChange={this.routeChanged}
             />
-          ))}
+          ))} */}
           <Footer />
         </div>
       </Router>

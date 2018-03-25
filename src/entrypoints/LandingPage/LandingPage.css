@@ -1,0 +1,101 @@
+@import "variables";
+@import "mixins";
+@import "keyframes";
+@import "grid";
+@import "layout.css";
+
+.container {
+  @mixin landingPageContainer;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: none;
+
+  @media (--viewport-max-959) {
+    height: calc(100vh);
+  }
+
+  @media (--viewport-min-960) {
+    height: calc(100vh - var(--header-desk-height));
+  }
+
+  &:after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    content: "";
+    background: linear-gradient(270deg, #de6262, #ff9959);
+    opacity: 0.8;
+  }
+}
+
+.heroTitle {
+  background-color: white;
+  padding: 1.5rem;
+  font-size: var(--font-size-l);
+  z-index: var(--z-index-first);
+
+  @media (--viewport-min-480) {
+    font-size: var(--font-size-xl);
+  }
+
+  @media (--viewport-min-9600) {
+    padding: 2rem;
+    font-size: var(--font-size-xxl);
+  }
+}
+
+.scrollDown {
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: var(--triple-default-margin);
+  z-index: var(--z-index-first);
+}
+
+.infoContainer {
+  @mixin contentContainer;
+
+  margin-top: var(--double-default-margin);
+  margin-bottom: var(--double-default-margin);
+}
+
+.infoCard {
+  @mixin card;
+  padding: var(--double-default-margin);
+}
+
+.infoContent {
+  max-width: var(--max-inner-content);
+  margin: 0 auto;
+}
+
+.mapWrapper {
+  position: relative;
+}
+
+.mapAdressWrapper {
+  position: absolute;
+  font-size: var(--font-size-xs);
+  top: var(--default-margin);
+  right: var(--default-margin);
+  z-index: var(--z-index-first);
+  padding: var(--default-margin);
+  background-color: rgba(255, 255, 255, 0.808);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-green);
+}

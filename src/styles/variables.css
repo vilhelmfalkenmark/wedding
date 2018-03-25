@@ -9,10 +9,15 @@
   --app-background: #efe9e5;
   --skeleton-gradient: #f7f7f7;
   --skeleton-pulse: #f0f0f0;
+  --burger-color: #737373;
+  --burger-background: white;
 
+  --burger-thickness: 3px;
+  --ribbon-thickness: 1.3rem;
   --half-default-margin: 0.5rem;
   --default-margin: 1rem;
   --double-default-margin: 2rem;
+  --triple-default-margin: 3rem;
   --header-desk-height: 5rem;
   --page-max-width: 960px;
   --header-breakpoint: 960px;

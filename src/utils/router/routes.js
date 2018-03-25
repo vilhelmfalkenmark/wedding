@@ -35,43 +35,43 @@ const LandingPage = universal(
 );
 
 // Guests
-const Guests = universal(
-  () => import(/* webpackChunkName: 'guests' */ "entrypoints/Guests"),
-  {
-    resolve: () => require.resolveWeak("entrypoints/Guests"),
-    chunkName: "Guests",
-    loading: AsyncLoading({
-      SkeletonPlaceholderComponent: GuestsSkeleton,
-      withRibbonHeading: true
-    })
-  }
-);
+// const Guests = universal(
+//   () => import(/* webpackChunkName: 'guests' */ "entrypoints/Guests"),
+//   {
+//     resolve: () => require.resolveWeak("entrypoints/Guests"),
+//     chunkName: "Guests",
+//     loading: AsyncLoading({
+//       SkeletonPlaceholderComponent: GuestsSkeleton,
+//       withRibbonHeading: true
+//     })
+//   }
+// );
 
-// FAQ
-const Faq = universal(
-  () => import(/* webpackChunkName: 'faq' */ "entrypoints/Faq"),
-  {
-    resolve: () => require.resolveWeak("entrypoints/Faq"),
-    chunkName: "faq",
-    loading: AsyncLoading({
-      SkeletonPlaceholderComponent: FaqSkeleton,
-      withRibbonHeading: true
-    })
-  }
-);
+// // FAQ
+// const Faq = universal(
+//   () => import(/* webpackChunkName: 'faq' */ "entrypoints/Faq"),
+//   {
+//     resolve: () => require.resolveWeak("entrypoints/Faq"),
+//     chunkName: "faq",
+//     loading: AsyncLoading({
+//       SkeletonPlaceholderComponent: FaqSkeleton,
+//       withRibbonHeading: true
+//     })
+//   }
+// );
 
-// RSVP
-const Rsvp = universal(
-  () => import(/* webpackChunkName: 'rsvp' */ "entrypoints/Rsvp"),
-  {
-    resolve: () => require.resolveWeak("entrypoints/Rsvp"),
-    chunkName: "rsvp",
-    loading: AsyncLoading({
-      SkeletonPlaceholderComponent: RsvpSkeleton,
-      withRibbonHeading: true
-    })
-  }
-);
+// // RSVP
+// const Rsvp = universal(
+//   () => import(/* webpackChunkName: 'rsvp' */ "entrypoints/Rsvp"),
+//   {
+//     resolve: () => require.resolveWeak("entrypoints/Rsvp"),
+//     chunkName: "rsvp",
+//     loading: AsyncLoading({
+//       SkeletonPlaceholderComponent: RsvpSkeleton,
+//       withRibbonHeading: true
+//     })
+//   }
+// );
 
 //////////////////////////////////////////////////
 /**
@@ -87,31 +87,32 @@ export const HOME_ROUTE = {
   component: LandingPage
 };
 
-export const GUEST_ROUTE = {
-  exact: true,
-  navTitle: "Gäster",
-  slug: "/gaster/",
-  icon: cheers,
-  largeIcon: true,
-  component: Guests
-}; // component: () => Guests || ErrorWall
+// export const GUEST_ROUTE = {
+//   exact: true,
+//   navTitle: "Gäster",
+//   slug: "/gaster/",
+//   icon: cheers,
+//   largeIcon: true,
+//   component: Guests
+// }; // component: () => Guests || ErrorWall
 
-export const RSVP_ROUTE = {
-  exact: false,
-  navTitle: "Osa till vårt bröllop",
-  slug: "/osa/",
-  icon: guestList,
-  largeIcon: false,
-  component: Rsvp
-};
+// export const RSVP_ROUTE = {
+//   exact: false,
+//   navTitle: "Osa till vårt bröllop",
+//   slug: "/osa/",
+//   icon: guestList,
+//   largeIcon: false,
+//   component: Rsvp
+// };
 
-export const FAQ_ROUTE = {
-  exact: false,
-  navTitle: "Frågor och svar",
-  slug: "/fragor-och-svar/",
-  icon: faq,
-  largeIcon: true,
-  component: Faq
-};
+// export const FAQ_ROUTE = {
+//   exact: false,
+//   navTitle: "Frågor och svar",
+//   slug: "/fragor-och-svar/",
+//   icon: faq,
+//   largeIcon: true,
+//   component: Faq
+// };
 
-export default [HOME_ROUTE, GUEST_ROUTE, RSVP_ROUTE, FAQ_ROUTE];
+export default [HOME_ROUTE];
+// export default [HOME_ROUTE, GUEST_ROUTE, RSVP_ROUTE, FAQ_ROUTE]; /* TODO UNCOMMENT ON LATER STAGE */

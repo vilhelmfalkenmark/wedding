@@ -8,7 +8,7 @@ import copy from "utils/copy";
 import Scroll from "react-scroll";
 import WithStyles from "layout/WithStyles";
 
-import s from "./LandingPage.scss";
+import s from "./LandingPage.css";
 
 class LandingPage extends Component {
   componentWillMount() {
