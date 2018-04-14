@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ContactUs from "components/ContactUs";
+import WithStyles from "layout/WithStyles";
 import { FAQ_ROUTE } from "utils/router/routes";
 
-import s from "./ErrorWall.scss";
+import s from "./ErrorWall.css";
 
 export const ErrorWall = ({ heading }) => {
   return (
@@ -23,4 +24,4 @@ export const ErrorWall = ({ heading }) => {
   );
 };
 
-export default ErrorWall;
+export default WithStyles(ErrorWall, s);

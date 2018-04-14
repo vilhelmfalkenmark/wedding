@@ -1,0 +1,9 @@
+@import "~css/_variables";
+
+.list {
+  list-style-type: none;
+}
+
+.link {
+  color: var(--color-green); // text-decoration: none;
+}

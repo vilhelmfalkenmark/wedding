@@ -6,7 +6,7 @@ import FaqItem from "./FaqItem";
 import RibbonHeading from "components/RibbonHeading";
 import ErrorWall from "components/ErrorWall";
 import FaqSkeleton from "components/Skeletons/FaqSkeleton";
-import s from "./Faq.scss";
+import s from "./Faq.css";
 
 class Faq extends Component {
   componentWillMount() {

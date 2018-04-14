@@ -1,6 +1,7 @@
 import React from "react";
 import RsvpContactUs from "components/RsvpContactUs";
-import s from "./RsvpConfirmation.scss";
+import WithStyles from "layout/WithStyles";
+import s from "./RsvpConfirmation.css";
 
 const RsvpConfirmation = ({
   guestData,
@@ -55,4 +56,4 @@ const RsvpConfirmation = ({
   );
 };
 
-export default RsvpConfirmation;
+export default WithStyles(RsvpConfirmation, s);

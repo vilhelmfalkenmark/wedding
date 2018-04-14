@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Faq.scss";
+import s from "./Faq.css";
 
 const FaqItem = ({ question, answer }) => {
   return <li className={s.item}>

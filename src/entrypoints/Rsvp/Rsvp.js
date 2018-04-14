@@ -11,7 +11,7 @@ import RsvpSkeleton from "components/Skeletons/RsvpSkeleton";
 import RibbonHeading from "components/RibbonHeading";
 import copy from "utils/copy";
 
-import s from "./Rsvp.scss";
+import s from "./Rsvp.css";
 
 import { fetchingGuestFulfilled, successfulRsvp } from "utils/selectors/rsvp";
 

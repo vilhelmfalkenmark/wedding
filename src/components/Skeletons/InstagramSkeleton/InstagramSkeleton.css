@@ -5,19 +5,19 @@
 
 .list {
   list-style: none;
-  @include flex-row(1rem);
+  @mixin flex-row(1rem);
 }
 
 .item {
   position: relative;
-  /* @include breakpoint(1px, 450px) {
-    @include flex-gtr-col(2, 1rem);
+  /* @mixin breakpoint(1px, 450px) {
+    @mixin flex-gtr-col(2, 1rem);
   }
-  @include breakpoint(451px, 759px) {
-    @include flex-gtr-col(3, 1rem);
+  @mixin breakpoint(451px, 759px) {
+    @mixin flex-gtr-col(3, 1rem);
   }
-  @include breakpoint(760px) {
-    @include flex-gtr-col(4, 1rem);
+  @mixin breakpoint(760px) {
+    @mixin flex-gtr-col(4, 1rem);
   } */
 }
 

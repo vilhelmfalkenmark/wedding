@@ -5,7 +5,7 @@ import { fetchAllGuests } from "actions/guests";
 import RibbonHeading from "components/RibbonHeading";
 import GuestsSkeleton from "components/Skeletons/GuestsSkeleton";
 import ErrorWall from "components/ErrorWall";
-import s from "./Guests.scss";
+import s from "./Guests.css";
 
 class Guests extends Component {
   componentWillMount() {

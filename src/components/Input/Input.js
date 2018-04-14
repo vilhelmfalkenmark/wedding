@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import s from "./Input.scss";
+import s from "./Input.css";
 
 export class Input extends Component {
   constructor() {

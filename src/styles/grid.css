@@ -65,3 +65,9 @@
     padding: var(--double-default-margin);
   }
 }
+
+@define-mixin card {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);
+}

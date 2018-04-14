@@ -1,6 +1,8 @@
 import React from "react";
-import s from "./RsvpContactUs.scss";
+import WithStyles from "layout/WithStyles";
 import ContactUs from "components/ContactUs";
+
+import s from "./RsvpContactUs.css";
 
 const RsvpContactUs = ({ message }) => (
   <div className={s.container}>
@@ -9,4 +11,4 @@ const RsvpContactUs = ({ message }) => (
   </div>
 );
 
-export default RsvpContactUs;
+export default WithStyles(RsvpContactUs, s);

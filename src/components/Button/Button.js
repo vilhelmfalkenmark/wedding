@@ -1,5 +1,6 @@
 import React from "react";
-import s from "./Button.scss";
+import WithStyles from "layout/WithStyles";
+import s from "./Button.css";
 
 const Button = ({ onClickCallback, buttonText, enabled, buttonPositive }) => {
   return (
@@ -12,4 +13,4 @@ const Button = ({ onClickCallback, buttonText, enabled, buttonPositive }) => {
   );
 };
 
-export default Button;
+export default WithStyles(Button, s);

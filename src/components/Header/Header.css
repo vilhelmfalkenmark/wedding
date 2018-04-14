@@ -1,7 +1,7 @@
 @import "variables";
 @import "breakpoints";
-/*@import "scss/_mixins";
-@import "scss/_keyframes"; */
+/*@import "css/_mixins";
+@import "css/_keyframes"; */
 
 .container {
   box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.577);
@@ -79,7 +79,7 @@
 /*
 // @mixin underline(var(--color: null) {
 //   text-decoration: none;
-//   @include breakpoint(900px) {
+//   @mixin breakpoint(900px) {
 //     transition: all 0.2s ease;
 //     cursor: pointer;
 //     &:after {
@@ -109,7 +109,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  /* @include underline(var(--color-red); */
+  /* @mixin underline(var(--color-red); */
   color: var(--text-grey);
   &.isActive {
     color: var(--color-red);

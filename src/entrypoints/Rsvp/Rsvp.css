@@ -1,0 +1,5 @@
+@import "grid";
+.container {
+  @mixin pageContainer;
+  @mixin contentContainer;
+}

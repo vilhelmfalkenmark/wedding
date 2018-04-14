@@ -5,10 +5,7 @@
   height: 130px;
   padding: 0;
   border: 1rem solid white;
-  @include skeleton(
-    darken($skeleton-gradient, 15%),
-    darken($skeleton-pulse, 4%)
-  );
+  @mixin skeleton(darken($skeleton-gradient, 15%), darken($skeleton-pulse, 4%));
 }
 
 .skeletonBlock {

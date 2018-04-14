@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import heartSvg from "assets/svg/heart.svg";
+// import heartSvg from "assets/svg/heart.svg";
 import InstagramSkeleton from "components/Skeletons/InstagramSkeleton";
 import WithStyles from "layout/WithStyles";
 
 import { fetchInstagram } from "actions/instagram";
 import {
   captionView,
-  lowResolutionUrlView,
-  likesView
+  lowResolutionUrlView
+  // likesView
 } from "utils/selectors/instagram";
 import s from "./Instagram.css";
 

@@ -1,0 +1,38 @@
+@import "variables";
+@import "mixins";
+@import "grid";
+
+.container {
+  @mixin pageContainer;
+  @mixin contentContainer;
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  @mixin card;
+
+  margin-bottom: var(--half-default-margin);
+
+  @media (--viewport-min-768) {
+    margin-bottom: var(--default-margin);
+  }
+}
+
+.question,
+.answer {
+  margin-top: 0;
+}
+
+.question {
+  font-size: var(--font-size-m);
+  margin-bottom: var(--default-margin);
+}
+
+.answer {
+  font-size: var(--font-size-s);
+  margin-bottom: 0;
+}

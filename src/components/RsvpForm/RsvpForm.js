@@ -4,7 +4,7 @@ import Input from "components/Input";
 import Button from "components/Button";
 import RadioButton from "components/RadioButton";
 import regex from "utils/helpers/regex";
-import s from "./RsvpForm.scss";
+import s from "./RsvpForm.css";
 
 class RsvpForm extends Component {
   constructor() {
