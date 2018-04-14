@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./ContactUs.css";
+import WithStyles from "layout/WithStyles";
 import copy from "utils/copy";
 
 const ContactUs = () => (
@@ -20,4 +21,4 @@ const ContactUs = () => (
   </div>
 );
 
-export default ContactUs;
+export default WithStyles(ContactUs, s);

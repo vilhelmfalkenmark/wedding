@@ -4,6 +4,8 @@ import Input from "components/Input";
 import Button from "components/Button";
 import RadioButton from "components/RadioButton";
 import regex from "utils/helpers/regex";
+import WithStyles from "layout/WithStyles";
+
 import s from "./RsvpForm.css";
 
 class RsvpForm extends Component {
@@ -127,4 +129,4 @@ class RsvpForm extends Component {
   }
 }
 
-export default RsvpForm;
+export default WithStyles(RsvpForm, s);

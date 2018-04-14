@@ -1,16 +1,16 @@
-@import "~css/_mixins";
-@import "~css/_variables";
+@import "grid";
+@import "variables";
 
 .container {
   @mixin card;
 }
 
 .form {
-  max-width: $max-inner-content;
+  max-width: var(--max-inner-content);
   margin: 0 auto;
 }
 
 .buttonContainer {
   text-align: center;
-  padding-bottom: $default-margin;
+  padding-bottom: var(--default-margin);
 }

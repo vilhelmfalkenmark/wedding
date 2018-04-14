@@ -6,6 +6,8 @@ import FaqItem from "./FaqItem";
 import RibbonHeading from "components/RibbonHeading";
 import ErrorWall from "components/ErrorWall";
 import FaqSkeleton from "components/Skeletons/FaqSkeleton";
+import WithStyles from "layout/WithStyles";
+
 import s from "./Faq.css";
 
 class Faq extends Component {
@@ -50,4 +52,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Faq);
+export default connect(mapStateToProps, mapDispatchToProps)(WithStyles(Faq, s));

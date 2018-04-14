@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import WithStyles from "layout/WithStyles";
 import s from "./Input.css";
 
 export class Input extends Component {
@@ -56,4 +57,4 @@ export class Input extends Component {
   }
 }
 
-export default Input;
+export default WithStyles(Input, s);

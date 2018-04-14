@@ -15,7 +15,7 @@
     height: calc(100vh);
   }
   @media (--viewport-min-960) {
-    height: calc(100vh - var(--$header-desk-height));
+    height: calc(100vh - var(--header-desk-height));
   }
   &:after {
     position: absolute;

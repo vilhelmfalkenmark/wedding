@@ -33,7 +33,7 @@
     position: absolute;
     display: block;
     bottom: -$size/2;
-    /* border: $size solid darken(var(--color-red), 5%); */
+    /* border: $size solid blackness(var(--color-red), 5%); */
   }
   &:before {
     /* left: -$size * 2 + $size/2; */
@@ -51,7 +51,7 @@
     padding: 0.9rem;
   } */
   /* @mixin breakpoint($header-breakpoint) {
-    padding: $default-margin;
+    padding: var(--default-margin);
   } */
 }
 
@@ -61,7 +61,7 @@
   display: block;
   border-style: solid;
   /* bottom: -$size/2; */
-  /* border-color: darken(var(--color-red), 20%) transparent transparent transparent; */
+  /* border-color: blackness(var(--color-red), 20%) transparent transparent transparent; */
 }
 
 .headingInnerSpan::before {

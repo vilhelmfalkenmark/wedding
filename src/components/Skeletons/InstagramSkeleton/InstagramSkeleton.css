@@ -5,7 +5,7 @@
 
 .list {
   list-style: none;
-  @mixin flex-row(1rem);
+  @mixin flexRow 1rem;
 }
 
 .item {

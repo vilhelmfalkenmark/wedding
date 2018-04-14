@@ -47,7 +47,7 @@
     font-size: var(--font-size-xl);
   }
 
-  @media (--viewport-min-9600) {
+  @media (--viewport-min-960) {
     padding: 2rem;
     font-size: var(--font-size-xxl);
   }
