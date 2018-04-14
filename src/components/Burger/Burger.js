@@ -6,7 +6,7 @@ import s from "./Burger.css";
 const Burger = ({ mobileMenuOpen, toggleMobileMenu }) => {
   return (
     <button
-      className={`${s.container}
+      className={`${s({ container: true })}
         ${mobileMenuOpen ? s.isOpen : null}`}
       onClick={toggleMobileMenu}
     >

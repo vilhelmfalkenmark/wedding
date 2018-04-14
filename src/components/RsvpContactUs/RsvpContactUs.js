@@ -5,7 +5,7 @@ import ContactUs from "components/ContactUs";
 import s from "./RsvpContactUs.css";
 
 const RsvpContactUs = ({ message }) => (
-  <div className={s.container}>
+  <div className={s({ container: true })}>
     <p className={s.message}>{message}</p>
     <ContactUs />
   </div>

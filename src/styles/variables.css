@@ -13,7 +13,8 @@
   --burger-background: white;
 
   --burger-thickness: 3px;
-  --ribbon-thickness: 1.3rem;
+  --ribbon-size: 1.3rem;
+  --negative-ribbon-size: -1.3rem;
   --half-default-margin: 0.5rem;
   --default-margin: 1rem;
   --double-default-margin: 2rem;
@@ -33,7 +34,6 @@
   --font-size-xl: 1.8rem;
   --font-size-xxl: 2rem;
 
-  /* Transparent grey. Used for shadow drops and hover effects */
   --z-index-first: 1;
   --z-index-second: 10;
   --z-index-third: 100;

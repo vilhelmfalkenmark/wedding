@@ -7,7 +7,7 @@ import s from "./Footer.css";
 class Footer extends Component {
   render() {
     return (
-      <footer className={s.container}>
+      <footer className={s({ container: true })}>
         <div className={s.innerContainer}>
           <Instagram />
         </div>

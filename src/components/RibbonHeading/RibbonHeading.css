@@ -12,9 +12,11 @@
   margin: 0;
   width: 80%;
   min-width: 210px;
+
   @media (--viewport-min-480) {
     font-size: var(--font-size-l);
   }
+
   @media (--viewport-min-960) {
     font-size: var(--font-size-xl);
   }
@@ -32,27 +34,29 @@
     content: "";
     position: absolute;
     display: block;
-    bottom: -$size/2;
-    /* border: $size solid blackness(var(--color-red), 5%); */
+    bottom: calc(var(--negative-ribbon-size) / 2);
+    border: var(--ribbon-size) solid color(var(--color-red) blackness(5%));
   }
   &:before {
+    left: calc(var(--negative-ribbon-size) * 2 + var(--ribbon-size) / 2);
     /* left: -$size * 2 + $size/2; */
+
     border-left-color: transparent;
   }
   &:after {
-    /* right: -$size * 2 + $size/2; */
+    right: calc(var(--negative-ribbon-size) * 2 + var(--ribbon-size) / 2);
     border-right-color: transparent;
   }
 }
 
 .headingInnerSpan {
-  /* padding: $half-default-margin; */
-  /* @mixin breakpoint(500px) {
+  padding: --var(half-default-margin);
+  @media (--viewport-min-480) {
     padding: 0.9rem;
-  } */
-  /* @mixin breakpoint($header-breakpoint) {
+  }
+  @media (--viewport-min-960) {
     padding: var(--default-margin);
-  } */
+  }
 }
 
 .headingInnerSpan::after,
@@ -60,16 +64,17 @@
   position: absolute;
   display: block;
   border-style: solid;
-  /* bottom: -$size/2; */
-  /* border-color: blackness(var(--color-red), 20%) transparent transparent transparent; */
+  bottom: calc((var(--ribbon-size) * -1) / 2);
+  border-color: color(var(--color-red) blackness(20%)) transparent transparent
+    transparent;
 }
 
 .headingInnerSpan::before {
   left: 0;
-  border-width: $size/2 0 0 $size/2;
+  border-width: calc(var(--ribbon-size) / 2) 0 0 calc(var(--ribbon-size) / 2);
 }
 
 .headingInnerSpan::after {
   right: 0;
-  border-width: $size/2 $size/2 0 0;
+  border-width: calc(var(--ribbon-size) / 2) calc(var(--ribbon-size) / 2) 0 0;
 }

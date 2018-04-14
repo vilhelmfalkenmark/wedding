@@ -23,7 +23,7 @@ class Faq extends Component {
 
     return (
       <DocumentTitle title={"Vanliga frågor"}>
-        <main className={s.container}>
+        <main className={s({ container: true })}>
           <RibbonHeading heading={"Vanliga frågor"} />
           {fetching && !error ? (
             <FaqSkeleton />

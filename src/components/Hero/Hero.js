@@ -9,7 +9,7 @@ import s from "./Hero.css";
 const Hero = ({ infoFulfilled, scrollToContent = () => null }) => {
   return (
     <section
-      className={s.container}
+      className={s({ container: true })}
       style={{ backgroundImage: `url(${image})` }}
     >
       <h1 className={s.title}>Vi gifter oss {copy.weddingDate}</h1>

@@ -24,11 +24,11 @@ class Header extends React.Component {
 
     let classNames;
     if (mobileMenuOpen && mobileMenuHasBeenDisplayed) {
-      classNames = `${s.container} ${s.isOpen}`;
+      classNames = `${s({ container: true })} ${s.isOpen}`;
     } else if (!mobileMenuOpen && mobileMenuHasBeenDisplayed) {
-      classNames = `${s.container} ${s.isClosed}`;
+      classNames = `${s({ container: true })} ${s.isClosed}`;
     } else {
-      classNames = `${s.container} ${s.initiallyHidden}`;
+      classNames = `${s({ container: true })} ${s.initiallyHidden}`;
     }
     return (
       <header className={s.header}>

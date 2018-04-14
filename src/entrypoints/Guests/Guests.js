@@ -5,6 +5,8 @@ import { fetchAllGuests } from "actions/guests";
 import RibbonHeading from "components/RibbonHeading";
 import GuestsSkeleton from "components/Skeletons/GuestsSkeleton";
 import ErrorWall from "components/ErrorWall";
+import WithStyles from "layout/WithStyles";
+
 import s from "./Guests.css";
 
 class Guests extends Component {
@@ -24,7 +26,7 @@ class Guests extends Component {
 
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
-        <main className={s.container}>
+        <main className={s({ container: true })}>
           <RibbonHeading heading={"Gäster som har Osat"} />
           {fetching && !error ? (
             <GuestsSkeleton />
@@ -104,4 +106,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Guests);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  WithStyles(Guests, s)
+);

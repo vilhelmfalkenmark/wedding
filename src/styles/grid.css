@@ -3,29 +3,17 @@
 
 @define-mixin flexRow $margin: 1rem {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-flow: row wrap;
   margin-left: calc($margin/2 * -1);
   margin-right: calc($margin/2 * -1);
 }
 
-/* @define-mixin flexGtrCol($columns, $gutter: 1rem) {
-  @if $gutter !=0 {
-    flex-basis: calc(#{percentage(1 / $columns)} - #{$gutter});
-    margin: 0 $gutter/2 $gutter $gutter/2;
-  } @else {
-    flex-basis: calc(#{percentage(1 / $columns)});
-    margin: 0;
-  }
+@define-mixin flexGtrCol $columns: 2, $gutter: 1rem {
+  flex-basis: calc(1 / $columns * 100% - $gutter);
+  margin: 0 calc($gutter/2) $gutter calc($gutter/2);
 }
- */
-@define-mixin flexCol $span, $columns, $margin: 0px {
-  /* $percentage: percentage($span/$columns);
-  @if $columns !=1 {
-    flex-basis: calc(#{$percentage} - #{$margin});
-  } @else {
-    flex-basis: calc(#{$percentage});
-  } */
+
+@define-mixin flexCol $span, $columns: 2, $margin: 0px {
 }
 
 @define-mixin flexCenter {
@@ -38,7 +26,7 @@
   margin-top: 0;
 
   @media (--viewport-min-960) {
-    padding: var(--header-desk-height);
+    padding-top: var(--header-desk-height);
   }
 }
 
@@ -50,7 +38,7 @@
 }
 
 @define-mixin contentContainer {
-  flex: 1;
+  flex: 1 0;
   width: 100%;
   max-width: var(--page-max-width);
   margin-left: auto;

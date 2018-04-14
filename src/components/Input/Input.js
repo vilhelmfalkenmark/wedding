@@ -49,7 +49,7 @@ export class Input extends Component {
     );
 
     return (
-      <div className={s.container}>
+      <div className={s({ container: true })}>
         {labelHtml}
         {inputHtml}
       </div>

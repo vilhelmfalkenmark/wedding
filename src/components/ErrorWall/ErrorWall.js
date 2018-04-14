@@ -8,7 +8,7 @@ import s from "./ErrorWall.css";
 
 export const ErrorWall = ({ heading }) => {
   return (
-    <div className={s.container}>
+    <div className={s({ container: true })}>
       <div className={s.innerContainer}>
         <h2 className={s.heading}>{heading}</h2>
         <p>

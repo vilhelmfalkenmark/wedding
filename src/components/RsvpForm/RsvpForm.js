@@ -22,7 +22,7 @@ class RsvpForm extends Component {
   }
   render() {
     return (
-      <div className={s.container}>
+      <div className={s({ container: true })}>
         <form className={s.form}>
           <Input
             inputLabel="Namn på gäst/gäster"

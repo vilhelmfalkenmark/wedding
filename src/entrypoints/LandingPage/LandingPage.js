@@ -29,7 +29,7 @@ class LandingPage extends Component {
     const { info } = this.props;
     return (
       <DocumentTitle title={`Välkommen på bröllop ${copy.weddingDate}`}>
-        <main className={s.container}>
+        <main className={s({ container: true })}>
           <Hero
             scrollToContent={this.scrollToContent.bind(this)}
             infoFulfilled={info.fulfilled}
@@ -44,7 +44,7 @@ class LandingPage extends Component {
               </div>
             ) : null}
           </section>
-          <section className={s.mapWrapper}>
+          <section className={s({ mapWrapper: true })}>
             <div className={s.mapAdressWrapper}>
               <h3>Vi kommer gifta oss på {copy.location.title}</h3>
               <p>Adress: {copy.location.address} </p>

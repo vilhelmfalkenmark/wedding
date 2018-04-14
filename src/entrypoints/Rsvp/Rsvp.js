@@ -9,6 +9,8 @@ import RsvpForm from "components/RsvpForm";
 import RsvpError from "./RsvpError";
 import RsvpSkeleton from "components/Skeletons/RsvpSkeleton";
 import RibbonHeading from "components/RibbonHeading";
+import WithStyles from "layout/WithStyles";
+
 import copy from "utils/copy";
 
 import s from "./Rsvp.css";
@@ -41,7 +43,7 @@ class Rsvp extends Component {
       if (this.cookieIsSet) {
         if (this.props.guest.fetching) {
           return (
-            <main className={s.container}>
+            <main className={s({ container: true })}>
               <RibbonHeading heading={"Laddar"} />
               <RsvpSkeleton />
             </main>
@@ -51,7 +53,7 @@ class Rsvp extends Component {
           // Cookie is set and guest data Successfuly fetched
           ///////////////////////////////////////////////
           return (
-            <main className={s.container}>
+            <main className={s({ container: true })}>
               <RibbonHeading
                 heading={`Hejsan ${this.props.guest.data.guests}!`}
               />
@@ -79,7 +81,7 @@ class Rsvp extends Component {
         ///////////////////////////////////////////////
         if (successfulRsvp(this.props.rsvp)) {
           return (
-            <main className={s.container}>
+            <main className={s({ container: true })}>
               <RibbonHeading
                 heading={`Snyggt jobbat ${this.props.rsvp.data.guests}!`}
               />
@@ -98,7 +100,7 @@ class Rsvp extends Component {
           return <RsvpError />;
         } else {
           return (
-            <main className={s.container}>
+            <main className={s({ container: true })}>
               <RibbonHeading heading={`Osa till vårt bröllop`} />
               <RsvpForm postRsvp={this.props.postRsvp} />
             </main>
@@ -129,4 +131,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Rsvp);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  WithStyles(Rsvp, s)
+);

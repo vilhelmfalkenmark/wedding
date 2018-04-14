@@ -5,7 +5,7 @@ import s from "./RsvpSkeleton.css";
 
 const RsvpSkeleton = () => {
   return (
-    <div className={s.container}>
+    <div className={s({ container: true })}>
       <ul className={s.list}>
         <li className={`${s.block} ${s.r1c1}`} />
         <li className={`${s.block} ${s.r2c1}`} />

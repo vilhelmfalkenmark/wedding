@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import routes from "utils/router/routes";
 import Header from "components/Header";
 import Footer from "components/Footer";
-// import LandingPage from "entrypoints/LandingPage";
+import WithStyles from "layout/WithStyles";
 
 import s from "./Root.css";
-import WithStyles from "layout/WithStyles";
 
 class Root extends React.Component {
   constructor() {

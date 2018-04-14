@@ -4,7 +4,7 @@ import s from "./SwitchButton.css";
 
 const SwitchButton = ({ onClickCallback, label, disabled, switchOn }) => {
   return (
-    <div className={s.container}>
+    <div className={s({ container: true })}>
       <div className={s.buttonContainer}>
         <button
           onClick={!disabled ? onClickCallback : () => null}

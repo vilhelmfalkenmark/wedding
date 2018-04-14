@@ -97,7 +97,8 @@ module.exports = {
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
       utils: path.resolve(paths.appSrc, "utils"),
-      layout: path.resolve(paths.appSrc, "layout")
+      layout: path.resolve(paths.appSrc, "layout"),
+      fonts: path.resolve(paths.appSrc, "styles/fonts")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
