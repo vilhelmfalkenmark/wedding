@@ -1,0 +1,50 @@
+@import "grid";
+@import "breakpoints";
+@import "variables";
+
+.heading {
+  text-align: center;
+  padding-bottom: var(--default-margin);
+  margin-bottom: var(--double-default-margin);
+  position: relative;
+  &::after {
+    height: 4px;
+    width: 4rem;
+    content: "";
+    position: absolute;
+    background-color: var(--color-medium-grey);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  list-style: none;
+  margin-bottom: var(--half-default-margin);
+  flex-basis: 100%;
+  @mixin card;
+
+  @media (--viewport-min-768) {
+    margin-bottom: var(--default-margin);
+  }
+
+  @media (--viewport-min-960) {
+    flex-basis: calc(50% - 0.5rem);
+    &:nth-of-type(odd) {
+      margin-right: 0.5rem;
+    }
+    &:nth-of-type(even) {
+      margin-left: 0.5rem;
+    }
+  }
+}

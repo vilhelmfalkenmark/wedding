@@ -26,11 +26,11 @@ const LandingPage = universal(
   () => import(/* webpackChunkName: 'landingpage' */ "entrypoints/LandingPage"),
   {
     resolve: () => require.resolveWeak("entrypoints/LandingPage"),
-    chunkName: "landingpage"
-    // loading: AsyncLoading({
-    //   SkeletonPlaceholderComponent: Hero,
-    //   withRibbonHeading: false
-    // })
+    chunkName: "landingpage",
+    loading: AsyncLoading({
+      SkeletonPlaceholderComponent: Hero,
+      withRibbonHeading: false
+    })
   }
 );
 
@@ -39,11 +39,11 @@ const Guests = universal(
   () => import(/* webpackChunkName: 'guests' */ "entrypoints/Guests"),
   {
     resolve: () => require.resolveWeak("entrypoints/Guests"),
-    chunkName: "Guests"
-    // loading: AsyncLoading({
-    //   SkeletonPlaceholderComponent: GuestsSkeleton,
-    //   withRibbonHeading: true
-    // })
+    chunkName: "Guests",
+    loading: AsyncLoading({
+      SkeletonPlaceholderComponent: GuestsSkeleton,
+      withRibbonHeading: true
+    })
   }
 );
 
@@ -52,11 +52,11 @@ const Faq = universal(
   () => import(/* webpackChunkName: 'faq' */ "entrypoints/Faq"),
   {
     resolve: () => require.resolveWeak("entrypoints/Faq"),
-    chunkName: "faq"
-    // loading: AsyncLoading({
-    //   SkeletonPlaceholderComponent: FaqSkeleton,
-    //   withRibbonHeading: true
-    // })
+    chunkName: "faq",
+    loading: AsyncLoading({
+      SkeletonPlaceholderComponent: FaqSkeleton,
+      withRibbonHeading: true
+    })
   }
 );
 
@@ -65,11 +65,11 @@ const Rsvp = universal(
   () => import(/* webpackChunkName: 'rsvp' */ "entrypoints/Rsvp"),
   {
     resolve: () => require.resolveWeak("entrypoints/Rsvp"),
-    chunkName: "rsvp"
-    // loading: AsyncLoading({
-    //   SkeletonPlaceholderComponent: RsvpSkeleton,
-    //   withRibbonHeading: true
-    // })
+    chunkName: "rsvp",
+    loading: AsyncLoading({
+      SkeletonPlaceholderComponent: RsvpSkeleton,
+      withRibbonHeading: true
+    })
   }
 );
 

@@ -1,7 +1,37 @@
 @import "variables";
 @import "breakpoints";
-/*@import "css/_mixins";
-@import "css/_keyframes"; */
+@import "keyframes";
+
+@define-mixin underline $color: white {
+  text-decoration: none;
+
+  @media (--viewport-min-768) {
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:after {
+      bottom: -5px;
+      backface-visibility: hidden;
+      border: 1px solid rgb($color);
+      content: "";
+      display: block;
+      margin: 0 auto;
+      position: absolute;
+      transition: all 0.2 ease-in-out;
+      width: 0;
+    }
+
+    &:hover {
+      color: $color;
+      &:after {
+        backface-visibility: hidden;
+        border-color: $color;
+        transition: width 350ms ease-in-out;
+        width: 100%;
+      }
+    }
+  }
+}
 
 .container {
   box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.577);
@@ -11,23 +41,23 @@
   right: 0;
   z-index: var(--z-index-third);
 
-  @media (--viewport-max-959) {
+  @media (--viewport-max-767) {
     height: 100%;
     width: var(--mobile-menu-width);
-    &.initiallyHidden {
-      display: none;
-    }
-    &.isClosed {
+    display: none;
+
+    &_isClosed {
       animation: sk-scaledown 0.35s ease-in-out;
       animation-fill-mode: forwards;
       animation-direction: linear;
       display: flex;
     }
-    &.isOpen {
+    &_isOpen {
       display: flex;
       animation: sk-scaleup 0.35s ease-in-out;
     }
   }
+
   @media (--viewport-min-960) {
     height: var(--header-desk-height);
     width: 100%;
@@ -38,12 +68,16 @@
   margin: 0 auto;
   max-width: 960px;
   display: flex;
+
   @media (--viewport-max-959) {
     display: flex;
     align-items: center;
+    flex-direction: column-reverse;
+    justify-content: center;
   }
   @media (--viewport-min-960) {
     width: 100%;
+    padding: 0 var(--double-default-margin);
     justify-content: space-between;
   }
 }
@@ -67,7 +101,7 @@
   }
 }
 
-.icon {
+.smallIcon {
   height: 1.5rem;
   width: 1.5rem;
 }
@@ -76,40 +110,13 @@
   height: 2rem;
   width: 2rem;
 }
-/*
-// @mixin underline(var(--color: null) {
-//   text-decoration: none;
-//   @mixin breakpoint(900px) {
-//     transition: all 0.2s ease;
-//     cursor: pointer;
-//     &:after {
-//       bottom: -5px;
-//       backface-visibility: hidden;
-//       border: 1px solid rgba(var(--color, 0);
-//       content: "";
-//       display: block;
-//       margin: 0 auto;
-//       position: absolute;
-//       transition: all 0.2 ease-in-out;
-//       width: 0;
-//     }
-//     &:hover {
-//       color: var(--color;
-//       &:after {
-//         backface-visibility: hidden;
-//         border-color: var(--color;
-//         transition: width 350ms ease-in-out;
-//         width: 100%;
-//       }
-//     }
-//   }
-// }
-*/
+
 .link {
+  @mixin underline var(--color-red);
+
   display: flex;
   align-items: center;
   position: relative;
-  /* @mixin underline(var(--color-red); */
   color: var(--text-grey);
   &.isActive {
     color: var(--color-red);
