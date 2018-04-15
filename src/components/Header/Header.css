@@ -41,7 +41,7 @@
   right: 0;
   z-index: var(--z-index-third);
 
-  @media (--viewport-max-767) {
+  @media (--viewport-max-959) {
     height: 100%;
     width: var(--mobile-menu-width);
     display: none;

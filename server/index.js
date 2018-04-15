@@ -13,9 +13,16 @@ app.use(bodyParser.json());
 const PORT = process.env.PORT || 5000;
 let apiKeys = {};
 
+// DEVELOP
 if (process.env.NODE_ENV === "development") {
   apiKeys = require("./secrets");
-} else {
+}
+// LOCAL PRODUCTION BUILD
+else if (process.env.NODE_ENV === "test") {
+  apiKeys = require("./secrets");
+}
+// ACTUAL PRODUCTION BUILD
+else {
   apiKeys.instagramKeys = {
     INSTAGRAM_ACCESS_TOKEN: view(
       lensPath(["INSTAGRAM_ACCESS_TOKEN"]),
@@ -48,6 +55,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// Connect to MongoDB
 mongodb.MongoClient.connect(
   apiKeys.mongoDBKeys.MONGODB_URI,
   (err, database) => {
