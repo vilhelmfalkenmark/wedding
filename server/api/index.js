@@ -1,4 +1,4 @@
-import express from "express";
+const express = require("express");
 const contentful = require("contentful");
 const router = express.Router();
 

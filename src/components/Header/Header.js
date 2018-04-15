@@ -3,8 +3,11 @@ import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
 import Burger from "components/Burger";
 import routes from "utils/router/routes";
-import s from "./Header.scss";
-// import arrowDown from "assets/svg/arrow-down.svg";
+import ville from "assets/svg/ville.svg";
+import johanna from "assets/svg/johanna.svg";
+import WithStyles from "layout/WithStyles";
+
+import s from "./Header.css";
 
 class Header extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -19,17 +22,15 @@ class Header extends React.Component {
       mobileMenuHasBeenDisplayed
     } = this.props;
 
-    let classNames;
-    if (mobileMenuOpen && mobileMenuHasBeenDisplayed) {
-      classNames = `${s.container} ${s.isOpen}`;
-    } else if (!mobileMenuOpen && mobileMenuHasBeenDisplayed) {
-      classNames = `${s.container} ${s.isClosed}`;
-    } else {
-      classNames = `${s.container} ${s.initiallyHidden}`;
-    }
     return (
-      <header className={s.header}>
-        <div className={classNames}>
+      <header className={s({ header: true })}>
+        <div
+          className={s({
+            container: true,
+            container_isOpen: mobileMenuOpen && mobileMenuHasBeenDisplayed,
+            container_isClosed: !mobileMenuOpen && mobileMenuHasBeenDisplayed
+          })}
+        >
           <div className={s.inner}>
             <nav>
               <ul className={s.list}>
@@ -44,7 +45,10 @@ class Header extends React.Component {
                       <img
                         src={route.icon}
                         alt="arrow-to-content"
-                        className={route.largeIcon ? s.largeIcon : s.icon}
+                        className={s({
+                          largeIcon: route.largeIcon,
+                          smallIcon: !route.largeIcon
+                        })}
                       />
                       <span className={s.linkTitle}>{route.navTitle}</span>
                     </NavLink>
@@ -52,6 +56,10 @@ class Header extends React.Component {
                 ))}
               </ul>
             </nav>
+            <figure className={s.svgContainer}>
+              <img className={s.johanna} src={johanna} alt="Johanna SVG" />
+              <img className={s.ville} src={ville} alt="Ville SVG" />
+            </figure>
           </div>
         </div>
         <Burger
@@ -64,4 +72,4 @@ class Header extends React.Component {
   }
 }
 
-export default withRouter(Header);
+export default withRouter(WithStyles(Header, s));

@@ -1,5 +1,7 @@
 import React from "react";
-import s from "./GuestsSkeleton.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./GuestsSkeleton.css";
 
 const GuestSkeleton = () => {
   return (
@@ -26,4 +28,4 @@ const GuestsSkeleton = () => {
   );
 };
 
-export default GuestsSkeleton;
+export default WithStyles(GuestsSkeleton, s);

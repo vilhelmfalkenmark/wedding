@@ -6,6 +6,7 @@ import AsyncLoading from "components/AsyncLoading";
 // Skeleton placeholders for code-splitting loading state
 import FaqSkeleton from "components/Skeletons/FaqSkeleton";
 import GuestsSkeleton from "components/Skeletons/GuestsSkeleton";
+import RsvpSkeleton from "components/Skeletons/RsvpSkeleton";
 
 // Hero Placeholder component
 import Hero from "components/Hero";
@@ -59,14 +60,14 @@ const Faq = universal(
   }
 );
 
-// RSVP
+// // RSVP
 const Rsvp = universal(
   () => import(/* webpackChunkName: 'rsvp' */ "entrypoints/Rsvp"),
   {
     resolve: () => require.resolveWeak("entrypoints/Rsvp"),
     chunkName: "rsvp",
     loading: AsyncLoading({
-      SkeletonPlaceholderComponent: FaqSkeleton,
+      SkeletonPlaceholderComponent: RsvpSkeleton,
       withRibbonHeading: true
     })
   }
@@ -113,4 +114,10 @@ export const FAQ_ROUTE = {
   component: Faq
 };
 
-export default [HOME_ROUTE, GUEST_ROUTE, RSVP_ROUTE, FAQ_ROUTE];
+// export default [HOME_ROUTE];
+export default [
+  HOME_ROUTE,
+  GUEST_ROUTE,
+  RSVP_ROUTE,
+  FAQ_ROUTE
+]; /* TODO UNCOMMENT ON LATER STAGE */

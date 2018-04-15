@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import Input from "components/Input";
-import SwitchButton from "components/SwitchButton";
+// import SwitchButton from "components/SwitchButton";
 import Button from "components/Button";
+import RadioButton from "components/RadioButton";
 import regex from "utils/helpers/regex";
-import s from "./RsvpForm.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./RsvpForm.css";
 
 class RsvpForm extends Component {
   constructor() {
@@ -19,7 +22,7 @@ class RsvpForm extends Component {
   }
   render() {
     return (
-      <div className={s.container}>
+      <div className={s({ container: true })}>
         <form className={s.form}>
           <Input
             inputLabel="Namn på gäst/gäster"
@@ -82,22 +85,7 @@ class RsvpForm extends Component {
               })
             }
           />
-          {/* {this.state.guests.length > 5 &&
-          this.state.relationship.length > 5 &&
-          regex.mail.test(this.state.mail) && (
-            <SwitchButton
-              onClickCallback={e => {
-                e.preventDefault();
-                this.setState({ attending: !this.state.attending });
-              }}
-              disabled={false}
-              switchOn={this.state.attending}
-              label={
-                this.state.attending ? "Kommer :)" : "Kommer tyvärr inte :("
-              }
-            />
-          )} */}
-          <SwitchButton
+          {/* <SwitchButton
             onClickCallback={e => {
               e.preventDefault();
               this.setState({ attending: !this.state.attending });
@@ -105,10 +93,18 @@ class RsvpForm extends Component {
             disabled={false}
             switchOn={this.state.attending}
             label={this.state.attending ? "Kommer :)" : "Kommer tyvärr inte :("}
+          /> */}
+          <RadioButton
+            alternatives={[
+              { label: "Kommer", value: true },
+              { label: "Kommer tyvärr inte", value: false }
+            ]}
+            checkedAlternative={this.state.attending}
+            onChangeCallback={value => this.setState({ attending: value })}
           />
-          <div>
-            {this.state.guests.length > 5 &&
-              this.state.relationship.length > 5 &&
+          <div className={s.buttonContainer}>
+            {this.state.guests.length > 4 &&
+              this.state.relationship.length > 2 &&
               regex.mail.test(this.state.mail) && (
                 <Button
                   onClickCallback={e => {
@@ -133,4 +129,4 @@ class RsvpForm extends Component {
   }
 }
 
-export default RsvpForm;
+export default WithStyles(RsvpForm, s);

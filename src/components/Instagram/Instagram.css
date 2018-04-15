@@ -1,0 +1,54 @@
+@import "grid";
+@import "breakpoints";
+@import "variables";
+.list {
+  @mixin flexRow;
+
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  @mixin flexGtrCol 2, 1rem;
+
+  @media (--viewport-min-480) {
+    @mixin flexGtrCol 3, 1rem;
+  }
+}
+
+.backgroundImage {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  &::after {
+    content: "";
+    padding-bottom: 100%;
+    display: block;
+  }
+}
+
+.imageCaption {
+  display: none;
+}
+
+.likesContainer {
+  @mixin flexCenter;
+
+  margin: 0 0 0.5rem 0;
+}
+
+.likesCount {
+  display: block;
+  margin-right: 0.5rem;
+}
+
+.likesHeart {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.poster {
+  text-align: center;
+  margin: 0;
+}

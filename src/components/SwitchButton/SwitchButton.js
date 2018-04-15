@@ -1,9 +1,10 @@
 import React from "react";
-import s from "./SwitchButton.scss";
+import WithStyles from "layout/WithStyles";
+import s from "./SwitchButton.css";
 
 const SwitchButton = ({ onClickCallback, label, disabled, switchOn }) => {
   return (
-    <div className={s.container}>
+    <div className={s({ container: true })}>
       <div className={s.buttonContainer}>
         <button
           onClick={!disabled ? onClickCallback : () => null}
@@ -19,4 +20,4 @@ const SwitchButton = ({ onClickCallback, label, disabled, switchOn }) => {
   );
 };
 
-export default SwitchButton;
+export default WithStyles(SwitchButton, s);

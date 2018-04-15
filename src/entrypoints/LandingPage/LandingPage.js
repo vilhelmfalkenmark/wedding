@@ -6,8 +6,9 @@ import Hero from "components/Hero";
 import { fetchInfo } from "actions/info";
 import copy from "utils/copy";
 import Scroll from "react-scroll";
+import WithStyles from "layout/WithStyles";
 
-import s from "./LandingPage.scss";
+import s from "./LandingPage.css";
 
 class LandingPage extends Component {
   componentWillMount() {
@@ -28,7 +29,7 @@ class LandingPage extends Component {
     const { info } = this.props;
     return (
       <DocumentTitle title={`Välkommen på bröllop ${copy.weddingDate}`}>
-        <main className={s.container}>
+        <main className={s({ container: true })}>
           <Hero
             scrollToContent={this.scrollToContent.bind(this)}
             infoFulfilled={info.fulfilled}
@@ -43,7 +44,7 @@ class LandingPage extends Component {
               </div>
             ) : null}
           </section>
-          <section className={s.mapWrapper}>
+          <section className={s({ mapWrapper: true })}>
             <div className={s.mapAdressWrapper}>
               <h3>Vi kommer gifta oss på {copy.location.title}</h3>
               <p>Adress: {copy.location.address} </p>
@@ -78,4 +79,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchInfo());
   }
 });
-export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  WithStyles(LandingPage, s)
+);

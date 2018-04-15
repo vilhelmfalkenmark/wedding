@@ -6,7 +6,9 @@ import FaqItem from "./FaqItem";
 import RibbonHeading from "components/RibbonHeading";
 import ErrorWall from "components/ErrorWall";
 import FaqSkeleton from "components/Skeletons/FaqSkeleton";
-import s from "./Faq.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./Faq.css";
 
 class Faq extends Component {
   componentWillMount() {
@@ -21,7 +23,7 @@ class Faq extends Component {
 
     return (
       <DocumentTitle title={"Vanliga frågor"}>
-        <div className={s.container}>
+        <main className={s({ container: true })}>
           <RibbonHeading heading={"Vanliga frågor"} />
           {fetching && !error ? (
             <FaqSkeleton />
@@ -34,7 +36,7 @@ class Faq extends Component {
           ) : (
             <ErrorWall />
           )}
-        </div>
+        </main>
       </DocumentTitle>
     );
   }
@@ -50,4 +52,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Faq);
+export default connect(mapStateToProps, mapDispatchToProps)(WithStyles(Faq, s));

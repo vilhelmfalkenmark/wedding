@@ -2,12 +2,14 @@ import React from "react";
 import ScrollDown from "components/ScrollDown";
 import image from "assets/images/hero.jpg";
 import copy from "utils/copy";
-import s from "./Hero.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./Hero.css";
 
 const Hero = ({ infoFulfilled, scrollToContent = () => null }) => {
   return (
     <section
-      className={s.container}
+      className={s({ container: true })}
       style={{ backgroundImage: `url(${image})` }}
     >
       <h1 className={s.title}>Vi gifter oss {copy.weddingDate}</h1>
@@ -20,4 +22,4 @@ const Hero = ({ infoFulfilled, scrollToContent = () => null }) => {
   );
 };
 
-export default Hero;
+export default WithStyles(Hero, s);

@@ -1,5 +1,7 @@
 import React from "react";
-import s from "./ScrollDown.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./ScrollDown.css";
 
 const ScrollDown = ({ onClickCallback }) => {
   return (
@@ -11,4 +13,4 @@ const ScrollDown = ({ onClickCallback }) => {
   );
 };
 
-export default ScrollDown;
+export default WithStyles(ScrollDown, s);

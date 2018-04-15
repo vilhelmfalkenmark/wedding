@@ -6,12 +6,14 @@ import { fetchGuest } from "actions/guests";
 import { readCookie } from "utils/helpers/cookie";
 import RsvpConfirmation from "components/RsvpConfirmation";
 import RsvpForm from "components/RsvpForm";
-// import RsvpForm from "./RsvpForm";
 import RsvpError from "./RsvpError";
-import LoadingWall from "components/LoadingWall";
+import RsvpSkeleton from "components/Skeletons/RsvpSkeleton";
 import RibbonHeading from "components/RibbonHeading";
+import WithStyles from "layout/WithStyles";
 
-import s from "./Rsvp.scss";
+import copy from "utils/copy";
+
+import s from "./Rsvp.css";
 
 import { fetchingGuestFulfilled, successfulRsvp } from "utils/selectors/rsvp";
 
@@ -41,26 +43,31 @@ class Rsvp extends Component {
       if (this.cookieIsSet) {
         if (this.props.guest.fetching) {
           return (
-            <div className={s.container}>
+            <main className={s({ container: true })}>
               <RibbonHeading heading={"Laddar"} />
-              <LoadingWall title={"Gäster"} />
-            </div>
+              <RsvpSkeleton />
+            </main>
           );
         } else if (fetchingGuestFulfilled(this.props.guest)) {
           ////////////////////////////////////////////////
           // Cookie is set and guest data Successfuly fetched
           ///////////////////////////////////////////////
           return (
-            <div className={s.container}>
+            <main className={s({ container: true })}>
               <RibbonHeading
                 heading={`Hejsan ${this.props.guest.data.guests}!`}
               />
               <RsvpConfirmation
                 guestData={this.props.guest.data}
                 message={`Hejsan ${this.props.guest.data.guests}!`}
-                subMessage={"Du/Ni har osat! Vi ses 2 juni :)"}
+                attendingMessage={`Du/Ni har osat! Vi ses ${
+                  copy.weddingDate
+                } :)`}
+                notAttendingMessage={
+                  "Du/Ni har osat! Tråkigt att du/ni inte kan komma :("
+                }
               />
-            </div>
+            </main>
           );
         } else if (this.props.guest.error) {
           ////////////////////////////////////////////////
@@ -74,24 +81,29 @@ class Rsvp extends Component {
         ///////////////////////////////////////////////
         if (successfulRsvp(this.props.rsvp)) {
           return (
-            <div className={s.container}>
+            <main className={s({ container: true })}>
               <RibbonHeading
                 heading={`Snyggt jobbat ${this.props.rsvp.data.guests}!`}
               />
               <RsvpConfirmation
                 guestData={this.props.rsvp.data}
-                subMessage={"Du/ni har nu osat! Vi ses 2 juni :)"}
+                attendingMessage={`Du/Ni har osat! Vi ses ${
+                  copy.weddingDate
+                } :)`}
+                notAttendingMessage={
+                  "Du/Ni har osat! Tråkigt att du/ni inte kan komma :("
+                }
               />
-            </div>
+            </main>
           );
         } else if (this.props.rsvp.error) {
           return <RsvpError />;
         } else {
           return (
-            <div className={s.container}>
+            <main className={s({ container: true })}>
               <RibbonHeading heading={`Osa till vårt bröllop`} />
               <RsvpForm postRsvp={this.props.postRsvp} />
-            </div>
+            </main>
           );
         }
       }
@@ -119,4 +131,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Rsvp);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  WithStyles(Rsvp, s)
+);

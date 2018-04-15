@@ -1,8 +1,8 @@
-import ramda from "ramda";
-import express from "express";
-import bodyParser from "body-parser";
-import mongodb from "mongodb";
-import path from "path";
+const ramda = require("ramda");
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongodb = require("mongodb");
+const path = require("path");
 
 const app = express();
 const { view, lensPath } = ramda;
@@ -13,9 +13,16 @@ app.use(bodyParser.json());
 const PORT = process.env.PORT || 5000;
 let apiKeys = {};
 
+// DEVELOP
 if (process.env.NODE_ENV === "development") {
   apiKeys = require("./secrets");
-} else {
+}
+// LOCAL PRODUCTION BUILD
+else if (process.env.NODE_ENV === "test") {
+  apiKeys = require("./secrets");
+}
+// ACTUAL PRODUCTION BUILD
+else {
   apiKeys.instagramKeys = {
     INSTAGRAM_ACCESS_TOKEN: view(
       lensPath(["INSTAGRAM_ACCESS_TOKEN"]),
@@ -39,17 +46,7 @@ app.use(express.static(path.resolve(__dirname, "../build")));
 
 // Handle CORS
 app.use((req, res, next) => {
-  const allowedOrigins = [
-    "https://guarded-plateau-76604.herokuapp.com",
-    "http://localhost:3000",
-    "http://localhost:8080",
-    "http://johannaochville.se"
-  ];
-
-  if (allowedOrigins.indexOf(req.headers.origin) !== -1) {
-    res.setHeader("Access-Control-Allow-Origin", req.headers.origin);
-  }
-
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH");
   res.header(
     "Access-Control-Allow-Headers",
@@ -58,6 +55,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// Connect to MongoDB
 mongodb.MongoClient.connect(
   apiKeys.mongoDBKeys.MONGODB_URI,
   (err, database) => {
