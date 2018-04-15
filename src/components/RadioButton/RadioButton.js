@@ -1,5 +1,6 @@
 import React from "react";
-import s from "./RadioButton.scss";
+import WithStyles from "layout/WithStyles";
+import s from "./RadioButton.css";
 
 export const RadioButton = ({
   checkedAlternative,
@@ -27,4 +28,4 @@ export const RadioButton = ({
   ));
 };
 
-export default RadioButton;
+export default WithStyles(RadioButton, s);

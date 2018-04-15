@@ -1,0 +1,28 @@
+@import "variables";
+
+@define-mixin button $color {
+  display: inline-block;
+  border: none;
+  outline: 0;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  min-width: 10rem;
+  cursor: pointer;
+  background-color: $color;
+  transition: background 0.2s ease;
+  &:hover {
+    background-color: blacken($color, 15%);
+  }
+  &:active {
+    background-color: blacken($color, 20%);
+  }
+}
+
+.container {
+  @mixin button var(--color-green);
+
+  &.disabled {
+    @mixin button var(--color-medium-grey);
+  }
+}

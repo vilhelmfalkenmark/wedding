@@ -1,21 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import RibbonHeading from "components/RibbonHeading";
-import s from "./AsyncLoading.scss";
+
+import s from "./AsyncLoading.css";
 
 function AsyncLoading({ SkeletonPlaceholderComponent, withRibbonHeading }) {
-  return class extends Component {
-    render() {
-      return (
-        <div
-          className={
-            withRibbonHeading ? s.withRibbonContainer : s.withoutRibbonContainer
-          }
-        >
-          {withRibbonHeading ? <RibbonHeading heading={"Hämtar..."} /> : null}
-          <SkeletonPlaceholderComponent />
-        </div>
-      );
-    }
+  return function() {
+    return (
+      <div
+        className={
+          withRibbonHeading ? s.withRibbonContainer : s.withoutRibbonContainer
+        }
+      >
+        {withRibbonHeading ? <RibbonHeading heading={"Hämtar..."} /> : null}
+        <SkeletonPlaceholderComponent />
+      </div>
+    );
   };
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import s from "./Input.scss";
+import WithStyles from "layout/WithStyles";
+import s from "./Input.css";
 
 export class Input extends Component {
   constructor() {
@@ -48,7 +49,7 @@ export class Input extends Component {
     );
 
     return (
-      <div className={s.container}>
+      <div className={s({ container: true })}>
         {labelHtml}
         {inputHtml}
       </div>
@@ -56,4 +57,4 @@ export class Input extends Component {
   }
 }
 
-export default Input;
+export default WithStyles(Input, s);

@@ -1,10 +1,12 @@
 import React from "react";
-import s from "./Burger.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./Burger.css";
 
 const Burger = ({ mobileMenuOpen, toggleMobileMenu }) => {
   return (
     <button
-      className={`${s.container}
+      className={`${s({ container: true })}
         ${mobileMenuOpen ? s.isOpen : null}`}
       onClick={toggleMobileMenu}
     >
@@ -15,4 +17,4 @@ const Burger = ({ mobileMenuOpen, toggleMobileMenu }) => {
   );
 };
 
-export default Burger;
+export default WithStyles(Burger, s);

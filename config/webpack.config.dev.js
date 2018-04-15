@@ -1,4 +1,3 @@
-// const autoprefixer = require("autoprefixer");
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -98,7 +97,8 @@ module.exports = {
       entrypoints: path.resolve(paths.appSrc, "entrypoints"),
       components: path.resolve(paths.appSrc, "components"),
       utils: path.resolve(paths.appSrc, "utils"),
-      scss: path.resolve(paths.appSrc, "scss")
+      layout: path.resolve(paths.appSrc, "layout"),
+      fonts: path.resolve(paths.appSrc, "styles/fonts")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -167,41 +167,29 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.css$/,
-            use: ["css-hot-loader"].concat(
-              ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [
-                  {
-                    loader: "css-loader",
-                    options: {
-                      modules: true,
-                      localIdentName: "[name]__[local]_[hash:base64:3]"
-                    }
-                  },
-                  "postcss-loader"
-                ]
-              })
-            )
-          },
-          {
-            test: /\.scss$/,
-            use: ["css-hot-loader"].concat(
-              ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [
-                  {
-                    loader: "css-loader",
-                    options: {
-                      modules: true,
-                      sourceMap: true,
-                      importLoaders: 2,
-                      localIdentName: "[name]__[local]_[hash:base64:3]"
-                    }
-                  },
-                  "sass-loader"
-                ]
-              })
-            )
+            use: [
+              require.resolve("classnames-loader"),
+              require.resolve("isomorphic-style-loader"),
+              {
+                loader: require.resolve("css-loader"),
+                options: {
+                  importLoaders: 1,
+                  // CSS Modules https://github.com/css-modules/css-modules
+                  modules: true,
+                  localIdentName: true
+                    ? "[name]_[local]_[hash:base64:3]"
+                    : "[hash:base64:4]"
+                }
+              },
+              {
+                loader: require.resolve("postcss-loader"),
+                options: {
+                  config: {
+                    path: paths.postcssConfig
+                  }
+                }
+              }
+            ]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
@@ -213,7 +201,7 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.sass$/, /\.scss$/],
+            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.sass$/, /\.css$/],
             loader: require.resolve("file-loader"),
             options: {
               name: "static/media/[name].[hash:8].[ext]"

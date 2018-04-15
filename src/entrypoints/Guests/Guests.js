@@ -4,15 +4,20 @@ import DocumentTitle from "react-document-title";
 import { fetchAllGuests } from "actions/guests";
 import RibbonHeading from "components/RibbonHeading";
 import GuestsSkeleton from "components/Skeletons/GuestsSkeleton";
+import GuestList from "components/GuestList";
 import ErrorWall from "components/ErrorWall";
-import s from "./Guests.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./Guests.css";
 
 class Guests extends Component {
   componentWillMount() {
     this.props.fetchAllGuests();
   }
   render() {
-    const { guests: { data, fulfilled, fetching, error } } = this.props;
+    const {
+      guests: { data, fulfilled, fetching, error }
+    } = this.props;
 
     const attendingGuests = fulfilled
       ? data.filter(guest => guest.attending)
@@ -24,62 +29,21 @@ class Guests extends Component {
 
     return (
       <DocumentTitle title={"Gäster till bröllopet"}>
-        <main className={s.container}>
+        <main className={s({ container: true })}>
           <RibbonHeading heading={"Gäster som har Osat"} />
           {fetching && !error ? (
             <GuestsSkeleton />
           ) : fulfilled && !error ? (
             <div>
-              {attendingGuests.length > 0 ? (
-                <div>
-                  <h3 className={s.heading}>Kommer</h3>
-                  <ul className={s.list}>
-                    {attendingGuests.map((f, index) => (
-                      <li key={index} className={s.item}>
-                        <p>
-                          <strong>Gäst/Gäster:</strong>&nbsp;
-                          <span>{f.guests}</span>
-                        </p>
-                        <p>
-                          <strong>Relation till brudparet:</strong>&nbsp;
-                          <span>{f.relationship}</span>
-                        </p>
-                        {f.songRequest ? (
-                          <p>
-                            <strong>Önskelåt:</strong>&nbsp;
-                            <span>{f.songRequest}</span>
-                          </p>
-                        ) : null}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
-              {notAttendingGuests.length > 0 ? (
-                <div>
-                  <h3 className={s.heading}>Kommer tyvärr inte :(</h3>
-                  <ul className={s.list}>
-                    {notAttendingGuests.map((f, index) => (
-                      <li key={index} className={s.item}>
-                        <p>
-                          <strong>Gäst/Gäster:</strong>&nbsp;
-                          <span>{f.guests}</span>
-                        </p>
-                        <p>
-                          <strong>Relation till brudparet:</strong>&nbsp;
-                          <span>{f.relationship}</span>
-                        </p>
-                        {f.songRequest ? (
-                          <p>
-                            <strong>Önskelåt:</strong>&nbsp;
-                            <span>{f.songRequest}</span>
-                          </p>
-                        ) : null}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : null}
+              {attendingGuests.length > 0 && (
+                <GuestList heading={"Kommer"} guests={attendingGuests} />
+              )}
+              {notAttendingGuests.length > 0 && (
+                <GuestList
+                  heading={"Kommer tyvärr inte :("}
+                  guests={notAttendingGuests}
+                />
+              )}
             </div>
           ) : (
             <ErrorWall
@@ -104,4 +68,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Guests);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  WithStyles(Guests, s)
+);

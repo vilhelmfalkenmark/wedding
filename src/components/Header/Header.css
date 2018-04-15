@@ -1,0 +1,141 @@
+@import "variables";
+@import "breakpoints";
+@import "keyframes";
+
+@define-mixin underline $color: white {
+  text-decoration: none;
+
+  @media (--viewport-min-768) {
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:after {
+      bottom: -5px;
+      backface-visibility: hidden;
+      border: 1px solid rgb($color);
+      content: "";
+      display: block;
+      margin: 0 auto;
+      position: absolute;
+      transition: all 0.2 ease-in-out;
+      width: 0;
+    }
+
+    &:hover {
+      color: $color;
+      &:after {
+        backface-visibility: hidden;
+        border-color: $color;
+        transition: width 350ms ease-in-out;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.container {
+  box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.577);
+  position: fixed;
+  background-color: white;
+  top: 0;
+  right: 0;
+  z-index: var(--z-index-third);
+
+  @media (--viewport-max-959) {
+    height: 100%;
+    width: var(--mobile-menu-width);
+    display: none;
+
+    &_isClosed {
+      animation: sk-scaledown 0.35s ease-in-out;
+      animation-fill-mode: forwards;
+      animation-direction: linear;
+      display: flex;
+    }
+    &_isOpen {
+      display: flex;
+      animation: sk-scaleup 0.35s ease-in-out;
+    }
+  }
+
+  @media (--viewport-min-960) {
+    height: var(--header-desk-height);
+    width: 100%;
+  }
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: 960px;
+  display: flex;
+
+  @media (--viewport-max-959) {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  @media (--viewport-min-960) {
+    width: 100%;
+    padding: 0 var(--double-default-margin);
+    justify-content: space-between;
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @media (--viewport-min-960) {
+    display: inline-flex;
+  }
+}
+
+.item {
+  padding: 1.5rem 1rem 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (--viewport-max-959) {
+    justify-content: flex-start;
+  }
+}
+
+.smallIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.largeIcon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.link {
+  @mixin underline var(--color-red);
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: var(--text-grey);
+  &.isActive {
+    color: var(--color-red);
+  }
+}
+
+.linkTitle {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.svgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ville,
+.johanna {
+  display: inline-block;
+  height: 4rem;
+}

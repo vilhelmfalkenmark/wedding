@@ -1,5 +1,7 @@
 import React from "react";
-import s from "./InstagramSkeleton.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./InstagramSkeleton.css";
 
 const InstagramImageSkeleton = () => {
   return <li className={`${s.item} ${s.skeleton}`} />;
@@ -18,4 +20,4 @@ const InstagramSkeleton = () => {
   );
 };
 
-export default InstagramSkeleton;
+export default WithStyles(InstagramSkeleton, s);

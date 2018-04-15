@@ -4,7 +4,9 @@ import Input from "components/Input";
 import Button from "components/Button";
 import RadioButton from "components/RadioButton";
 import regex from "utils/helpers/regex";
-import s from "./RsvpForm.scss";
+import WithStyles from "layout/WithStyles";
+
+import s from "./RsvpForm.css";
 
 class RsvpForm extends Component {
   constructor() {
@@ -20,7 +22,7 @@ class RsvpForm extends Component {
   }
   render() {
     return (
-      <div className={s.container}>
+      <div className={s({ container: true })}>
         <form className={s.form}>
           <Input
             inputLabel="Namn på gäst/gäster"
@@ -127,4 +129,4 @@ class RsvpForm extends Component {
   }
 }
 
-export default RsvpForm;
+export default WithStyles(RsvpForm, s);

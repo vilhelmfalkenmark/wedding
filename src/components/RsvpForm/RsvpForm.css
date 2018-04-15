@@ -1,0 +1,16 @@
+@import "grid";
+@import "variables";
+
+.container {
+  @mixin card;
+}
+
+.form {
+  max-width: var(--max-inner-content);
+  margin: 0 auto;
+}
+
+.buttonContainer {
+  text-align: center;
+  padding-bottom: var(--default-margin);
+}

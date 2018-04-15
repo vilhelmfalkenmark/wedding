@@ -1,0 +1,19 @@
+@import "grid";
+.card {
+  @mixin card;
+  word-break: break-all;
+  text-align: center;
+}
+
+.inner {
+  display: inline-block;
+  text-align: left;
+}
+
+.list {
+  list-style: none;
+}
+
+.item {
+  margin-bottom: 1rem;
+}
