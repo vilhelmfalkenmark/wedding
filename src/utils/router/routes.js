@@ -114,10 +114,4 @@ export const FAQ_ROUTE = {
   component: Faq
 };
 
-// export default [HOME_ROUTE];
-export default [
-  HOME_ROUTE,
-  GUEST_ROUTE,
-  RSVP_ROUTE,
-  FAQ_ROUTE
-]; /* TODO UNCOMMENT ON LATER STAGE */
+export default [HOME_ROUTE, GUEST_ROUTE, RSVP_ROUTE, FAQ_ROUTE];

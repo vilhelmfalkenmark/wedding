@@ -2,8 +2,7 @@
 @import "skeleton";
 
 .skeleton {
-  @mixin skeleton color(var(--skeleton-gradient) blackness(15%)),
-    color(var(--skeleton-pulse) blackness(4%));
+  @mixin skeleton;
 
   height: 130px;
   padding: 0;

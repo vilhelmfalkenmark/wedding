@@ -7,44 +7,22 @@ import WithStyles from "layout/WithStyles";
 
 import s from "./Root.css";
 
-class Root extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      mobileMenuOpen: false,
-      mobileMenuHasBeenDisplayed: false
-    };
-  }
-
-  render() {
-    const { mobileMenuOpen, mobileMenuHasBeenDisplayed } = this.state;
-    return (
-      <Router>
-        <div className={s({ content: true })}>
-          <Header
-            mobileMenuOpen={mobileMenuOpen}
-            mobileMenuHasBeenDisplayed={mobileMenuHasBeenDisplayed}
-            toggleMobileMenu={() =>
-              this.setState({
-                mobileMenuOpen: !mobileMenuOpen,
-                mobileMenuHasBeenDisplayed: true
-              })
-            }
-          />
-          {routes.map((route, index) => (
-            <Route
-              key={index}
-              exact={route.exact}
-              path={route.slug}
-              component={route.component}
-              onChange={this.routeChanged}
-            />
-          ))}
-          <Footer />
-        </div>
-      </Router>
-    );
-  }
-}
+const Root = () => (
+  <Router>
+    <div className={s({ content: true })}>
+      <Header />
+      {routes.map((route, index) => (
+        <Route
+          key={index}
+          exact={route.exact}
+          path={route.slug}
+          component={route.component}
+          onChange={this.routeChanged}
+        />
+      ))}
+      <Footer />
+    </div>
+  </Router>
+);
 
 export default WithStyles(Root, s);

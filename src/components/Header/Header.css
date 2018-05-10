@@ -34,32 +34,13 @@
 }
 
 .container {
-  box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.577);
-  position: fixed;
-  background-color: white;
-  top: 0;
-  right: 0;
-  z-index: var(--z-index-third);
-
-  @media (--viewport-max-959) {
-    height: 100%;
-    width: var(--mobile-menu-width);
-    display: none;
-
-    &_isClosed {
-      animation: sk-scaledown 0.35s ease-in-out;
-      animation-fill-mode: forwards;
-      animation-direction: linear;
-      display: flex;
-    }
-    &_isOpen {
-      display: flex;
-      animation: sk-scaleup 0.35s ease-in-out;
-    }
-  }
-
   @media (--viewport-min-960) {
-    height: var(--header-desk-height);
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    top: 0;
+    right: 0;
+    z-index: var(--z-index-third);
+    position: fixed;
     width: 100%;
   }
 }
@@ -76,9 +57,24 @@
     justify-content: center;
   }
   @media (--viewport-min-960) {
+    height: var(--header-desk-height);
     width: 100%;
     padding: 0 var(--double-default-margin);
     justify-content: space-between;
+  }
+}
+
+.navigation {
+  display: flex;
+
+  @media (--viewport-max-959) {
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-index-third);
+    background-color: var(--color-white);
   }
 }
 
@@ -86,18 +82,29 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  @media (--viewport-min-960) {
-    display: inline-flex;
+  display: inline-flex;
+
+  @media (--viewport-max-959) {
+    width: 100%;
+    height: var(--header-mobile-height);
+    justify-content: space-between;
   }
 }
 
 .item {
-  padding: 1.5rem 1rem 1.5rem 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: strech;
+
   @media (--viewport-max-959) {
+    min-width: 20%;
     justify-content: flex-start;
+    padding: 0 1rem;
+  }
+
+  @media (--viewport-min-960) {
+    padding: 0 1rem 0 0;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -114,6 +121,7 @@
 .link {
   @mixin underline var(--color-red);
 
+  width: 100%;
   display: flex;
   align-items: center;
   position: relative;
@@ -129,13 +137,26 @@
 }
 
 .svgContainer {
-  display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (--viewport-max-959) {
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    z-index: var(--z-index-third);
+    top: var(--default-margin);
+    left: var(--default-margin);
+    background: var(--color-white);
+    padding: var(--half-default-margin);
+  }
+
+  @media (--viewport-min-960) {
+    display: flex;
+  }
 }
 
 .ville,
 .johanna {
   display: inline-block;
-  height: 4rem;
+  height: 3rem;
 }
