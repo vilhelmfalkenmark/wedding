@@ -9,7 +9,7 @@
     transition: all 0.2s ease;
     cursor: pointer;
 
-    &:after {
+    /* &:after {
       bottom: -5px;
       backface-visibility: hidden;
       border: 1px solid rgb($color);
@@ -29,13 +29,13 @@
         transition: width 350ms ease-in-out;
         width: 100%;
       }
-    }
+    } */
   }
 }
 
 .container {
   @media (--viewport-min-960) {
-    background-color: white;
+    background-color: var(--color-white);
     box-shadow: var(--box-shadow);
     top: 0;
     right: 0;
