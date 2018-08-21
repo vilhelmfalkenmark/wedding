@@ -1,6 +1,6 @@
 @import "variables";
 @import "breakpoints";
-@import "layout";
+@import "grid";
 @import "skeleton";
 
 .list {
@@ -9,6 +9,25 @@
   flex-direction: row;
   margin: 0;
   padding: 0;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: var(--default-margin);
+  margin: 0 0 var(--double-default-margin);
+
+  position: relative;
+  &::after {
+    height: 4px;
+    width: 4rem;
+    content: "";
+    position: absolute;
+    background-color: var(--color-medium-grey);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
 }
 
 .item {
@@ -30,7 +49,7 @@
 }
 
 .skeleton {
-  @mixin skeleton var(--skeleton-gradient), var(--skeleton-pulse);
+  @mixin skeleton;
 
   height: 168px;
   padding: 0;

@@ -2,31 +2,45 @@
   --text-grey: #4c4c4c;
   --border-grey: #d4d4d4;
   --color-medium-grey: #737373;
+  --color-white: #fff;
   --color-green: #27ae60;
   --color-red: #e74c3c;
   --color-orange: #ff9959;
   --off-white: #fafafa;
   --app-background: #efe9e5;
-  --skeleton-gradient: #f7f7f7;
-  --skeleton-pulse: #f0f0f0;
-  --burger-color: #737373;
-  --burger-background: white;
+  /* Skeleton colors */
+  --skeleton-background: #cacaca;
+  --skeleton-gradient: #dadada;
 
-  --burger-thickness: 3px;
-  --ribbon-size: 1.3rem;
-  --negative-ribbon-size: -1.3rem;
+  /* Shadow */
+  --box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.577);
+
+  /* Transparent white */
+  --transparent-white: rgba(255, 255, 255, 0.808);
+
+  /* Transparent white */
+  --transparent-white: rgba(255, 255, 255, 0.808);
+
+  /* Default sizes */
   --half-default-margin: 0.5rem;
   --default-margin: 1rem;
   --double-default-margin: 2rem;
   --triple-default-margin: 3rem;
+
+  /* Layut sizes */
   --header-desk-height: 5rem;
+  --header-mobile-height: 4rem;
   --page-max-width: 960px;
   --header-breakpoint: 960px;
   --max-inner-content: 560px;
   --header-desk-height: 5rem;
-  --mobile-menu-width: 300px;
-  --radio-btn-circle-size: 1.5rem;
 
+  /* Component sizes */
+  --radio-btn-circle-size: 1.5rem;
+  --ribbon-size: 1.3rem;
+  --negative-ribbon-size: -1.3rem;
+
+  /* Typography */
   --font-size-xs: 0.8rem;
   --font-size-s: 0.9rem;
   --font-size-m: 1rem;
@@ -34,6 +48,7 @@
   --font-size-xl: 1.8rem;
   --font-size-xxl: 2rem;
 
+  /* z-index */
   --z-index-first: 1;
   --z-index-second: 10;
   --z-index-third: 100;

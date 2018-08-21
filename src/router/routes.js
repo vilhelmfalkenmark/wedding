@@ -1,7 +1,7 @@
 import universal from "react-universal-component";
 
 // AsyncLoading Higher order component
-import AsyncLoading from "components/AsyncLoading";
+import LoadingPlaceholder from "components/LoadingPlaceholder";
 
 // Skeleton placeholders for code-splitting loading state
 import FaqSkeleton from "components/Skeletons/FaqSkeleton";
@@ -27,7 +27,7 @@ const LandingPage = universal(
   {
     resolve: () => require.resolveWeak("entrypoints/LandingPage"),
     chunkName: "landingpage",
-    loading: AsyncLoading({
+    loading: LoadingPlaceholder({
       SkeletonPlaceholderComponent: Hero,
       withRibbonHeading: false
     })
@@ -40,7 +40,7 @@ const Guests = universal(
   {
     resolve: () => require.resolveWeak("entrypoints/Guests"),
     chunkName: "Guests",
-    loading: AsyncLoading({
+    loading: LoadingPlaceholder({
       SkeletonPlaceholderComponent: GuestsSkeleton,
       withRibbonHeading: true
     })
@@ -53,7 +53,7 @@ const Faq = universal(
   {
     resolve: () => require.resolveWeak("entrypoints/Faq"),
     chunkName: "faq",
-    loading: AsyncLoading({
+    loading: LoadingPlaceholder({
       SkeletonPlaceholderComponent: FaqSkeleton,
       withRibbonHeading: true
     })
@@ -66,7 +66,7 @@ const Rsvp = universal(
   {
     resolve: () => require.resolveWeak("entrypoints/Rsvp"),
     chunkName: "rsvp",
-    loading: AsyncLoading({
+    loading: LoadingPlaceholder({
       SkeletonPlaceholderComponent: RsvpSkeleton,
       withRibbonHeading: true
     })
@@ -94,11 +94,11 @@ export const GUEST_ROUTE = {
   icon: cheers,
   largeIcon: true,
   component: Guests
-}; // component: () => Guests || ErrorWall
+};
 
 export const RSVP_ROUTE = {
   exact: false,
-  navTitle: "Osa till vårt bröllop",
+  navTitle: "OSA",
   slug: "/osa/",
   icon: guestList,
   largeIcon: false,
@@ -114,10 +114,4 @@ export const FAQ_ROUTE = {
   component: Faq
 };
 
-// export default [HOME_ROUTE];
-export default [
-  HOME_ROUTE,
-  GUEST_ROUTE,
-  RSVP_ROUTE,
-  FAQ_ROUTE
-]; /* TODO UNCOMMENT ON LATER STAGE */
+export default [HOME_ROUTE, GUEST_ROUTE, RSVP_ROUTE, FAQ_ROUTE];

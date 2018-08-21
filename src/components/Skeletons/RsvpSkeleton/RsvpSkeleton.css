@@ -8,7 +8,7 @@
 }
 
 .list {
-  @mixin skeleton var(--skeleton-gradient), var(--skeleton-pulse);
+  @mixin skeleton;
 
   list-style: none;
   width: 100%;

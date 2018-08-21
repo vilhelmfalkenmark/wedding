@@ -7,7 +7,6 @@ import store from "./store";
 import { onInsertStylesHandler } from "layout/WithStyles";
 import WithStylesContext from "layout/WithStylesContext";
 
-// require("./css/stylesheet.css");
 
 render(
   <WithStylesContext onInsertCss={onInsertStylesHandler}>

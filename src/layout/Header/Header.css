@@ -1,0 +1,149 @@
+@import "variables";
+@import "breakpoints";
+@import "keyframes";
+
+.container {
+  @media (--viewport-min-960) {
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    top: 0;
+    right: 0;
+    z-index: var(--z-index-third);
+    position: fixed;
+    width: 100%;
+  }
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: 960px;
+  display: flex;
+
+  @media (--viewport-max-959) {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  @media (--viewport-min-960) {
+    height: var(--header-desk-height);
+    width: 100%;
+    padding: 0 var(--double-default-margin);
+    justify-content: space-between;
+  }
+}
+
+.logoLink {
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  @media (--viewport-max-959) {
+    height: var(--header-mobile-height);
+    box-shadow: var(--box-shadow);
+    background: var(--color-white);
+    width: 100%;
+    padding: var(--half-default-margin);
+    z-index: var(--z-index-third);
+    top: 0;
+    left: 0;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hashTag {
+  margin-left: var(--default-margin);
+  color: var(--text-grey);
+}
+
+.ville,
+.johanna {
+  height: 3rem;
+
+  @media (--viewport-min-960) {
+    height: 3.5rem;
+  }
+}
+
+.navigation {
+  display: flex;
+
+  @media (--viewport-max-959) {
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-index-third);
+    background-color: var(--color-white);
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  min-width: 4rem;
+  justify-content: center;
+  height: var(--header-mobile-height);
+
+  @media (--viewport-min-960) {
+    padding: 0 1rem 0 0;
+  }
+}
+
+.smallIcon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.largeIcon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.link {
+  text-decoration: none;
+
+  flex: 1;
+  display: flex;
+  padding: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-grey);
+
+  &_isActive {
+    color: var(--color-red);
+  }
+
+  @media (--viewport-min-960) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.linkTitle {
+  font-size: 0.8rem;
+  line-height: 1rem;
+
+  @media (--viewport-min-960) {
+    font-size: 1rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+}

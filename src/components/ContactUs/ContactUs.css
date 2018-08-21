@@ -4,6 +4,12 @@
   list-style-type: none;
 }
 
+.item {
+  &_isSmall {
+    font-size: 0.8rem;
+  }
+}
+
 .link {
   color: var(--color-green);
   text-decoration: none;
