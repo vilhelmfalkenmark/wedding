@@ -1,10 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
-import routes, { HOME_ROUTE } from "utils/router/routes";
+import routes, { HOME_ROUTE } from "router/routes";
 import ville from "assets/svg/ville.svg";
 import johanna from "assets/svg/johanna.svg";
 import WithStyles from "layout/WithStyles";
+
+import copy from "utils/copy";
 
 import s from "./Header.css";
 
@@ -16,6 +18,13 @@ const Header = () => (
       })}
     >
       <div className={s({ inner: true })}>
+        <NavLink to={HOME_ROUTE.slug} className={s({ logoLink: true })}>
+          <figure className={s({ logo: true })}>
+            <img className={s.johanna} src={johanna} alt="Johanna SVG" />
+            <img className={s.ville} src={ville} alt="Ville SVG" />
+            <span className={s({ hashTag: true })}>{copy.hashTag}</span>
+          </figure>
+        </NavLink>
         <nav className={s({ navigation: true })}>
           <ul className={s.list}>
             {routes.map((route, index) => (
@@ -24,7 +33,7 @@ const Header = () => (
                   exact
                   to={route.slug}
                   className={s({ link: true })}
-                  activeClassName={s.isActive}
+                  activeClassName={s({ link_isActive: true })}
                 >
                   <img
                     src={route.icon}
@@ -40,12 +49,6 @@ const Header = () => (
             ))}
           </ul>
         </nav>
-        <NavLink to={HOME_ROUTE.slug} className={s({ link: true })}>
-          <figure className={s({ svgContainer: true })}>
-            <img className={s.johanna} src={johanna} alt="Johanna SVG" />
-            <img className={s.ville} src={ville} alt="Ville SVG" />
-          </figure>
-        </NavLink>
       </div>
     </div>
   </header>

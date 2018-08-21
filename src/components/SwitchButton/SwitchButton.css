@@ -44,14 +44,16 @@
     top: -0.35rem;
     border-radius: 50%;
   }
-  &.isOn {
+
+  &_isOn {
     background-color: lighten(var(--color-green), 25%);
     &:after {
       transform: translateX(0rem);
       background-color: var(--color-green);
     }
   }
-  &.isOff {
+
+  &_isOff {
     background-color: lighten(var(--color-red), 25%);
     &:after {
       transform: translateX(-1.5rem);

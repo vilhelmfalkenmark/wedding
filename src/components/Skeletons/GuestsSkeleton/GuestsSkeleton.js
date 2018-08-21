@@ -15,16 +15,19 @@ const GuestSkeleton = () => {
   );
 };
 
-const GuestsSkeleton = () => {
+const GuestsSkeleton = ({ heading }) => {
   return (
-    <ul className={s.list}>
-      <GuestSkeleton />
-      <GuestSkeleton />
-      <GuestSkeleton />
-      <GuestSkeleton />
-      <GuestSkeleton />
-      <GuestSkeleton />
-    </ul>
+    <div>
+      <h3 className={s({ heading: true })}>{heading}</h3>
+      <ul className={s({ list: true })}>
+        <GuestSkeleton />
+        <GuestSkeleton />
+        <GuestSkeleton />
+        <GuestSkeleton />
+        <GuestSkeleton />
+        <GuestSkeleton />
+      </ul>
+    </div>
   );
 };
 

@@ -8,14 +8,14 @@ const promiseResolve = data =>
     });
   });
 
-module.exports = contentful => {
+module.exports = contentfulClient => {
   router
     .route("/")
     //////////////////////////////////////////
     // GET REQUEST FOR ALL FAQS
     //////////////////////////////////////////
     .get((request, response) => {
-      const faqs = contentful
+      const faqs = contentfulClient
         .getEntries({ content_type: "faq" })
         .then(entry => entry.items.map(item => item.fields))
         .catch(err => {

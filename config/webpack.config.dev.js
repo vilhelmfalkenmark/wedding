@@ -98,6 +98,7 @@ module.exports = {
       components: path.resolve(paths.appSrc, "components"),
       utils: path.resolve(paths.appSrc, "utils"),
       layout: path.resolve(paths.appSrc, "layout"),
+      router: path.resolve(paths.appSrc, "router"),
       fonts: path.resolve(paths.appSrc, "styles/fonts")
     },
     plugins: [

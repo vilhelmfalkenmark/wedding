@@ -5,15 +5,21 @@ import s from "./SwitchButton.css";
 const SwitchButton = ({ onClickCallback, label, disabled, switchOn }) => {
   return (
     <div className={s({ container: true })}>
-      <div className={s.buttonContainer}>
+      <div className={s({ buttonContainer: true })}>
         <button
           onClick={!disabled ? onClickCallback : () => null}
-          className={s.button}
+          className={s({ button: true })}
         >
-          <span className={`${s.simulator} ${switchOn ? s.isOn : s.isOff}`} />
+          <span
+            className={s({
+              simulator: true,
+              simulator_isOn: switchOn,
+              simulator_isOff: !switchOn
+            })}
+          />
         </button>
       </div>
-      <label htmlFor={label} className={s.label}>
+      <label htmlFor={label} className={s({ label: true })}>
         {label}
       </label>
     </div>

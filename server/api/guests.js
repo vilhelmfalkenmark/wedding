@@ -41,8 +41,6 @@ module.exports = db => {
         attending: view(attendingLens, request)
       });
       // response.status(404);
-      // console.log("error");
-      // return false;
       db.collection(GUEST_COLLECTION).insertOne(newGuest, (err, doc) => {
         if (err) {
           response.json({ error: "error in post request" });
@@ -55,8 +53,7 @@ module.exports = db => {
     // GET REQUEST FOR ALL GUESTS
     //////////////////////////////////////////
     .get((request, response) => {
-      db
-        .collection(GUEST_COLLECTION)
+      db.collection(GUEST_COLLECTION)
         .find({})
         .toArray(function(err, data) {
           if (err) {
@@ -71,9 +68,9 @@ module.exports = db => {
   // GET REQUEST FOR SINGLE GUESTS
   //////////////////////////////////////////
   router.route("/:guest_id").get((request, response) => {
-    db
-      .collection(GUEST_COLLECTION)
-      .findOne({ _id: new ObjectID(request.params.guest_id) }, (err, data) => {
+    db.collection(GUEST_COLLECTION).findOne(
+      { _id: new ObjectID(request.params.guest_id) },
+      (err, data) => {
         if (err) {
           response.json({
             error: "error in get request for single guests"
@@ -92,7 +89,8 @@ module.exports = db => {
             });
           }
         }
-      });
+      }
+    );
   });
 
   return router;
