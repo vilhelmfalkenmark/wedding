@@ -13,7 +13,10 @@
   --skeleton-gradient: #dadada;
 
   /* Shadow */
-  --box-shadow: -1px -4px 15px 0 rgba(0, 0, 0, 0.577);
+  --box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.577);
+
+  /* Transparent white */
+  --transparent-white: rgba(255, 255, 255, 0.808);
 
   /* Transparent white */
   --transparent-white: rgba(255, 255, 255, 0.808);

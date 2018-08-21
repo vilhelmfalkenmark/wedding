@@ -10,13 +10,12 @@
   background-size: cover;
   background-position: top center;
   background-repeat: none;
+  height: calc(100vh - (var(--header-mobile-height) * 2));
 
-  @media (--viewport-max-959) {
-    height: calc(100vh);
-  }
   @media (--viewport-min-960) {
     height: calc(100vh - var(--header-desk-height));
   }
+
   &:after {
     position: absolute;
     height: 100%;

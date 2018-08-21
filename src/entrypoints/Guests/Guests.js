@@ -32,7 +32,7 @@ class Guests extends Component {
         <main className={s({ container: true })}>
           <RibbonHeading heading={"Gäster som har Osat"} />
           {fetching && !error ? (
-            <GuestsSkeleton />
+            <GuestsSkeleton heading={"Laddar status"} />
           ) : fulfilled && !error ? (
             <div>
               {attendingGuests.length > 0 && (
@@ -68,6 +68,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  WithStyles(Guests, s)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WithStyles(Guests, s));

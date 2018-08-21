@@ -1,18 +1,24 @@
 @import "grid";
 @import "breakpoints";
 @import "variables";
-.list {
-  @mixin flexRow;
 
-  list-style: none;
+.list {
+  @mixin flexRow 0;
+
+  @media (--viewport-min-768) {
+    @mixin flexRow 1rem;
+  }
 }
 
 .item {
-  position: relative;
-  @mixin flexGtrCol 2, 1rem;
+  @mixin flexGtrCol 2, 0;
 
-  @media (--viewport-min-480) {
+  @media (--viewport-min-768) {
     @mixin flexGtrCol 3, 1rem;
+  }
+
+  @media (--viewport-min-960) {
+    @mixin flexGtrCol 4, 1rem;
   }
 }
 
@@ -21,6 +27,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   position: relative;
+
   &::after {
     content: "";
     padding-bottom: 100%;

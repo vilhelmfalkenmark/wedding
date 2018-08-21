@@ -1,43 +1,9 @@
-@import "variables";
-@import "sofiaFont";
 @import "normalize";
-
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  color: var(--text-grey);
-  background-color: var(--app-background);
-  font-family: sofiaMedium;
-  overflow-x: hidden;
-  line-height: 1.6rem;
-  position: relative;
-  height: 100%;
-}
-
-ul,
-figure,
-menu,
-ol {
-  padding: 0;
-  margin: 0;
-}
+@import "base";
 
 .content {
   display: flex;
   flex-direction: column;
-  position: absolute;
   width: 100%;
-  bottom: 0;
-  top: 0;
+  height: 100%;
 }

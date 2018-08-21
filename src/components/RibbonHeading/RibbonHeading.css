@@ -4,6 +4,10 @@
 .container {
   text-align: center;
   margin-bottom: var(--triple-default-margin);
+
+  /* @media (--viewport-min-960) {
+    margin-bottom: var(--triple-default-margin);
+  } */
 }
 
 .heading {
@@ -39,7 +43,6 @@
   }
   &:before {
     left: calc(var(--negative-ribbon-size) * 2 + var(--ribbon-size) / 2);
-    /* left: -$size * 2 + $size/2; */
 
     border-left-color: transparent;
   }
@@ -50,7 +53,7 @@
 }
 
 .headingInnerSpan {
-  padding: --var(half-default-margin);
+  padding: var(--half-default-margin);
   @media (--viewport-min-480) {
     padding: 0.9rem;
   }

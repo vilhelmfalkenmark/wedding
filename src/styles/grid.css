@@ -4,6 +4,7 @@
 @define-mixin flexRow $margin: 1rem {
   display: flex;
   flex-flow: row wrap;
+  flex: 0 1 auto;
   margin-left: calc($margin/2 * -1);
   margin-right: calc($margin/2 * -1);
 }
@@ -31,7 +32,8 @@
 }
 
 @define-mixin pageContainer {
-  margin-top: 4rem;
+  margin-top: 1rem;
+
   @media (--viewport-min-960) {
     margin-top: var(--header-desk-height);
   }
@@ -39,23 +41,23 @@
 
 @define-mixin contentContainer {
   flex: 1 0;
-  width: 100%;
+  width: calc(100% - var(--default-margin));
   max-width: var(--page-max-width);
   margin-left: auto;
   margin-right: auto;
-  padding: var(--default-margin) 0;
+  padding: var(--double-default-margin) 0;
 
   @media (--viewport-min-768) {
-    padding: var(--default-margin);
+    width: calc(100% - var(--double-default-margin));
   }
 
   @media (--viewport-min-960) {
-    padding: var(--double-default-margin);
+    width: calc(100% - var(--double-default-margin));
   }
 }
 
-@define-mixin card {
-  background-color: white;
-  padding: 2rem;
+@define-mixin card $padding: 2rem {
+  background-color: var(--color-white);
+  padding: $padding;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);
 }
