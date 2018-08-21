@@ -32,7 +32,6 @@ const Root = () => (
             exact={route.exact}
             path={route.slug}
             component={route.component}
-            onChange={this.routeChanged}
           />
         ))}
         <Footer />
