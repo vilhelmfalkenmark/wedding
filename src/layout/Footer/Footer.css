@@ -16,3 +16,28 @@
 .innerContainer {
   @mixin contentContainer;
 }
+
+.grid {
+  @mixin flexRow 0;
+
+  margin-bottom: var(--default-margin);
+
+  @media (--viewport-min-768) {
+    @mixin flexRow 1rem;
+  }
+}
+
+.column {
+  border-bottom: 1px solid var(--color-white);
+  padding-bottom: var(--default-margin);
+
+  @mixin flexGtrCol 1, var(--default-margin);
+
+  @media (--viewport-min-768) {
+    @mixin flexGtrCol 3, var(--default-margin);
+  }
+}
+
+.hashTag {
+  text-align: center;
+}

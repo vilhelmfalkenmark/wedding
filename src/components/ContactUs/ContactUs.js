@@ -1,17 +1,18 @@
 import React from "react";
 import s from "./ContactUs.css";
 import WithStyles from "layout/WithStyles";
-import copy from "utils/copy";
 
-const ContactUs = () => (
+const ContactUs = ({ people, small }) => (
   <div>
-    <ul className={s.list}>
-      {copy.couple.map((person, index) => (
-        <li key={index} className={s.item}>
-          <strong>{person.name}</strong>&nbsp;
+    <ul className={s({ list: true })}>
+      {people.map((person, index) => (
+        <li key={index} className={s({ item: true, item_isSmall: small })}>
+          <strong>{person.name}</strong>
+          &nbsp;
           <a href={`tel:${person.phoneNumber}`} className={s.link}>
             {person.prettyPhoneNumber}
-          </a>, alternativt&nbsp;
+          </a>
+          , alternativt&nbsp;
           <a href={`mailto:${person.mail}`} className={s.link}>
             {person.mail}
           </a>

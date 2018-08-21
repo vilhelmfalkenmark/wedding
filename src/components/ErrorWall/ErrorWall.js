@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ContactUs from "components/ContactUs";
 import WithStyles from "layout/WithStyles";
 import { FAQ_ROUTE } from "router/routes";
+import copy from "utils/copy";
 
 import s from "./ErrorWall.css";
 
@@ -20,7 +21,7 @@ export const ErrorWall = ({ heading }) => {
           </Link>
           så är ni varmt välkomna att kontakta oss:
         </p>
-        <ContactUs />
+        <ContactUs people={copy.couple} />
       </div>
     </div>
   );

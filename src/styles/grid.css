@@ -4,8 +4,9 @@
 @define-mixin flexRow $margin: 1rem {
   display: flex;
   flex-flow: row wrap;
-  /* margin-left: calc($margin/2 * -1);
-  margin-right: calc($margin/2 * -1); */
+  flex: 0 1 auto;
+  margin-left: calc($margin/2 * -1);
+  margin-right: calc($margin/2 * -1);
 }
 
 @define-mixin flexGtrCol $columns: 2, $gutter: 1rem {
@@ -32,7 +33,6 @@
 
 @define-mixin pageContainer {
   margin-top: 1rem;
-  /* min-height: calc(100vh - 9rem); */
 
   @media (--viewport-min-960) {
     margin-top: var(--header-desk-height);
@@ -41,18 +41,18 @@
 
 @define-mixin contentContainer {
   flex: 1 0;
-  width: 100%;
+  width: calc(100% - var(--default-margin));
   max-width: var(--page-max-width);
   margin-left: auto;
   margin-right: auto;
-  padding: var(--default-margin) 0;
+  padding: var(--double-default-margin) 0;
 
   @media (--viewport-min-768) {
-    padding: var(--default-margin);
+    width: calc(100% - var(--double-default-margin));
   }
 
   @media (--viewport-min-960) {
-    padding: var(--double-default-margin);
+    width: calc(100% - var(--double-default-margin));
   }
 }
 

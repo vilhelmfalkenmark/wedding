@@ -3,18 +3,22 @@
 @import "variables";
 
 .list {
-  @mixin flexRow;
+  @mixin flexRow 0;
 
-  list-style: none;
+  @media (--viewport-min-768) {
+    @mixin flexRow 1rem;
+  }
 }
 
 .item {
-  @mixin flexGtrCol 2, 1rem;
+  @mixin flexGtrCol 2, 0;
 
-  position: relative;
-
-  @media (--viewport-min-480) {
+  @media (--viewport-min-768) {
     @mixin flexGtrCol 3, 1rem;
+  }
+
+  @media (--viewport-min-960) {
+    @mixin flexGtrCol 4, 1rem;
   }
 }
 

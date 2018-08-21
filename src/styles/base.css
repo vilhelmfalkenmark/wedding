@@ -30,6 +30,11 @@ body {
 }
 
 ul,
+ol {
+  list-style: none;
+}
+
+ul,
 figure,
 menu,
 ol {
