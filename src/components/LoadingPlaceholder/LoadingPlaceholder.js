@@ -1,9 +1,12 @@
 import React from "react";
 import RibbonHeading from "components/RibbonHeading";
 
-import s from "./AsyncLoading.css";
+import s from "./LoadingPlaceholder.css";
 
-function AsyncLoading({ SkeletonPlaceholderComponent, withRibbonHeading }) {
+function LoadingPlaceholder({
+  SkeletonPlaceholderComponent,
+  withRibbonHeading
+}) {
   return function() {
     return (
       <div
@@ -18,4 +21,4 @@ function AsyncLoading({ SkeletonPlaceholderComponent, withRibbonHeading }) {
   };
 }
 
-export default AsyncLoading;
+export default LoadingPlaceholder;

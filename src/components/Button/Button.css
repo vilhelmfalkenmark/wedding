@@ -9,7 +9,7 @@
   border-radius: var(--double-default-margin);
   min-width: 10rem;
   cursor: pointer;
-  background-color: $color;
+  background: $color;
   transition: background 0.2s ease;
 
   &:hover {

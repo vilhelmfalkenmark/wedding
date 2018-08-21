@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import heartSvg from "assets/svg/heart.svg";
 import InstagramSkeleton from "components/Skeletons/InstagramSkeleton";
 import WithStyles from "layout/WithStyles";
 
 import { fetchInstagram } from "actions/instagram";
-import {
-  captionView,
-  lowResolutionUrlView
-  // likesView
-} from "utils/selectors/instagram";
+import { captionView, lowResolutionUrlView } from "utils/selectors/instagram";
 import s from "./Instagram.css";
 
 class Instagram extends Component {
@@ -17,7 +12,9 @@ class Instagram extends Component {
     this.props.fetchInstagram();
   }
   render() {
-    const { instagram: { data, fulfilled, fetching } } = this.props;
+    const {
+      instagram: { data, fulfilled, fetching }
+    } = this.props;
     return fulfilled && !fetching ? (
       <ul className={s.list}>
         {data.data.map((image, index) => (
@@ -30,14 +27,6 @@ class Instagram extends Component {
             >
               <span className={s.imageCaption}>{captionView(image)}</span>
             </figure>
-            {/* <div className={s.imageInfo}>
-              <figure>
-                <p className={s.likesContainer}>
-                  <span className={s.likesCount}>{likesView(image)}</span>
-                  <img src={heartSvg} alt="likes" className={s.likesHeart} />
-                </p>
-              </figure>
-            </div> */}
           </li>
         ))}
       </ul>
@@ -57,6 +46,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  WithStyles(Instagram, s)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WithStyles(Instagram, s));

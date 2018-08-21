@@ -5,7 +5,8 @@
 .heading {
   text-align: center;
   padding-bottom: var(--default-margin);
-  margin-bottom: var(--double-default-margin);
+  margin: 0 0 var(--double-default-margin);
+
   position: relative;
   &::after {
     height: 4px;
@@ -24,15 +25,17 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin: 0;
+  margin: 0 0 var(--default-margin);
   padding: 0;
 }
 
 .item {
+  @mixin card;
+
   list-style: none;
   margin-bottom: var(--half-default-margin);
   flex-basis: 100%;
-  @mixin card;
+  padding: 1rem 2rem;
 
   @media (--viewport-min-768) {
     margin-bottom: var(--default-margin);
@@ -47,6 +50,12 @@
 
     &:nth-of-type(even) {
       margin-left: 0.5rem;
+    }
+
+    &_foreverAlone {
+      flex-basis: 100%;
+      margin-right: 0;
+      margin-left: 0;
     }
   }
 }

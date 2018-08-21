@@ -1,6 +1,7 @@
 @import "grid";
 @import "breakpoints";
 @import "variables";
+
 .list {
   @mixin flexRow;
 
@@ -8,8 +9,9 @@
 }
 
 .item {
-  position: relative;
   @mixin flexGtrCol 2, 1rem;
+
+  position: relative;
 
   @media (--viewport-min-480) {
     @mixin flexGtrCol 3, 1rem;
@@ -21,6 +23,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   position: relative;
+
   &::after {
     content: "";
     padding-bottom: 100%;

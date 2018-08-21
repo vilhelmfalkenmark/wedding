@@ -1,0 +1,18 @@
+@import "variables";
+@import "grid";
+@import "breakpoints";
+
+.container {
+  background: var(--text-grey);
+  color: var(--color-white);
+  width: 100%;
+  flex-shrink: 0;
+
+  @media (--viewport-max-959) {
+    padding-bottom: var(--header-mobile-height);
+  }
+}
+
+.innerContainer {
+  @mixin contentContainer;
+}

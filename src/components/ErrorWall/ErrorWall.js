@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ContactUs from "components/ContactUs";
 import WithStyles from "layout/WithStyles";
-import { FAQ_ROUTE } from "utils/router/routes";
+import { FAQ_ROUTE } from "router/routes";
 
 import s from "./ErrorWall.css";
 
@@ -14,7 +14,9 @@ export const ErrorWall = ({ heading }) => {
         <p>
           Har du/ni några frågor om bröllopet som det inte ges svar på
           <Link to={FAQ_ROUTE.slug} className={s.link}>
-            &nbsp;{FAQ_ROUTE.navTitle}&nbsp;
+            &nbsp;
+            {FAQ_ROUTE.navTitle}
+            &nbsp;
           </Link>
           så är ni varmt välkomna att kontakta oss:
         </p>

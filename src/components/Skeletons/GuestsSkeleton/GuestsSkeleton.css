@@ -1,6 +1,6 @@
 @import "variables";
 @import "breakpoints";
-@import "layout";
+@import "grid";
 @import "skeleton";
 
 .list {
