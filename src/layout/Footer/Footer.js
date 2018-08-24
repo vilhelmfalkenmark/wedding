@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Instagram from "components/Instagram";
 import ContactUs from "components/ContactUs";
+import Button from "components/Button";
+import Scroll from "react-scroll";
+import Logo from "components/Logo";
+
 import copy from "utils/copy";
 
 import WithStyles from "layout/WithStyles";
@@ -8,6 +12,14 @@ import WithStyles from "layout/WithStyles";
 import s from "./Footer.css";
 
 class Footer extends Component {
+  scrollToHeader() {
+    Scroll.scroller.scrollTo("header", {
+      duration: 300,
+      delay: 0,
+      smooth: true
+    });
+  }
+
   render() {
     return (
       <footer className={s({ container: true })}>
@@ -37,6 +49,16 @@ class Footer extends Component {
           {/* GRID END */}
           <h4 className={s({ hashTag: true })}>{copy.hashTag} på Instagram</h4>
           <Instagram />
+        </div>
+        <Logo />
+        <div className={s({ buttonContainer: true })}>
+          <Button
+            buttonType={"WHITE_"}
+            className={s({ scrollButton: true })}
+            onClickCallback={this.scrollToHeader.bind(this)}
+            text={"Tillbaka till toppen"}
+            enabled
+          />
         </div>
       </footer>
     );

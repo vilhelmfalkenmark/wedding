@@ -1,8 +1,14 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter
+} from "react-router-dom";
 import routes from "router/routes";
 import Header from "layout/Header";
 import Footer from "layout/Footer";
+import NotFound from "entrypoints/NotFound";
 import WithStyles from "layout/WithStyles";
 
 import s from "./Root.css";
@@ -26,14 +32,18 @@ const Root = () => (
     <ScrollToTopWithRouter>
       <div className={s({ content: true })}>
         <Header />
-        {routes.map((route, index) => (
-          <Route
-            key={index}
-            exact={route.exact}
-            path={route.slug}
-            component={route.component}
-          />
-        ))}
+        <Switch>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              exact={route.exact}
+              path={route.slug}
+              component={route.component}
+            />
+          ))}
+          {/* 404 */}
+          <Route path="*" component={NotFound} />
+        </Switch>
         <Footer />
       </div>
     </ScrollToTopWithRouter>

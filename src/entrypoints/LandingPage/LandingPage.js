@@ -34,7 +34,7 @@ class LandingPage extends Component {
             scrollToContent={this.scrollToContent.bind(this)}
             infoFulfilled={info.fulfilled}
           />
-          <section className={s.infoContainer} name="scroll-target">
+          <section className={s({ infoContainer: true })} name="scroll-target">
             {info.fulfilled ? (
               <div className={s.infoCard}>
                 <article className={s.infoContent}>
@@ -79,6 +79,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchInfo());
   }
 });
-export default connect(mapStateToProps, mapDispatchToProps)(
-  WithStyles(LandingPage, s)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WithStyles(LandingPage, s));

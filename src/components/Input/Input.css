@@ -59,7 +59,7 @@
 .line {
   display: block;
   height: 2px;
-  background-color: var(--border-grey);
+  background-color: var(--light-grey);
   display: block;
   margin-top: 0;
   width: 100%;

@@ -2,7 +2,7 @@
 
 .container {
   padding-top: 0.5rem;
-  border-top: 1px solid var(--border-grey);
+  border-top: 1px solid var(--light-grey);
   font-size: var(--font-size-xs);
 }
 

@@ -85,15 +85,6 @@ class RsvpForm extends Component {
               })
             }
           />
-          {/* <SwitchButton
-            onClickCallback={e => {
-              e.preventDefault();
-              this.setState({ attending: !this.state.attending });
-            }}
-            disabled={false}
-            switchOn={this.state.attending}
-            label={this.state.attending ? "Kommer :)" : "Kommer tyvärr inte :("}
-          /> */}
           <RadioButton
             alternatives={[
               { label: "Kommer", value: true },
@@ -118,7 +109,7 @@ class RsvpForm extends Component {
                       attending: this.state.attending
                     });
                   }}
-                  buttonText={"OSA"}
+                  text={"OSA"}
                   enabled
                 />
               )}

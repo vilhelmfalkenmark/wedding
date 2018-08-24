@@ -1,5 +1,6 @@
-const ramda = require("ramda");
-const express = require("express");
+import ramda from "ramda";
+import express from "express";
+
 const bodyParser = require("body-parser");
 const mongodb = require("mongodb");
 const path = require("path");
@@ -11,35 +12,32 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
-let apiKeys = {};
 
-// DEVELOP
-if (process.env.NODE_ENV === "development") {
-  apiKeys = require("./secrets");
-}
-// LOCAL PRODUCTION BUILD
-else if (process.env.NODE_ENV === "test") {
-  apiKeys = require("./secrets");
-}
-// ACTUAL PRODUCTION BUILD
-else {
-  apiKeys.instagramKeys = {
+//////////////////////////////////////////////////
+/**
+ * ENVIROMENT
+ */
+//////////////////////////////////////////////////
+require("dotenv").config(); // <-- Environment variables
+
+const apiKeys = {
+  instagramKeys: {
     INSTAGRAM_ACCESS_TOKEN: view(
       lensPath(["INSTAGRAM_ACCESS_TOKEN"]),
       process.env
     )
-  };
-  apiKeys.contentfulKeys = {
+  },
+  contentfulKeys: {
     CONTENTFUL_SPACE: view(lensPath(["CONTENTFUL_SPACE"]), process.env),
     CONTENTFUL_ACCESS_TOKEN: view(
       lensPath(["CONTENTFUL_ACCESS_TOKEN"]),
       process.env
     )
-  };
-  apiKeys.mongoDBKeys = {
+  },
+  mongoDBKeys: {
     MONGODB_URI: view(lensPath(["MONGODB_URI"]), process.env)
-  };
-}
+  }
+};
 
 // Create link to React build directory
 app.use(express.static(path.resolve(__dirname, "../build")));

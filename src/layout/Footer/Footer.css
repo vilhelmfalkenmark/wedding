@@ -41,3 +41,12 @@
 .hashTag {
   text-align: center;
 }
+
+.buttonContainer {
+  text-align: center;
+  margin-bottom: var(--double-default-margin);
+}
+
+.scrollButton.scrollButton {
+  margin: 0 auto;
+}
