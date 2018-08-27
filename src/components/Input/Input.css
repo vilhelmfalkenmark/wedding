@@ -16,9 +16,10 @@
   position: relative;
   transform: translateY(2rem);
   transition: transform 0.2s ease;
-  &.isFocused {
+
+  &_isFocused {
     color: var(--color-green);
-    transform: translateY(0);
+    transform: translateY(0) !important;
   }
 
   @media (--viewport-min-960) {
