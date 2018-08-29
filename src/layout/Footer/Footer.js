@@ -7,6 +7,8 @@ import Logo from "components/Logo";
 
 import copy from "utils/copy";
 
+import { BUTTON_TYPE_GREY } from "utils/constants/buttonTypes";
+
 import WithStyles from "layout/WithStyles";
 
 import s from "./Footer.css";
@@ -53,11 +55,11 @@ class Footer extends Component {
         <Logo />
         <div className={s({ buttonContainer: true })}>
           <Button
-            buttonType={"WHITE_"}
+            type={BUTTON_TYPE_GREY}
+            outlined
             className={s({ scrollButton: true })}
             onClickCallback={this.scrollToHeader.bind(this)}
             text={"Tillbaka till toppen"}
-            enabled
           />
         </div>
       </footer>

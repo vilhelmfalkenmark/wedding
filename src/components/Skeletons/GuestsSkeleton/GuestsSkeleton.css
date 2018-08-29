@@ -22,7 +22,7 @@
     width: 4rem;
     content: "";
     position: absolute;
-    background-color: var(--color-medium-grey);
+    background-color: var(--medium-grey);
     bottom: 0;
     left: 0;
     right: 0;

@@ -19,7 +19,7 @@
   padding: 0.5rem;
   max-width: 13rem;
   font-size: var(--font-size-s);
-  color: var(--color-medium-grey);
+  color: var(--medium-grey);
 }
 
 .input {
@@ -38,7 +38,7 @@
   left: 0.5rem;
   border-radius: 50%;
   z-index: 4;
-  border: 2px solid var(--color-medium-grey);
+  border: 2px solid var(--medium-grey);
   &_isChecked {
     &:after {
       position: absolute;
@@ -55,15 +55,15 @@
 }
 
 .circle.circle_isChecked.circle_isPositive {
-  border: 2px solid var(--color-green);
+  border: 2px solid var(--green);
   &:after {
-    background-color: var(--color-green);
+    background-color: var(--green);
   }
 }
 
 .circle.circle_isChecked.circle_isNegative {
-  border: 2px solid var(--color-red);
+  border: 2px solid var(--red);
   &:after {
-    background-color: var(--color-red);
+    background-color: var(--red);
   }
 }

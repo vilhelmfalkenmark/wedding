@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
-import { fetchGuest } from "actions/guests";
+import { fetchGuest } from "store/guests/actions";
 import { readCookie } from "utils/helpers/cookie";
 import RsvpConfirmation from "components/RsvpConfirmation";
 import RsvpForm from "components/RsvpForm";

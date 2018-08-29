@@ -2,7 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import Input from "components/Input";
 import Button from "components/Button";
-import { postRsvp, handleRsvpData, toggleRsvpAttending } from "actions/rsvp";
+import {
+  postRsvp,
+  handleRsvpData,
+  toggleRsvpAttending
+} from "store/rsvp/actions";
+import { BUTTON_TYPE_RED } from "utils/constants/buttonTypes";
 
 import RadioButton from "components/RadioButton";
 import regex from "utils/helpers/regex";
@@ -43,7 +48,7 @@ const RsvpForm = ({ rsvp, handleRsvpForm, postRsvp, toggleRsvpAttending }) => {
 
   return (
     <div className={s({ container: true })}>
-      <form className={s({ form: true })}>
+      <div className={s({ form: true })}>
         {INPUT_FIELDS.map((inputField, i) => (
           <Input
             key={i}
@@ -69,23 +74,22 @@ const RsvpForm = ({ rsvp, handleRsvpForm, postRsvp, toggleRsvpAttending }) => {
           checkedAlternative={rsvpForm.attending}
           onChangeCallback={toggleRsvpAttending}
         />
-        <div className={s.buttonContainer}>
-          {
-            <Button
-              onClickCallback={e => {
-                e.preventDefault();
-                postRsvp(rsvpForm);
-              }}
-              text={"OSA"}
-              disabled={
-                rsvpForm.guests.length < 4 ||
-                rsvpForm.relationship.length < 2 ||
-                !regex.mail.test(rsvpForm.mail)
-              }
-            />
-          }
+        <div className={s({ buttonContainer: true })}>
+          <Button
+            type={BUTTON_TYPE_RED}
+            onClickCallback={e => {
+              e.preventDefault();
+              postRsvp(rsvpForm);
+            }}
+            text={"OSA"}
+            disabled={
+              rsvpForm.guests.length < 4 ||
+              rsvpForm.relationship.length < 2 ||
+              !regex.mail.test(rsvpForm.mail)
+            }
+          />
         </div>
-      </form>
+      </div>
     </div>
   );
 };

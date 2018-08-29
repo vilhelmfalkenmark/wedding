@@ -12,13 +12,13 @@
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   display: block;
-  color: var(--color-medium-grey);
+  color: var(--medium-grey);
   position: relative;
   transform: translateY(2rem);
   transition: transform 0.2s ease;
 
   &_isFocused {
-    color: var(--color-green);
+    color: var(--green);
     transform: translateY(0) !important;
   }
 
@@ -72,7 +72,7 @@
     left: 0;
     right: 0;
     top: 0;
-    background-color: var(--color-green);
+    background-color: var(--green);
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.2s ease-in-out;

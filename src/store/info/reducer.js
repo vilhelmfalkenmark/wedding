@@ -6,7 +6,7 @@ import {
   INFO_FETCHING_ERROR
 } from "utils/constants/actionTypes";
 
-const faq = (state = initialState.info, action) => {
+const info = (state = initialState.info, action) => {
   switch (action.type) {
     case INFO_FETCHING: {
       return Object.assign({}, state, {
@@ -32,4 +32,4 @@ const faq = (state = initialState.info, action) => {
   }
 };
 
-export default faq;
+export default info;
