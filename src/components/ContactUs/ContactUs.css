@@ -11,6 +11,10 @@
 }
 
 .link {
-  color: var(--color-green);
+  color: var(--link-color);
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

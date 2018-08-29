@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import InstagramSkeleton from "components/Skeletons/InstagramSkeleton";
 import WithStyles from "layout/WithStyles";
 
-import { fetchInstagram } from "actions/instagram";
+import { fetchInstagram } from "store/instagram/actions";
 import { captionView, lowResolutionUrlView } from "utils/selectors/instagram";
 import s from "./Instagram.css";
 

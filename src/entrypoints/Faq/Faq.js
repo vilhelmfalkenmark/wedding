@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
-import { fetchFaq } from "actions/faq";
+import { fetchFaq } from "store/faq/actions";
 import FaqItem from "./FaqItem";
 import RibbonHeading from "components/RibbonHeading";
 import ErrorWall from "components/ErrorWall";
@@ -19,7 +19,9 @@ class Faq extends Component {
   }
 
   render() {
-    const { faq: { faq, fulfilled, fetching, error } } = this.props;
+    const {
+      faq: { faq, fulfilled, fetching, error }
+    } = this.props;
 
     return (
       <DocumentTitle title={"Vanliga frågor"}>
@@ -52,4 +54,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(WithStyles(Faq, s));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WithStyles(Faq, s));

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
-import { fetchAllGuests } from "actions/guests";
+import { fetchAllGuests } from "store/guests/actions";
 import RibbonHeading from "components/RibbonHeading";
 import GuestsSkeleton from "components/Skeletons/GuestsSkeleton";
 import GuestList from "components/GuestList";
