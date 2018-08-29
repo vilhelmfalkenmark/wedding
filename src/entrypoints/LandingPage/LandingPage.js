@@ -45,7 +45,7 @@ class LandingPage extends Component {
             ) : null}
           </section>
           <section className={s({ mapWrapper: true })}>
-            <div className={s.mapAdressWrapper}>
+            <div className={s({ mapAdressWrapper: true })}>
               <h3>Vi kommer gifta oss på {copy.location.title}</h3>
               <p>Adress: {copy.location.address} </p>
               <a

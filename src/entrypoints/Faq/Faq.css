@@ -1,5 +1,6 @@
 @import "variables";
 @import "grid";
+@import "breakpoints";
 
 .container {
   @mixin pageContainer;
@@ -12,9 +13,13 @@
 }
 
 .item {
-  @mixin card;
+  @mixin card var(--default-margin);
 
   margin-bottom: var(--half-default-margin);
+
+  @media (--viewport-min-480) {
+    @mixin card var(--double-default-margin);
+  }
 
   @media (--viewport-min-768) {
     margin-bottom: var(--default-margin);

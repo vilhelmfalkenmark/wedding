@@ -1,5 +1,6 @@
 @import "variables";
 @import "keyframes";
+@import "breakpoints";
 @import "grid";
 
 .container {
@@ -65,8 +66,16 @@
 .infoContainer {
   @mixin contentContainer;
 
-  margin-top: var(--double-default-margin);
-  margin-bottom: var(--double-default-margin);
+  @media (--viewport-max-959) {
+    padding: 0;
+    margin-top: var(--half-default-margin);
+    margin-bottom: var(--half-default-margin);
+  }
+
+  @media (--viewport-min-960) {
+    margin-top: var(--double-default-margin);
+    margin-bottom: var(--double-default-margin);
+  }
 }
 
 .infoCard {
@@ -91,9 +100,20 @@
   z-index: var(--z-index-first);
   padding: var(--default-margin);
   background-color: var(--transparent-white);
+
+  @media (--viewport-max-959) {
+    left: var(--half-default-margin);
+    right: var(--half-default-margin);
+    top: var(--half-default-margin);
+    padding: var(--default-margin) var(--double-default-margin);
+  }
 }
 
 .link {
   text-decoration: none;
-  color: var(--green);
+  color: var(--link-color);
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
