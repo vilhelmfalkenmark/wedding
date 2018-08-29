@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
 import GoogleMaps from "components/GoogleMaps";
 import Hero from "components/Hero";
-import { fetchInfo } from "actions/info";
+import { fetchInfo } from "store/info/actions";
 import copy from "utils/copy";
 import Scroll from "react-scroll";
 import WithStyles from "layout/WithStyles";
@@ -34,7 +34,7 @@ class LandingPage extends Component {
             scrollToContent={this.scrollToContent.bind(this)}
             infoFulfilled={info.fulfilled}
           />
-          <section className={s.infoContainer} name="scroll-target">
+          <section className={s({ infoContainer: true })} name="scroll-target">
             {info.fulfilled ? (
               <div className={s.infoCard}>
                 <article className={s.infoContent}>
@@ -45,7 +45,7 @@ class LandingPage extends Component {
             ) : null}
           </section>
           <section className={s({ mapWrapper: true })}>
-            <div className={s.mapAdressWrapper}>
+            <div className={s({ mapAdressWrapper: true })}>
               <h3>Vi kommer gifta oss på {copy.location.title}</h3>
               <p>Adress: {copy.location.address} </p>
               <a
@@ -79,6 +79,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchInfo());
   }
 });
-export default connect(mapStateToProps, mapDispatchToProps)(
-  WithStyles(LandingPage, s)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WithStyles(LandingPage, s));

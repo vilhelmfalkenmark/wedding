@@ -4,7 +4,7 @@
 
 .container {
   @media (--viewport-min-960) {
-    background-color: var(--color-white);
+    background-color: var(--white);
     box-shadow: var(--box-shadow);
     top: 0;
     right: 0;
@@ -18,6 +18,7 @@
   margin: 0 auto;
   max-width: 960px;
   display: flex;
+  width: 100%;
 
   @media (--viewport-max-959) {
     display: flex;
@@ -27,8 +28,6 @@
   }
   @media (--viewport-min-960) {
     height: var(--header-desk-height);
-    width: 100%;
-    padding: 0 var(--double-default-margin);
     justify-content: space-between;
   }
 }
@@ -42,32 +41,12 @@
   @media (--viewport-max-959) {
     height: var(--header-mobile-height);
     box-shadow: var(--box-shadow);
-    background: var(--color-white);
+    background: var(--white);
     width: 100%;
     padding: var(--half-default-margin);
     z-index: var(--z-index-third);
     top: 0;
     left: 0;
-  }
-}
-
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hashTag {
-  margin-left: var(--default-margin);
-  color: var(--text-grey);
-}
-
-.ville,
-.johanna {
-  height: 3rem;
-
-  @media (--viewport-min-960) {
-    height: 3.5rem;
   }
 }
 
@@ -81,7 +60,7 @@
     left: 0;
     right: 0;
     z-index: var(--z-index-third);
-    background-color: var(--color-white);
+    background-color: var(--white);
   }
 }
 
@@ -102,18 +81,23 @@
   height: var(--header-mobile-height);
 
   @media (--viewport-min-960) {
-    padding: 0 1rem 0 0;
+    padding: 0 1rem;
+    height: var(--header-desk-height);
   }
 }
 
-.smallIcon {
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-.largeIcon {
-  height: 2rem;
-  width: 2rem;
+.icon {
+  &_isSmall {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  &_isLarge {
+    height: 2rem;
+    width: 2rem;
+  }
+  &_isActive {
+    fill: var(--link-color);
+  }
 }
 
 .link {
@@ -126,14 +110,31 @@
   align-items: center;
   justify-content: space-between;
   color: var(--text-grey);
+  position: relative;
 
   &_isActive {
-    color: var(--color-red);
+    color: var(--link-color);
   }
 
   @media (--viewport-min-960) {
     flex-direction: row;
     justify-content: center;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 4px;
+    background: var(--link-color);
+    visibility: hidden;
+  }
+
+  &:hover {
+    &:after {
+      visibility: visible;
+    }
   }
 }
 

@@ -28,6 +28,8 @@ export const GUEST_FETCHING = "GUEST_FETCHING";
 //////////////////////////////////////////
 export const POST_RSVP_SUCCESS = "POST_RSVP_SUCCESS";
 export const POST_RSVP_ERROR = "POST_RSVP_ERROR";
+export const HANDLE_RSVP_FORM = "HANDLE_RSVP_FORM";
+export const TOGGLE_RSVP_ATTENDING = "TOGGLE_RSVP_ATTENDING";
 
 //////////////////////////////////////////
 // INSTAGRAM

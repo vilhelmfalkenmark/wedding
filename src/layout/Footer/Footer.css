@@ -4,7 +4,7 @@
 
 .container {
   background: var(--text-grey);
-  color: var(--color-white);
+  color: var(--white);
   width: 100%;
   flex-shrink: 0;
 
@@ -28,7 +28,7 @@
 }
 
 .column {
-  border-bottom: 1px solid var(--color-white);
+  border-bottom: 1px solid var(--white);
   padding-bottom: var(--default-margin);
 
   @mixin flexGtrCol 1, var(--default-margin);
@@ -40,4 +40,14 @@
 
 .hashTag {
   text-align: center;
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-bottom: var(--double-default-margin);
+}
+
+.scrollButton.scrollButton {
+  margin: 0 auto;
+  border: none;
 }

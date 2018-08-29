@@ -12,13 +12,14 @@
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   display: block;
-  color: var(--color-medium-grey);
+  color: var(--medium-grey);
   position: relative;
   transform: translateY(2rem);
   transition: transform 0.2s ease;
-  &.isFocused {
-    color: var(--color-green);
-    transform: translateY(0);
+
+  &_isFocused {
+    color: var(--green);
+    transform: translateY(0) !important;
   }
 
   @media (--viewport-min-960) {
@@ -59,7 +60,7 @@
 .line {
   display: block;
   height: 2px;
-  background-color: var(--border-grey);
+  background-color: var(--light-grey);
   display: block;
   margin-top: 0;
   width: 100%;
@@ -71,7 +72,7 @@
     left: 0;
     right: 0;
     top: 0;
-    background-color: var(--color-green);
+    background-color: var(--green);
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.2s ease-in-out;

@@ -8,6 +8,14 @@ export class Input extends Component {
     this.state = { focus: false };
   }
 
+  componentWillMount() {
+    if (this.props.inputValue !== "") {
+      this.setState({
+        focus: true
+      });
+    }
+  }
+
   render() {
     const {
       inputLabel,
@@ -34,15 +42,14 @@ export class Input extends Component {
           })
         }
         onChange={event => inputOnChange(event.target.value)}
-        className={s.field}
+        className={s({ field: true })}
       />,
-      <span className={s.line} key={2} />
-      // <span className={s.background} key={3} />
+      <span className={s({ line: true })} key={2} />
     ];
     const labelHtml = (
       <label
         htmlFor={inputName}
-        className={`${s.label} ${focus ? s.isFocused : null}`}
+        className={s({ label: true, label_isFocused: focus })}
       >
         {inputLabel}
       </label>

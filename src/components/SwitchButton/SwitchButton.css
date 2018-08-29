@@ -46,18 +46,18 @@
   }
 
   &_isOn {
-    background-color: lighten(var(--color-green), 25%);
+    background-color: lighten(var(--green), 25%);
     &:after {
       transform: translateX(0rem);
-      background-color: var(--color-green);
+      background-color: var(--green);
     }
   }
 
   &_isOff {
-    background-color: lighten(var(--color-red), 25%);
+    background-color: lighten(var(--red), 25%);
     &:after {
       transform: translateX(-1.5rem);
-      background-color: var(--color-red);
+      background-color: var(--red);
     }
   }
 }

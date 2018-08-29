@@ -8,8 +8,6 @@ const RsvpConfirmation = ({
   attendingMessage,
   notAttendingMessage
 }) => {
-  console.log(guestData);
-
   return (
     <div className={s.card}>
       <div className={s.inner}>
@@ -17,27 +15,33 @@ const RsvpConfirmation = ({
 
         <ul className={s.list}>
           <li className={s.item}>
-            <strong>Namn på Gäst/Gäster:</strong>&nbsp;
+            <strong>Namn på Gäst/Gäster:</strong>
+            &nbsp;
             <span>{guestData.guests}</span>
           </li>
           <li className={s.item}>
-            <strong>Kommer:</strong>&nbsp;
+            <strong>Kommer:</strong>
+            &nbsp;
             <span>{guestData.attending ? "Ja" : "Nej"}</span>
           </li>
           <li className={s.item}>
-            <strong>Relation till brudparet:</strong>&nbsp;
+            <strong>Relation till brudparet:</strong>
+            &nbsp;
             <span>{guestData.relationship}</span>
           </li>
           <li className={s.item}>
-            <strong>Mailadress:</strong>&nbsp;
+            <strong>Mailadress:</strong>
+            &nbsp;
             <span>{guestData.mail}</span>
           </li>
           <li className={s.item}>
-            <strong>Eventuella allergier och/eller Specialkost:</strong>&nbsp;
+            <strong>Eventuella allergier och/eller Specialkost:</strong>
+            &nbsp;
             <span>{guestData.allergies ? guestData.allergies : "Nej"}</span>
           </li>
           <li className={s.item}>
-            <strong>Önskelåt:</strong>&nbsp;
+            <strong>Önskelåt:</strong>
+            &nbsp;
             <span>
               {guestData.songRequest
                 ? guestData.songRequest

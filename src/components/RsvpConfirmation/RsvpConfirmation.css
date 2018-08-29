@@ -1,8 +1,16 @@
 @import "grid";
+@import "variables";
+@import "breakpoints";
+
 .card {
-  @mixin card;
+  @mixin card var(--default-margin);
+
   word-break: break-all;
   text-align: center;
+
+  @media (--viewport-min-480) {
+    @mixin card var(--double-default-margin);
+  }
 }
 
 .inner {

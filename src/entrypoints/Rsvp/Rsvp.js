@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DocumentTitle from "react-document-title";
-import { postRsvp } from "actions/rsvp";
-import { fetchGuest } from "actions/guests";
+import { fetchGuest } from "store/guests/actions";
 import { readCookie } from "utils/helpers/cookie";
 import RsvpConfirmation from "components/RsvpConfirmation";
 import RsvpForm from "components/RsvpForm";
@@ -20,14 +19,7 @@ import { fetchingGuestFulfilled, successfulRsvp } from "utils/selectors/rsvp";
 class Rsvp extends Component {
   constructor() {
     super();
-    this.state = {
-      guests: "",
-      songRequest: "",
-      mail: "",
-      allergies: "",
-      relationship: "",
-      attending: true
-    };
+
     this.cookieIsSet = readCookie();
   }
   componentWillMount() {
@@ -102,7 +94,7 @@ class Rsvp extends Component {
           return (
             <main className={s({ container: true })}>
               <RibbonHeading heading={`Osa till vårt bröllop`} />
-              <RsvpForm postRsvp={this.props.postRsvp} />
+              <RsvpForm />
             </main>
           );
         }
@@ -123,14 +115,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  postRsvp: guestData => {
-    dispatch(postRsvp(guestData));
-  },
   fetchGuest: guestId => {
     dispatch(fetchGuest(guestId));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  WithStyles(Rsvp, s)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WithStyles(Rsvp, s));

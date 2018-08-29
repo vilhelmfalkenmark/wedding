@@ -31,13 +31,19 @@
 .title {
   background-color: white;
   padding: 1.5rem;
+  max-width: 30rem;
+  text-align: center;
+  margin: 0 0.5rem;
   font-size: var(--font-size-l);
+  line-height: var(--font-size-l);
   z-index: var(--z-index-first);
   @media (--viewport-min-480) {
+    line-height: var(--font-size-xl);
     font-size: var(--font-size-xl);
   }
   @media (--viewport-min-960) {
     padding: 2rem;
+    line-height: 2.8rem;
     font-size: var(--font-size-xxl);
   }
 }

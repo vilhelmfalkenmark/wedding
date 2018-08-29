@@ -22,6 +22,14 @@ const initialState = {
   rsvp: {
     fulfilled: false,
     error: false,
+    rsvpForm: {
+      guests: "",
+      songRequest: "",
+      mail: "",
+      allergies: "",
+      attending: true,
+      relationship: ""
+    },
     data: {}
   },
   info: {

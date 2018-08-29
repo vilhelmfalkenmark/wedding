@@ -12,5 +12,5 @@
 
 .buttonContainer {
   text-align: center;
-  padding-bottom: var(--default-margin);
+  padding: var(--default-margin) 0;
 }

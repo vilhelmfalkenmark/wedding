@@ -1,16 +1,13 @@
 :root {
   --text-grey: #4c4c4c;
-  --border-grey: #d4d4d4;
-  --color-medium-grey: #737373;
-  --color-white: #fff;
-  --color-green: #27ae60;
-  --color-red: #e74c3c;
-  --color-orange: #ff9959;
-  --off-white: #fafafa;
-  --app-background: #efe9e5;
-  /* Skeleton colors */
-  --skeleton-background: #cacaca;
-  --skeleton-gradient: #dadada;
+  --light-grey: #d4d4d4;
+  --medium-grey: #737373;
+  --turquoise: #00a6bf;
+  --white: #fff;
+  --green: #27ae60;
+  --red: #e74c3c;
+  --orange: #ff9959;
+  --off-white: #917070;
 
   /* Shadow */
   --box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.577);
@@ -18,8 +15,11 @@
   /* Transparent white */
   --transparent-white: rgba(255, 255, 255, 0.808);
 
-  /* Transparent white */
-  --transparent-white: rgba(255, 255, 255, 0.808);
+  /* Component and application colors */
+  --app-background: #efe9e5;
+  --skeleton-background: #cacaca;
+  --skeleton-gradient: #dadada;
+  --link-color: var(--turquoise);
 
   /* Default sizes */
   --half-default-margin: 0.5rem;

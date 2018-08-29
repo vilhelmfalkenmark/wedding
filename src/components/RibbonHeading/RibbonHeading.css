@@ -29,7 +29,7 @@
 .headingSpan {
   position: relative;
   display: block;
-  background: var(--color-red);
+  background: var(--red);
   color: white;
   text-align: center;
   z-index: var(--z-index-first);
@@ -39,7 +39,7 @@
     position: absolute;
     display: block;
     bottom: calc(var(--negative-ribbon-size) / 2);
-    border: var(--ribbon-size) solid color(var(--color-red) blackness(5%));
+    border: var(--ribbon-size) solid color(var(--red) blackness(5%));
   }
   &:before {
     left: calc(var(--negative-ribbon-size) * 2 + var(--ribbon-size) / 2);
@@ -68,7 +68,7 @@
   display: block;
   border-style: solid;
   bottom: calc((var(--ribbon-size) * -1) / 2);
-  border-color: color(var(--color-red) blackness(20%)) transparent transparent
+  border-color: color(var(--red) blackness(20%)) transparent transparent
     transparent;
 }
 
